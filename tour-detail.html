@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết tour - Thập Tứ Tour</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌊</span>
+        <span>Thập Tứ Tour</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="index.html#gioi-thieu">Dự án học sinh</a></li>
+          <li><a href="index.html#tours">Tour Quy Nhơn</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Trang chủ</a>
+      <span>›</span>
+      <a href="index.html#tours">Tour</a>
+      <span>›</span>
+      <span id="breadcrumbName">Chi tiết tour</span>
+    </div>
+  </div>
+
+  <!-- ===== NỘI DUNG CHI TIẾT ===== -->
+  <section class="tour-detail">
+    <div class="container">
+      <div class="tour-detail-grid">
+        <!-- Phần trái: Thông tin tour -->
+        <div class="tour-detail-main" id="tourDetailMain">
+          <!-- Render bằng JS -->
+        </div>
+
+        <!-- Phần phải: Sidebar đặt tour -->
+        <div class="booking-sidebar" id="bookingSidebar">
+          <h2>Đặt tour này</h2>
+          <div class="booking-price-display">
+            <span id="sidebarPrice">0đ</span>
+            <small> / người</small>
+          </div>
+
+          <!-- Chọn ngày khởi hành -->
+          <div class="booking-field">
+            <label for="departDate">📅 Ngày khởi hành</label>
+            <input type="date" id="departDate">
+          </div>
+
+          <!-- Chọn số người -->
+          <div class="counter-group">
+            <!-- Người lớn -->
+            <div class="counter-row">
+              <div class="counter-label">
+                <strong>Người lớn</strong>
+                <small>100% giá tour</small>
+              </div>
+              <div class="counter-controls">
+                <button class="counter-btn" id="adultMinus" type="button">−</button>
+                <span class="counter-value" id="adultCount">1</span>
+                <button class="counter-btn" id="adultPlus" type="button">+</button>
+              </div>
+            </div>
+            <!-- Trẻ em 5-11 tuổi -->
+            <div class="counter-row">
+              <div class="counter-label">
+                <strong>Trẻ em (5-11 tuổi)</strong>
+                <small>50% giá tour</small>
+              </div>
+              <div class="counter-controls">
+                <button class="counter-btn" id="childMinus" type="button">−</button>
+                <span class="counter-value" id="childCount">0</span>
+                <button class="counter-btn" id="childPlus" type="button">+</button>
+              </div>
+            </div>
+            <!-- Trẻ em dưới 5 tuổi -->
+            <div class="counter-row">
+              <div class="counter-label">
+                <strong>Trẻ nhỏ (dưới 5 tuổi)</strong>
+                <small>Miễn phí</small>
+              </div>
+              <div class="counter-controls">
+                <button class="counter-btn" id="infantMinus" type="button">−</button>
+                <span class="counter-value" id="infantCount">0</span>
+                <button class="counter-btn" id="infantPlus" type="button">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tổng tiền -->
+          <div class="booking-total" id="bookingTotal">
+            <!-- Render bằng JS -->
+          </div>
+
+          <p class="limit-note">* Tối đa 10 người mỗi lần đặt</p>
+
+          <button class="btn-book" id="btnBook" type="button">Đặt tour ngay</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL FORM ĐẶT TOUR ===== -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Thông tin đặt tour</h2>
+        <button class="modal-close" id="closeBookingModal" type="button">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="bookingForm" novalidate>
+          <div class="form-group">
+            <label>Họ và tên <span class="required">*</span></label>
+            <input type="text" id="fullName" placeholder="Nhập họ và tên">
+            <p class="error-msg">Vui lòng nhập họ và tên</p>
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại <span class="required">*</span></label>
+            <input type="tel" id="phone" placeholder="Nhập số điện thoại">
+            <p class="error-msg">Vui lòng nhập số điện thoại hợp lệ (10-11 số)</p>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" id="email" placeholder="Nhập email">
+            <p class="error-msg">Vui lòng nhập email hợp lệ</p>
+          </div>
+          <div class="form-group">
+            <label>Ghi chú</label>
+            <textarea id="note" placeholder="Yêu cầu đặc biệt, dị ứng thức ăn..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Xác nhận đặt tour</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL THÀNH CÔNG ===== -->
+  <div class="modal-overlay success-modal" id="successModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Đặt tour thành công!</h2>
+        <button class="modal-close" id="closeSuccessModal" type="button">×</button>
+      </div>
+      <div class="modal-body">
+        <span class="success-icon">🎉</span>
+        <h3>Cảm ơn bạn đã đặt tour!</h3>
+        <div class="booking-summary" id="bookingSummary">
+          <!-- Render bằng JS -->
+        </div>
+        <button class="btn-close-success" id="btnCloseSuccess" type="button">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <span class="logo-icon">🌊</span>
+            <span>Thập Tứ Tour</span>
+          </div>
+          <p>
+            Thập Tứ Tour là dự án giới thiệu du lịch Quy Nhơn được thực hiện bởi nhóm học sinh Trường THPT Lương Thế Vinh - TP. Hồ Chí Minh. Mục tiêu truyền cảm hứng và lan tỏa vẻ đẹp thiên nhiên, lịch sử văn hóa quê hương đến thế hệ trẻ.
+          </p>
+        </div>
+        <div>
+          <h3>Liên kết nhanh</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index.html#gioi-thieu">Giới thiệu dự án</a></li>
+            <li><a href="index.html#tours">Danh sách tour Quy Nhơn</a></li>
+            <li><a href="contact.html">Liên hệ nhóm tác giả</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Thông tin dự án</h3>
+          <ul class="footer-links">
+            <li>🏫 Trường THPT Lương Thế Vinh, TP.HCM</li>
+            <li>📍 Quận 1, TP. Hồ Chí Minh, Việt Nam</li>
+            <li>✉️ duan.thaptutour@ltv.edu.vn</li>
+            <li>🌐 Nhóm học sinh cấp 3 yêu lập trình & du lịch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Thập Tứ Tour - Dự án du lịch Quy Nhơn của học sinh Trường THPT Lương Thế Vinh, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script src="js/tours.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

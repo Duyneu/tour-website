@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thập Tứ Tour - Khám Phá Quy Nhơn | Dự Án Học Sinh THPT Lương Thế Vinh TP.HCM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌊</span>
+        <span>Thập Tứ Tour</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Trang chủ</a></li>
+          <li><a href="#gioi-thieu">Dự án học sinh</a></li>
+          <li><a href="#tours">Tour Quy Nhơn</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO BANNER ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="project-badge-pill">
+        🎓 Dự án học sinh THPT Lương Thế Vinh - TP.HCM
+      </div>
+      <h1>Khám Phá Thiên Đường Biển<br>Quy Nhơn - Bình Định</h1>
+      <p>Cùng nhóm học sinh Trường THPT Lương Thế Vinh (Hồ Chí Minh) khám phá trọn vẹn xứ Nẫu mộng mơ: từ Kỳ Co ngọc bích, Eo Gió lộng gió, Hòn Khô hoang sơ đến di sản ngàn năm Tháp Chăm và Đất Võ Tây Sơn hào hùng.</p>
+      <a href="#tours" class="hero-btn">Xem các tour Quy Nhơn</a>
+    </div>
+  </section>
+
+  <!-- ===== GIỚI THIỆU DỰ ÁN HỌC SINH ===== -->
+  <section class="about-project" id="gioi-thieu">
+    <div class="container">
+      <div class="section-title">
+        <h2>Về Dự Án Của Chúng Tôi</h2>
+        <p>Sản phẩm học tập & sáng tạo ứng dụng công nghệ web thuần</p>
+      </div>
+      <div class="about-project-card">
+        <div class="about-project-text">
+          <span class="school-tag">🏫 THPT Lương Thế Vinh - TP. Hồ Chí Minh</span>
+          <h3>Website Quảng Bá Du Lịch Quy Nhơn</h3>
+          <p>
+            Trang web này là dự án nghiên cứu & thực hành của nhóm học sinh cấp 3 trường THPT Lương Thế Vinh (TP.HCM). Xuất phát từ niềm đam mê với công nghệ lập trình web và tình yêu dành cho vẻ đẹp non nước miền Trung, chúng mình đã xây dựng website này nhằm giới thiệu các danh thắng kỳ vĩ của Quy Nhơn - Bình Định đến cộng đồng và bạn bè quốc tế.
+          </p>
+          <ul class="project-highlights">
+            <li><span>🏝️</span> Giới thiệu toàn diện các địa danh đặc sắc nhất tại Quy Nhơn</li>
+            <li><span>💻</span> Lập trình bằng HTML5, CSS3 và JavaScript thuần (No Framework)</li>
+            <li><span>📱</span> Tối ưu hiển thị responsive hoàn hảo trên điện thoại, máy tính bảng và PC</li>
+            <li><span>⚡</span> Tích hợp tính toán chi phí tour thông minh và lưu dữ liệu localStorage</li>
+          </ul>
+        </div>
+        <div class="about-project-box">
+          <h4>Thông tin đề tài</h4>
+          <ul>
+            <li><strong>Đơn vị:</strong> THPT Lương Thế Vinh (TP.HCM)</li>
+            <li><strong>Đối tượng:</strong> Nhóm học sinh THPT Khối 12</li>
+            <li><strong>Chủ đề:</strong> Khám phá danh lam thắng cảnh Quy Nhơn</li>
+            <li><strong>Nền tảng:</strong> Web tĩnh (Vanilla JS, deploy Vercel)</li>
+            <li><strong>Mục tiêu:</strong> Lan tỏa vẻ đẹp du lịch biển đảo và văn hóa Việt Nam</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DANH MỤC TOUR ===== -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-title">
+        <h2>Danh mục địa danh Quy Nhơn</h2>
+        <p>Khám phá trọn vẹn cảnh sắc xứ Nẫu theo từng thể loại</p>
+      </div>
+      <div class="category-grid" id="categoryGrid">
+        <!-- Render bằng JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TÌM KIẾM & LỌC ===== -->
+  <section class="search-filter" id="tours">
+    <div class="container">
+      <div class="search-filter-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Tìm tour: Kỳ Co, Eo Gió, Hòn Khô, Tháp Chàm, Hầm Hô...">
+        </div>
+        <div class="price-filter">
+          <select id="priceFilter">
+            <option value="">Tất cả mức giá</option>
+            <option value="0-500000">Dưới 500.000đ</option>
+            <option value="500000-1000000">500.000đ - 1.000.000đ</option>
+            <option value="1000000-99999999">Trên 1.000.000đ (Trọn gói)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DANH SÁCH TOUR ===== -->
+  <section class="tours-section">
+    <div class="container">
+      <div class="tour-grid" id="tourGrid">
+        <!-- Render bằng JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <span class="logo-icon">🌊</span>
+            <span>Thập Tứ Tour</span>
+          </div>
+          <p>
+            Thập Tứ Tour là dự án giới thiệu du lịch Quy Nhơn được thực hiện bởi nhóm học sinh Trường THPT Lương Thế Vinh - TP. Hồ Chí Minh. Mục tiêu truyền cảm hứng và lan tỏa vẻ đẹp thiên nhiên, lịch sử văn hóa quê hương đến thế hệ trẻ.
+          </p>
+        </div>
+        <div>
+          <h3>Liên kết nhanh</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#gioi-thieu">Giới thiệu dự án</a></li>
+            <li><a href="#tours">Danh sách tour Quy Nhơn</a></li>
+            <li><a href="contact.html">Liên hệ nhóm tác giả</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Thông tin dự án</h3>
+          <ul class="footer-links">
+            <li>🏫 Trường THPT Lương Thế Vinh, TP.HCM</li>
+            <li>📍 Quận 1, TP. Hồ Chí Minh, Việt Nam</li>
+            <li>✉️ duan.thaptutour@ltv.edu.vn</li>
+            <li>🌐 Nhóm học sinh cấp 3 yêu lập trình & du lịch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Thập Tứ Tour - Dự án du lịch Quy Nhơn của học sinh Trường THPT Lương Thế Vinh, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Nút về đầu trang -->
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <!-- Scripts -->
+  <script src="js/tours.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
