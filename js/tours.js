@@ -13,7 +13,7 @@ const TOURS = [
     location: "Nhơn Lý, TP. Quy Nhơn",
     duration: 1,
     price: 650000,
-    image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
+    image: "https://nhonlytourist.com/cache/image/605/images/nhonlytourist.com/thumbs/2025/04/image-1626-slide-1745202587-6805ad9bf0863.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
