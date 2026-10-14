@@ -308,7 +308,7 @@ function initBookingCounter(tour) {
     childMinus.disabled = children <= 0;
     infantMinus.disabled = infants <= 0;
 
-    // Disable nút cộng khi đạt max tổng 10 người
+    // Disable nút cộng khi đạt max tổng 30 người
     const atMax = totalPeople() >= MAX_PEOPLE;
     adultPlus.disabled = atMax;
     childPlus.disabled = atMax;
