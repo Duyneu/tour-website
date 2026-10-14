@@ -270,7 +270,7 @@ const TOURS = [
   // === TOUR 8: Trọn gói - Quy Nhơn 3N2Đ ===
   {
     id: 8,
-    name: "Quy Nhơn Trọn Vẹn 3 Ngày 2 Đêm",
+    name: "Quy Nhơn Trọn Gói 3 Ngày 2 Đêm",
     category: "tron-goi",
     location: "Quy Nhơn - Tây Sơn, Bình Định",
     duration: 3,
