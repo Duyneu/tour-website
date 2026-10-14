@@ -488,10 +488,10 @@ img {
 /* Phần trái - Thông tin tour */
 .tour-detail-main .tour-hero-img {
   width: 100%;
-  height: 400px;
+  height: 280px;
   object-fit: cover;
   border-radius: var(--radius);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .tour-detail-main h1 {
@@ -663,23 +663,23 @@ img {
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  padding: 30px;
+  padding: 20px 24px;
   border: 2px solid var(--gray-200);
 }
 
 .booking-sidebar h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--primary-dark);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .booking-price-display {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--accent-hover);
-  margin-bottom: 25px;
-  padding-bottom: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
   border-bottom: 2px solid var(--gray-100);
 }
 
@@ -690,23 +690,23 @@ img {
 }
 
 .booking-field {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .booking-field label {
   display: block;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .booking-field input[type="date"] {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border: 2px solid var(--gray-200);
   border-radius: var(--radius-sm);
-  font-size: 1rem;
+  font-size: 0.95rem;
   outline: none;
   transition: var(--transition);
 }
@@ -718,14 +718,14 @@ img {
 
 /* Bộ đếm số người */
 .counter-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .counter-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--gray-100);
 }
 
@@ -734,7 +734,7 @@ img {
 }
 
 .counter-label {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .counter-label strong {
@@ -744,22 +744,22 @@ img {
 
 .counter-label small {
   color: var(--text-light);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .counter-controls {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .counter-btn {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border: 2px solid var(--gray-200);
   background: var(--white);
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -781,9 +781,9 @@ img {
 }
 
 .counter-value {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  min-width: 24px;
+  min-width: 20px;
   text-align: center;
 }
 
@@ -791,44 +791,44 @@ img {
 .booking-total {
   background: var(--primary-bg);
   border-radius: var(--radius-sm);
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
 }
 
 .total-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
   color: var(--text-light);
 }
 
 .total-row.grand-total {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--accent-hover);
-  padding-top: 12px;
+  padding-top: 8px;
   border-top: 2px solid var(--primary-light);
-  margin-top: 12px;
+  margin-top: 8px;
   margin-bottom: 0;
 }
 
 .limit-note {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-light);
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-style: italic;
 }
 
 .btn-book {
   width: 100%;
-  padding: 16px;
+  padding: 13px;
   background: linear-gradient(135deg, var(--accent), var(--accent-hover));
   color: var(--white);
   border: none;
   border-radius: var(--radius-sm);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
