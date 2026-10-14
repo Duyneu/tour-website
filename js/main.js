@@ -280,7 +280,7 @@ function initBookingCounter(tour) {
   let adults = 1;   // Người lớn (tối thiểu 1)
   let children = 0; // Trẻ em 5-11 tuổi
   let infants = 0;  // Trẻ em dưới 5 tuổi
-  const MAX_PEOPLE = 10; // Giới hạn tối đa
+  const MAX_PEOPLE = 30; // Giới hạn tối đa
 
   const adultCount = document.getElementById('adultCount');
   const childCount = document.getElementById('childCount');
