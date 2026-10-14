@@ -201,7 +201,7 @@ const TOURS = [
     location: "Quy Nhơn - An Nhơn, Bình Định",
     duration: 1,
     price: 400000,
-    image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
+    image: "https://mia.vn/media/uploads/blog-du-lich/thanh-do-ban-thap-banh-it-1755649067.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
       "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
@@ -238,7 +238,7 @@ const TOURS = [
     location: "Tây Sơn, Bình Định",
     duration: 1,
     price: 450000,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOlGODj9eMgACvMCf5o1zd8FJnL1JC8U8lrp65yBO0b0MX6JSXvNIssRt&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
       "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
@@ -275,7 +275,7 @@ const TOURS = [
     location: "Quy Nhơn - Tây Sơn, Bình Định",
     duration: 3,
     price: 2990000,
-    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7obuzALdplUxVQ0O0G4-TLIcrY-DGOBz_yn7bFwwsdbzCsTz2XgEeabQ&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
       "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
