@@ -90,7 +90,7 @@ const TOURS = [
     location: "Nhơn Hải, TP. Quy Nhơn",
     duration: 1,
     price: 450000,
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmhd8vvJoq-sWWBnERcI0w6QEoe0RjAj4driZtaZAG7A&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
       "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
@@ -127,7 +127,7 @@ const TOURS = [
     location: "TP. Quy Nhơn, Bình Định",
     duration: 1,
     price: 350000,
-    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9iJ_O0p_zdzhNVtMiP6oa5XFnlSw_2npm1CsyUlAJw&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
@@ -164,7 +164,7 @@ const TOURS = [
     location: "Tây Sơn, Bình Định",
     duration: 1,
     price: 500000,
-    image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
+    image: "https://images2.thanhnien.vn/528068263637045248/2025/5/9/1-ham-ho-hien-ra-nhu-net-cham-pha-sinh-dong-giua-nui-rung-hung-vianh-dung-nhan-1746806061076850294030.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
