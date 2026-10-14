@@ -52,7 +52,7 @@ const TOURS = [
     location: "Cù Lao Xanh, Nhơn Châu, Quy Nhơn",
     duration: 1,
     price: 750000,
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+    image: "https://img.cnt.traveloka.com/tvlk/blog/2022/09/cu-lao-xanh-1.jpg?tr=q-70,c-at_max,w-1000,h-600",
     gallery: [
       "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
       "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
