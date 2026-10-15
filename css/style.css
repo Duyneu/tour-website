@@ -423,24 +423,28 @@ img {
   gap: 6px;
 }
 
+.tour-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tour-tag-pill {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 50px;
+}
+
 .tour-card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 12px;
   border-top: 1px solid var(--gray-100);
-}
-
-.tour-card-price {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--accent-hover);
-}
-
-.tour-card-price small {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--text-light);
 }
 
 .btn-detail {
@@ -453,6 +457,14 @@ img {
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+}
+
+.btn-detail-full {
+  width: 100%;
+  padding: 10px 18px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .btn-detail:hover {

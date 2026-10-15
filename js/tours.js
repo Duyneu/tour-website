@@ -1,335 +1,228 @@
 /* ===================================================
-  tours.js - Dữ liệu tour du lịch Quy Nhơn
-  8 tour khám phá các địa danh nổi tiếng tại Quy Nhơn,
-  Bình Định: biển đảo, thiên nhiên, văn hóa lịch sử
-  =================================================== */
+   tours.js - Cẩm nang các địa danh du lịch Quy Nhơn
+   7 địa danh nổi tiếng: Biển đảo, Thiên nhiên, Văn hóa lịch sử
+   Hoàn toàn phi lợi nhuận, không có giá tiền / tour trọn gói
+   =================================================== */
 
 const TOURS = [
-// === TOUR 1: Biển đảo - Kỳ Co & Eo Gió ===
-{
-id: 1,
-name: "Kỳ Co - Eo Gió: Thiên Đường Biển",
-category: "bien-dao",
-location: "Nhơn Lý, TP. Quy Nhơn",
-duration: 1,
-    price: 650000,
-image: "https://nhonlytourist.com/cache/image/605/images/nhonlytourist.com/thumbs/2025/04/image-1626-slide-1745202587-6805ad9bf0863.jpg",
-gallery: [
-"https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
-"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-"https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80"
-],
-description: "Kỳ Co được mệnh danh là 'Maldives của Việt Nam' với làn nước xanh ngọc bích trong vắt, bãi cát trắng mịn hình vòng cung tuyệt đẹp. Eo Gió là vách đá ngoạn mục với gió biển vi vút quanh năm, nơi hội tụ giữa núi và biển tạo nên cảnh quan kỳ vĩ. Đây là 2 điểm đến không thể bỏ lỡ khi đến Quy Nhơn.",
-itinerary: [
-{
-day: 1,
-title: "Kỳ Co - Eo Gió trọn ngày",
-detail: "7:00 - Đón khách tại trung tâm TP. Quy Nhơn, di chuyển đến bến tàu Nhơn Lý. 8:00 - Đi cano cao tốc ra bãi biển Kỳ Co, tự do tắm biển, chụp ảnh, tham gia các trò chơi biển (dù lượn, kayak, lặn ngắm san hô). 11:30 - Ăn trưa hải sản tươi sống tại Kỳ Co. 13:30 - Di chuyển đến Eo Gió, trekking nhẹ ngắm vách đá kỳ vĩ, check-in cổng trời, cầu kính. 16:00 - Về lại bến tàu, xe đưa về trung tâm Quy Nhơn."
-}
-],
-includes: [
-"Xe đưa đón khách sạn - bến tàu",
-"Cano cao tốc khứ hồi",
-"Vé tham quan Kỳ Co + Eo Gió",
-"Bữa trưa hải sản tại Kỳ Co",
-"Hướng dẫn viên địa phương",
-"Bảo hiểm du lịch",
-"Nước uống trên xe"
-],
-excludes: [
-"Chi phí cá nhân",
-"Trò chơi biển (dù lượn, kayak...)",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV và tài xế"
-]
-},
-
-// === TOUR 2: Biển đảo - Cù Lao Xanh ===
-{
-id: 2,
-name: "Cù Lao Xanh - Đảo Hoang Sơ Bình Định",
-category: "bien-dao",
-location: "Cù Lao Xanh, Nhơn Châu, Quy Nhơn",
-duration: 1,
-    price: 750000,
-image: "https://img.cnt.traveloka.com/tvlk/blog/2022/09/cu-lao-xanh-1.jpg?tr=q-70,c-at_max,w-1000,h-600",
-gallery: [
-"https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
-"https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
-"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80"
-],
-description: "Cù Lao Xanh (đảo Nhơn Châu) là hòn đảo hoang sơ nằm cách trung tâm Quy Nhơn khoảng 24km, nổi tiếng với ngọn hải đăng hơn 100 năm tuổi, rạn san hô đa dạng và cuộc sống bình yên của ngư dân. Đây là viên ngọc ẩn giấu của Bình Định mà ít khách du lịch biết đến.",
-itinerary: [
-{
-day: 1,
-title: "Cù Lao Xanh trọn ngày",
-detail: "6:00 - Tập trung tại cảng Quy Nhơn, lên tàu gỗ ra đảo (khoảng 1.5 giờ). 7:30 - Đến Cù Lao Xanh, leo lên ngọn hải đăng cổ hơn 100 năm, ngắm toàn cảnh đảo và biển. 9:00 - Lặn ngắm san hô với kính lặn, bơi giữa đàn cá đầy màu sắc. 11:30 - Ăn trưa cùng ngư dân với hải sản mới đánh bắt. 13:30 - Khám phá làng chài, chùa cổ trên đảo, tắm biển. 15:30 - Lên tàu về lại đất liền. 17:00 - Về đến Quy Nhơn."
-}
-],
-includes: [
-"Tàu gỗ khứ hồi Quy Nhơn - Cù Lao Xanh",
-"Bữa trưa hải sản trên đảo",
-"Kính lặn ngắm san hô",
-"Hướng dẫn viên địa phương",
-"Bảo hiểm du lịch",
-"Áo phao an toàn"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Chi phí phát sinh cá nhân",
-"Tips cho HDV và tài xế"
-]
-},
-
-// === TOUR 3: Biển đảo - Hòn Khô ===
-{
-id: 3,
-name: "Hòn Khô - Con Đường Dưới Biển",
-category: "bien-dao",
-location: "Nhơn Hải, TP. Quy Nhơn",
-duration: 1,
-    price: 450000,
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmhd8vvJoq-sWWBnERcI0w6QEoe0RjAj4driZtaZAG7A&s=10",
-gallery: [
-"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-"https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
-"https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80"
-],
-description: "Hòn Khô nổi tiếng với con đường đá giữa biển độc đáo, khi thủy triều rút bạn có thể đi bộ từ đất liền ra đảo. Làng chài Nhơn Hải với bích họa sống động, rạn san hô nguyên sinh và chương trình bảo tồn rùa biển khiến nơi đây trở thành điểm đến đặc biệt nhất Quy Nhơn.",
-itinerary: [
-{
-day: 1,
-title: "Hòn Khô - Nhơn Hải trọn ngày",
-detail: "7:30 - Đón khách, di chuyển đến làng chài Nhơn Hải (15km từ trung tâm). 8:30 - Tham quan bích họa làng chài, tìm hiểu chương trình bảo tồn rùa biển. 9:30 - Đi thúng chai hoặc cano ra Hòn Khô. Khám phá con đường đá giữa biển (tùy thủy triều). 10:30 - Lặn ngắm san hô Nhơn Hải - khu bảo tồn biển nổi tiếng. 12:00 - Ăn trưa hải sản tại nhà dân. 14:00 - Tự do tắm biển, chụp ảnh. 15:30 - Về trung tâm Quy Nhơn."
-}
-],
-includes: [
-"Xe đưa đón trung tâm - Nhơn Hải",
-"Thúng chai/cano ra Hòn Khô",
-"Kính lặn ngắm san hô",
-"Bữa trưa hải sản",
-"Hướng dẫn viên địa phương",
-"Bảo hiểm du lịch"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV"
-]
-},
-
-// === TOUR 4: Thiên nhiên - Ghềnh Ráng Tiên Sa ===
-{
-id: 4,
-name: "Ghềnh Ráng Tiên Sa - Bãi Xép",
-category: "thien-nhien",
-location: "TP. Quy Nhơn, Bình Định",
-duration: 1,
-    price: 350000,
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9iJ_O0p_zdzhNVtMiP6oa5XFnlSw_2npm1CsyUlAJw&s=10",
-gallery: [
-"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
-"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-"https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80"
-],
-description: "Ghềnh Ráng Tiên Sa là quần thể đá granite hàng triệu năm tuổi xếp chồng lên nhau tạo thành bờ biển kỳ vĩ, nơi an nghỉ của 'Thi nhân' Hàn Mặc Tử. Bãi Xép - bãi biển hoang sơ nổi tiếng qua bộ phim 'Tôi thấy hoa vàng trên cỏ xanh', mang vẻ đẹp yên bình, thơ mộng.",
-itinerary: [
-{
-day: 1,
-title: "Ghềnh Ráng - Bãi Xép - Mộ Hàn Mặc Tử",
-detail: "8:00 - Đón khách, di chuyển đến Ghềnh Ráng Tiên Sa. 8:30 - Tham quan quần thể đá granite kỳ vĩ, bãi tắm Hoàng Hậu, Ghềnh đá Tiên Sa. 10:00 - Viếng mộ thi sĩ Hàn Mặc Tử, tìm hiểu cuộc đời và thơ ca. 11:00 - Di chuyển đến Bãi Xép (phim trường 'Tôi thấy hoa vàng trên cỏ xanh'). 11:30 - Tự do tắm biển, check-in tại Bãi Xép. 12:30 - Ăn trưa đặc sản Quy Nhơn (bánh hỏi lòng heo, bún chả cá). 14:00 - Dạo bộ ven biển Quy Nhơn, tham quan tháp Đôi. 16:00 - Về điểm đón."
-}
-],
-includes: [
-"Xe đưa đón theo chương trình",
-"Vé tham quan Ghềnh Ráng",
-"Bữa trưa đặc sản Quy Nhơn",
-"Hướng dẫn viên",
-"Bảo hiểm du lịch",
-"Nước uống trên xe"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV"
-]
-},
-
-// === TOUR 5: Thiên nhiên - Hầm Hô ===
-{
-id: 5,
-name: "Hầm Hô - Kỳ Quan Đá Giữa Rừng",
-category: "thien-nhien",
-location: "Tây Sơn, Bình Định",
-duration: 1,
-    price: 500000,
-image: "https://images2.thanhnien.vn/528068263637045248/2025/5/9/1-ham-ho-hien-ra-nhu-net-cham-pha-sinh-dong-giua-nui-rung-hung-vianh-dung-nhan-1746806061076850294030.jpg",
-gallery: [
-"https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
-"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-"https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&q=80"
-],
-description: "Hầm Hô là thắng cảnh thiên nhiên độc đáo với hệ thống đá bàn trải dài trên suối, tạo thành những hầm, hố kỳ bí giữa rừng nguyên sinh. Nước suối trong vắt chảy qua những phiến đá lớn tạo nên cảnh quan hoang sơ, hùng vĩ. Đây là điểm đến lý tưởng cho những ai yêu thiên nhiên và muốn trốn khỏi sự ồn ào thành phố.",
-itinerary: [
-{
-day: 1,
-title: "Hầm Hô - Thiên nhiên hoang sơ",
-detail: "7:30 - Đón khách tại Quy Nhơn, di chuyển đến Hầm Hô (huyện Tây Sơn, khoảng 55km). 9:00 - Đến Hầm Hô, bắt đầu hành trình khám phá. Đi bộ dọc suối, leo qua những phiến đá bàn khổng lồ. 10:00 - Tắm suối mát lạnh, ngắm thác nước tự nhiên. 11:00 - Khám phá rừng nguyên sinh, tìm hiểu hệ sinh thái. 12:00 - Ăn trưa với gà nướng, cơm lam giữa rừng. 14:00 - Tự do vui chơi, chụp ảnh. 15:00 - Di chuyển về, ghé qua suối khoáng nóng Hội Vân. 17:00 - Về đến Quy Nhơn."
-}
-],
-includes: [
-"Xe đưa đón Quy Nhơn - Hầm Hô",
-"Vé tham quan khu du lịch Hầm Hô",
-"Bữa trưa gà nướng + cơm lam",
-"Vé suối khoáng nóng Hội Vân",
-"Hướng dẫn viên",
-"Bảo hiểm du lịch"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV và tài xế"
-]
-},
-
-// === TOUR 6: Văn hóa - Tháp Chàm ===
-{
-id: 6,
-name: "Tháp Đôi - Tháp Bánh Ít - Thành Đồ Bàn",
-category: "van-hoa",
-location: "Quy Nhơn - An Nhơn, Bình Định",
-duration: 1,
-    price: 400000,
-image: "https://mia.vn/media/uploads/blog-du-lich/thanh-do-ban-thap-banh-it-1755649067.jpg",
-gallery: [
-"https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
-"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
-"https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80"
-],
-description: "Bình Định được mệnh danh là 'miền đất Tháp Chàm' với hệ thống tháp Chăm dày đặc nhất Việt Nam. Tháp Đôi ngay trung tâm Quy Nhơn, Tháp Bánh Ít với kiến trúc độc đáo trên đồi cao, và Thành Đồ Bàn - kinh đô cổ của vương quốc Chăm Pa sẽ đưa bạn ngược dòng lịch sử hàng ngàn năm.",
-itinerary: [
-{
-day: 1,
-title: "Hành trình di sản Chăm Pa",
-detail: "8:00 - Đón khách, tham quan Tháp Đôi (ngay trung tâm Quy Nhơn) - cụm tháp Chăm có kiến trúc đặc biệt với đỉnh hình phẳng. 9:30 - Di chuyển đến Tháp Bánh Ít (Phước Hiệp, Tuy Phước) - cụm 4 tháp trên đồi cao, ngắm toàn cảnh đồng lúa Bình Định. 11:00 - Đến Thành Đồ Bàn (An Nhơn) - kinh đô vương quốc Chăm Pa xưa, tham quan di chỉ hoàng thành, bảo tàng hiện vật Chăm. 12:30 - Ăn trưa đặc sản An Nhơn (bún sứa, nem chợ Huyện). 14:00 - Tham quan Tháp Cánh Tiên - tháp Chăm đẹp nhất Bình Định. 15:30 - Về Quy Nhơn."
-}
-],
-includes: [
-"Xe đưa đón theo chương trình",
-"Vé tham quan tất cả các tháp",
-"Bữa trưa đặc sản địa phương",
-"Hướng dẫn viên chuyên môn lịch sử",
-"Bảo hiểm du lịch",
-"Nước uống trên xe"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV"
-]
-},
-
-// === TOUR 7: Văn hóa - Bảo tàng Quang Trung ===
-{
-id: 7,
-name: "Bảo Tàng Quang Trung - Đất Võ Tây Sơn",
-category: "van-hoa",
-location: "Tây Sơn, Bình Định",
-duration: 1,
-    price: 450000,
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOlGODj9eMgACvMCf5o1zd8FJnL1JC8U8lrp65yBO0b0MX6JSXvNIssRt&s=10",
-gallery: [
-"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
-"https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
-"https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80"
-],
-description: "Tây Sơn - quê hương của anh hùng dân tộc Quang Trung Nguyễn Huệ, nơi khởi phát phong trào Tây Sơn lẫy lừng. Tham quan Bảo tàng Quang Trung, Điện thờ Tây Sơn Tam Kiệt, xem biểu diễn trống trận Tây Sơn và võ cổ truyền Bình Định - di sản văn hóa phi vật thể quốc gia.",
-itinerary: [
-{
-day: 1,
-title: "Tây Sơn - Đất Võ, Trời Văn",
-detail: "7:30 - Đón khách tại Quy Nhơn, di chuyển đến Tây Sơn (khoảng 50km). 9:00 - Tham quan Bảo tàng Quang Trung: hiện vật lịch sử, mô hình trận Ngọc Hồi - Đống Đa, xem biểu diễn nhạc võ trống trận Tây Sơn. 10:30 - Viếng Điện thờ Tây Sơn Tam Kiệt (Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ). 11:30 - Xem biểu diễn võ cổ truyền Bình Định tại võ đường. 12:30 - Ăn trưa đặc sản vùng Tây Sơn. 14:00 - Tham quan nhà thờ Bùi Thị Xuân, giếng nước cổ. 15:00 - Ghé đập Định Bình ngắm cảnh. 16:30 - Về Quy Nhơn."
-}
-],
-includes: [
-"Xe đưa đón Quy Nhơn - Tây Sơn",
-"Vé tham quan Bảo tàng Quang Trung",
-"Xem biểu diễn võ cổ truyền + trống trận",
-"Bữa trưa đặc sản Tây Sơn",
-"Hướng dẫn viên chuyên môn",
-"Bảo hiểm du lịch"
-],
-excludes: [
-"Chi phí cá nhân",
-"Đồ uống ngoài chương trình",
-"Tips cho HDV và tài xế"
-]
-},
-
-  // === TOUR 8: Trọn gói - Quy Nhơn 3N2Đ ===
+  // === 1: Kỳ Co & Eo Gió ===
   {
-    id: 8,
-    name: "Quy Nhơn Trọn Gói 3 Ngày 2 Đêm",
-    category: "tron-goi",
-    location: "Quy Nhơn - Tây Sơn, Bình Định",
-    duration: 3,
-    price: 2990000,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7obuzALdplUxVQ0O0G4-TLIcrY-DGOBz_yn7bFwwsdbzCsTz2XgEeabQ&s=10",
-    gallery: [
-      "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
-      "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
-    ],
-    description: "Tour trọn gói 3 ngày 2 đêm khám phá trọn vẹn Quy Nhơn - Bình Định: từ biển đảo Kỳ Co, Eo Gió, Hòn Khô hoang sơ, đến di sản Tháp Chàm ngàn năm, Bảo tàng Quang Trung hào hùng, thưởng thức ẩm thực đặc sản và ngắm hoàng hôn tuyệt đẹp trên bãi biển Quy Nhơn.",
+    id: 1,
+    name: "Kỳ Co - Eo Gió",
+    category: "bien-dao",
+    location: "Nhơn Lý, TP. Quy Nhơn",
+    duration: 1,
+    image: "https://nhonlytourist.com/cache/image/605/images/nhonlytourist.com/thumbs/2025/04/image-1626-slide-1745202587-6805ad9bf0863.jpg",
+    tags: ["Maldives Việt Nam", "Vách đá kỳ vĩ", "Lặn san hô"],
+    description: "Kỳ Co được ví như 'Maldives của Việt Nam' với làn nước biển trong xanh ngọc bích hai màu rõ rệt, bãi cát trắng mịn ôm lấy vách núi hình vòng cung tuyệt đẹp. Cạnh đó là Eo Gió - eo biển hút gió quanh năm với con đường đi bộ ven vách đá ngoạn mục vươn ra biển lớn. Đây là điểm check-in mang tính biểu tượng số một mà bất cứ ai đến Quy Nhơn cũng phải ghé thăm.",
     itinerary: [
       {
         day: 1,
-        title: "Đón khách - Kỳ Co - Eo Gió",
-        detail: "Sáng: Đón khách tại sân bay/ga Quy Nhơn, nhận phòng khách sạn. 9:00 - Di chuyển đến bến tàu, cano ra Kỳ Co tắm biển, lặn ngắm san hô. Trưa: ăn hải sản tại Kỳ Co. Chiều: tham quan Eo Gió, check-in cầu kính, cổng trời. Tối: dạo biển Quy Nhơn, thưởng thức bánh xèo tôm nhảy, bún chả cá."
-      },
-      {
-        day: 2,
-        title: "Hòn Khô - Ghềnh Ráng - Tháp Đôi",
-        detail: "Sáng: Ra Hòn Khô bằng thúng chai, khám phá con đường đá giữa biển, lặn ngắm san hô Nhơn Hải. Trưa: ăn hải sản tại làng chài. Chiều: Ghềnh Ráng Tiên Sa, viếng mộ Hàn Mặc Tử, Bãi tắm Hoàng Hậu. 16:00 - Tháp Đôi. Tối: chợ đêm Quy Nhơn, thưởng thức bánh hỏi lòng heo."
-      },
-      {
-        day: 3,
-        title: "Tây Sơn - Tháp Bánh Ít - Tiễn khách",
-        detail: "Sáng: Di chuyển đến Tây Sơn, tham quan Bảo tàng Quang Trung, xem biểu diễn trống trận + võ cổ truyền. Trưa: ăn đặc sản Tây Sơn. Chiều: về qua Tháp Bánh Ít, Tháp Cánh Tiên chụp ảnh. 15:00 - Mua sắm đặc sản (rượu Bàu Đá, nem chả Quy Nhơn). 16:00 - Tiễn khách ra sân bay/ga. Kết thúc tour."
+        title: "Khám phá Kỳ Co & Eo Gió trọn vẹn",
+        detail: "Sáng: Di chuyển từ trung tâm Quy Nhơn qua cầu Thị Nại đến bến ca-nô Nhơn Lý. Lướt sóng ca-nô ra bãi biển Kỳ Co, tự do tắm biển làn nước trong vắt, lặn ngắm rạn san hô Hòn Sẹo. Trưa: Thưởng thức hải sản tươi rói đặc trưng làng chài Nhơn Lý. Chiều: Dạo bước trên cung đường ven biển Eo Gió, ngắm hoàng hôn lộng gió buông xuống biển Quy Nhơn."
       }
     ],
-    includes: [
-      "Xe đưa đón sân bay/ga + tham quan",
-      "Khách sạn 3 sao (2 đêm, 2 người/phòng)",
-      "Các bữa ăn theo chương trình (2 sáng, 3 trưa, 2 tối)",
-      "Cano Kỳ Co + thúng chai Hòn Khô",
-      "Vé tham quan tất cả các điểm",
-      "Hướng dẫn viên suốt tuyến",
-      "Bảo hiểm du lịch"
+    highlights: [
+      "Bãi cát trắng mịn và làn nước xanh 2 màu ngọc bích tại Kỳ Co",
+      "Con đường ven vách đá tuyệt đẹp ôm sát biển tại Eo Gió",
+      "Lặn ngắm rạn san hô tự nhiên và đi cano cao tốc lướt sóng",
+      "Thưởng thức các món ốc biển, nhum nướng mỡ hành làng chài"
     ],
-    excludes: [
-      "Vé máy bay/tàu đến Quy Nhơn",
-      "Chi phí cá nhân",
-      "Trò chơi biển (dù lượn, kayak...)",
-      "Phụ thu phòng đơn: 600.000đ",
-      "Tips cho HDV và tài xế"
+    tips: [
+      "Thời điểm lý tưởng: Tháng 3 đến tháng 9 biển êm, trời trong xanh",
+      "Nên đi ca-nô vào buổi sáng để biển lặng và nắng nhẹ đẹp nhất",
+      "Chuẩn bị kem chống nắng, mũ rộng vành và túi chống nước cho điện thoại",
+      "Đường ven vách đá Eo Gió gió khá mạnh, chú ý giữ chắc mũ nón"
+    ]
+  },
+
+  // === 2: Cù Lao Xanh ===
+  {
+    id: 2,
+    name: "Cù Lao Xanh (Đảo Nhơn Châu)",
+    category: "bien-dao",
+    location: "Xã đảo Nhơn Châu, Quy Nhơn",
+    duration: 1,
+    image: "https://img.cnt.traveloka.com/tvlk/blog/2022/09/cu-lao-xanh-1.jpg?tr=q-70,c-at_max,w-1000,h-600",
+    tags: ["Đảo ngọc hoang sơ", "Hải đăng cổ 100 năm", "Làng chài yên bình"],
+    description: "Cù Lao Xanh là hòn đảo ngọc nằm cách đất liền Quy Nhơn khoảng 24km. Đảo vẫn giữ trọn nét đẹp nguyên sơ thanh bình với rừng cây xanh mướt, bãi biển trong vắt nhìn thấu đáy và ngọn hải đăng sừng sững hơn 100 năm tuổi do người Pháp xây dựng. Đây là nơi lý tưởng cho những ai muốn tìm về với thiên nhiên yên ả và khám phá cuộc sống ngư dân bình dị.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Hành trình một ngày trên xã đảo",
+        detail: "Sáng: Lên cano cao tốc từ cảng Hàm Tử ra đảo (chỉ khoảng 30 phút). Khám phá bãi đá Thảo Nguyên kỳ thú với muôn hình vạn trạng. Leo núi chinh phục ngọn Hải Đăng Cù Lao Xanh và Cột cờ Tổ quốc. Trưa: Dùng cơm trưa thân mật cùng người dân đảo với mực nhảy, cua đá. Chiều: Lặn ngắm san hô bãi Gala, tắm biển thỏa thích trước khi lên cano về đất liền."
+      }
+    ],
+    highlights: [
+      "Ngọn hải đăng Plogamum cổ kính hơn một thế kỷ đứng uy nghiêm",
+      "Cột cờ Thanh Niên khẳng định chủ quyền biển đảo thiêng liêng",
+      "Bãi đá Thảo Nguyên với vô vàn phiến đá hình thù độc đáo",
+      "Rạn san hô bãi Gala nông và cực kỳ đa dạng sắc màu"
+    ],
+    tips: [
+      "Nên mang theo căn cước công dân để xuất trình khi ra đảo",
+      "Nên thuê xe máy hoặc xe điện để dạo quanh vòng quanh đảo",
+      "Hãy giữ gìn vệ sinh môi trường, không xả rác và không bẻ san hô"
+    ]
+  },
+
+  // === 3: Hòn Khô ===
+  {
+    id: 3,
+    name: "Hòn Khô (Đảo Nhơn Hải)",
+    category: "bien-dao",
+    location: "Làng chài Nhơn Hải, TP. Quy Nhơn",
+    duration: 1,
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    tags: ["Con đường dưới biển", "Cây cầu gỗ ven núi", "Chèo thuyền thúng"],
+    description: "Hòn Khô mang vẻ đẹp mộc mạc đúng như tên gọi, bao quanh bởi đá núi và biển cả trong vắt. Điểm độc đáo nhất tại đây là con đường đá ngầm xuyên biển dài hơn 500m nối liền đất liền với đảo, chỉ lộ rõ khi thủy triều rút. Cùng với cây cầu gỗ men theo vách núi và rạn san hô nguyên sinh ngay sát bờ, Hòn Khô mang đến cảm giác mạo hiểm và thư thái tuyệt vời.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Khám phá Hòn Khô & Làng chài Nhơn Hải",
+        detail: "Sáng: Vượt cầu Thị Nại đến làng chài Nhơn Hải. Đi thuyền thúng hoặc cano ra đảo Hòn Khô (chỉ 5-10 phút). Dạo bước check-in cây cầu gỗ dựng quanh vách đá, canh giờ thủy triều rút để đi bộ trên con đường đá xuyên biển. Chiều: Tham quan làng bích họa Nhơn Hải, tìm hiểu chương trình bảo tồn rùa biển quý hiếm."
+      }
+    ],
+    highlights: [
+      "Trải nghiệm đi bộ trên con đường đá lộ giữa biển khơi khi triều rút",
+      "Cây cầu gỗ mộc mạc ôm sát vách đá nhìn thẳng ra đại dương",
+      "Trải nghiệm cảm giác ngồi thuyền thúng lắc lư của ngư dân",
+      "Khám phá làng bích họa làng chài yên bình ven biển Nhơn Hải"
+    ],
+    tips: [
+      "Nên hỏi ngư dân trước về con nước để canh lúc con đường đá hiện lên",
+      "Đá ven bờ có nhiều vỏ hàu sắc nhọn, nên mang giày lội nước",
+      "Thử món bánh xèo mực nhảy tươi sống nổi tiếng tại làng chài"
+    ]
+  },
+
+  // === 4: Ghềnh Ráng Tiên Sa & Bãi Xép ===
+  {
+    id: 4,
+    name: "Ghềnh Ráng Tiên Sa - Bãi Xép",
+    category: "thien-nhien",
+    location: "Phường Ghềnh Ráng, TP. Quy Nhơn",
+    duration: 1,
+    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+    tags: ["Bãi tắm Hoàng Hậu", "Mộ Hàn Mặc Tử", "Phim trường Hoa Vàng"],
+    description: "Ghềnh Ráng Tiên Sa nằm ngay sát trung tâm thành phố, là quần thể danh thắng kết hợp giữa núi non hùng vĩ và bờ biển xanh ngắt. Nơi đây nổi tiếng với Bãi Đá Trứng (bãi tắm Hoàng Hậu Nam Phương) với hàng triệu viên đá cuội nhẵn bóng khổng lồ, viếng thăm nơi an nghỉ của thi sĩ tài hoa Hàn Mặc Tử. Cách đó không xa là Bãi Xép hoang sơ yên tĩnh, từng là bối cảnh nhiều cảnh quay tuyệt mỹ.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Dạo bước thi ca và ngắm đá trứng",
+        detail: "Sáng: Tham quan Ghềnh Ráng Tiên Sa, viếng thăm mộ thi sĩ Hàn Mặc Tử trên đồi Thi Nhân, ghé vườn thơ bút lửa Dzũ Kha. Xuống Bãi tắm Hoàng Hậu ngắm những hòn đá cuội tròn nhẵn như quả trứng chim khổng lồ. Chiều: Ghé Bãi Xép dạo bộ trên bờ cát vàng êm dịu, nhâm nhi cà phê ngắm sóng biển vỗ bờ."
+      }
+    ],
+    highlights: [
+      "Bãi tắm Hoàng Hậu với vô số viên đá tròn nhẵn độc nhất vô nhị",
+      "Viếng đồi Thi Nhân và mộ nhà thơ Hàn Mặc Tử, tìm hiểu thơ văn xưa",
+      "Ghé thăm nghệ nhân viết thơ bằng bút lửa trên gỗ thông",
+      "Không gian làng chài Bãi Xép cổ kính, thanh bình nép mình dưới rặng dừa"
+    ],
+    tips: [
+      "Địa điểm nằm ngay trong thành phố, di chuyển bằng xe máy cực kỳ thuận tiện",
+      "Khi bước trên bãi đá trứng cần cẩn thận vì đá tròn nhẵn dễ trơn trượt",
+      "Buổi chiều từ 16h là thời điểm ngắm hoàng hôn và chụp ảnh thơ mộng nhất"
+    ]
+  },
+
+  // === 5: Hầm Hô Tây Sơn ===
+  {
+    id: 5,
+    name: "Hầm Hô (Kỳ Quan Đá Rừng Tây Sơn)",
+    category: "thien-nhien",
+    location: "Huyện Tây Sơn, Bình Định",
+    duration: 1,
+    image: "https://images2.thanhnien.vn/528068263637045248/2025/5/9/1-ham-ho-hien-ra-nhu-net-cham-pha-sinh-dong-giua-nui-rung-hung-vianh-dung-nhan-1746806061076850294030.jpg",
+    tags: ["Kỳ quan đá bàn", "Chèo thuyền trên suối", "Rừng nguyên sinh"],
+    description: "Hầm Hô là một thắng cảnh thiên nhiên kỳ ảo thuộc huyện Tây Sơn, cách Quy Nhơn khoảng 50km. Tại đây, lòng sông rộng thu hẹp lại giữa hai vách đá dựng đứng, nơi những khối đá hoa cương khổng lồ muôn hình vạn trạng nhô lên giữa dòng nước trong vắt mát lạnh. Khung cảnh bạt ngàn của rừng xanh hòa cùng tiếng suối róc rách tạo nên một không gian dã ngoại sơn thủy hữu tình.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Một ngày trở về với thiên nhiên đại ngàn",
+        detail: "Sáng: Rời thành phố hướng về vùng đất Tây Sơn. Ngồi thuyền nan xuôi dòng kênh Lộc Giang tiến vào trung tâm danh thắng Hầm Hô giữa bóng cây rừng rợp mát. Trưa: Nghỉ chân bên ghềnh đá, thưởng thức gà nướng lá chanh, cơm lam, cá mương chiên giòn cuốn bánh tráng. Chiều: Trekking nhẹ qua các phiến đá Bàn Cờ Tiên, ngắm thác Vực Dông, tắm suối tự nhiên mát lành."
+      }
+    ],
+    highlights: [
+      "Đi thuyền nan êm ả lướt trên mặt suối trong vắt giữa hai vách đá kỳ vĩ",
+      "Quần thể đá bàn tự nhiên kỳ ảo: Hòn Bóng, Đá Chuông, Bàn Cờ Tiên",
+      "Không khí trong lành, mát mẻ tự nhiên của rừng nguyên sinh",
+      "Ẩm thực suối rừng độc đáo: cá mương chiên giòn, chim mía Tây Sơn"
+    ],
+    tips: [
+      "Nên chuẩn bị một bộ đồ dự phòng nếu bạn muốn tắm suối",
+      "Đeo giày thể thao hoặc sandal có độ bám tốt để leo đá an toàn",
+      "Có thể kết hợp tham quan cùng Bảo tàng Quang Trung trong cùng một ngày"
+    ]
+  },
+
+  // === 6: Di sản Tháp Chăm ===
+  {
+    id: 6,
+    name: "Quần Thể Tháp Chăm (Tháp Đôi & Tháp Bánh Ít)",
+    category: "van-hoa",
+    location: "Quy Nhơn & Tuy Phước, Bình Định",
+    duration: 1,
+    image: "https://mia.vn/media/uploads/blog-du-lich/thanh-do-ban-thap-banh-it-1755649067.jpg",
+    tags: ["Di sản Chăm Pa", "Kiến trúc gạch nung", "Bánh Ít & Tháp Đôi"],
+    description: "Bình Định là trung tâm văn hóa Chăm Pa xưa với mật độ tháp Chăm dày đặc và nguyên vẹn nhất Việt Nam. Tháp Đôi nằm ngay trung tâm thành phố với kiến trúc Angkor độc đáo, còn Tháp Bánh Ít tọa lạc trên đồi cao lộng gió ngắm trọn cánh đồng lúa Tuy Phước. Từng mảng tường gạch nung đỏ rực không vết mạch vữa và các tác phẩm điêu khắc thần thoại chạm khắc tinh xảo là kỳ quan kiến trúc vô giá.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Dấu ấn vương triều ngàn năm",
+        detail: "Sáng: Ghé thăm Tháp Đôi (nằm ngay đường Trần Hưng Đạo, TP. Quy Nhơn), chiêm ngưỡng các phù điêu thần linh điêu khắc trên đá sa thạch. Di chuyển khoảng 15km đến quần thể Tháp Bánh Ít gồm 4 tòa tháp cổ tọa lạc trên ngọn đồi. Chiều: Leo lên tháp chính ngắm toàn cảnh sông nước đồng quê Bình Định bình yên trong ánh nắng chiều."
+      }
+    ],
+    highlights: [
+      "Chiêm ngưỡng kỹ thuật xây gạch không mạch vữa bí ẩn của người Chăm cổ",
+      "Quần thể 4 tòa tháp tại Tháp Bánh Ít với kiến trúc khác nhau trên đỉnh đồi",
+      "Góc nhìn panorama tuyệt đẹp bao quát đồng quê và dòng sông Côn",
+      "Tìm hiểu các tác phẩm điêu khắc tượng thần Shiva, chim thần Garuda"
+    ],
+    tips: [
+      "Trang phục lịch sự, kín đáo khi vào tham quan bên trong các lòng tháp",
+      "Nên mang theo ô dù hoặc nón rộng vành vì Tháp Bánh Ít phải leo đồi cao",
+      "Thời điểm chụp ảnh kiến trúc đẹp nhất là vào buổi sáng sớm hoặc 15h30 chiều"
+    ]
+  },
+
+  // === 7: Bảo tàng Quang Trung ===
+  {
+    id: 7,
+    name: "Bảo Tàng Quang Trung (Miền Đất Võ)",
+    category: "van-hoa",
+    location: "Thị trấn Phú Phong, Tây Sơn, Bình Định",
+    duration: 1,
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    tags: ["Anh hùng áo vải", "Nhạc võ Tây Sơn", "Cây me cổ thụ 300 năm"],
+    description: "Bảo tàng Quang Trung được xây dựng ngay trên chính quê hương của ba anh em Tây Sơn Tam Kiệt (Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ). Nơi đây lưu giữ hàng trăm hiện vật quý giá gắn liền với cuộc khởi nghĩa nông dân áo vải lẫy lừng thế kỷ 18. Đặc biệt, du khách sẽ được thưởng thức màn biểu diễn Nhạc võ Tây Sơn hào hùng với dàn trống trận rực lửa và xem những đường quyền võ cổ truyền Bình Định nức tiếng gần xa.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Hào khí Tây Sơn & Tinh hoa Đất Võ",
+        detail: "Sáng: Khởi hành đi Tây Sơn, viếng thăm Điện thờ Tây Sơn Tam Kiệt, uống ngụm nước ngọt mát lành từ Giếng nước xưa và nghỉ chân dưới Cây me cổ thụ hơn 300 năm tuổi. Xem biểu diễn Nhạc võ trống trận Tây Sơn và múa võ cổ truyền. Chiều: Tham quan khu trưng bày hiện vật, súng thần công, binh khí và các trận đánh lịch sử Ngọc Hồi - Đống Đa."
+      }
+    ],
+    highlights: [
+      "Chiêm bái Điện thờ Tây Sơn Tam Kiệt và các tướng lĩnh phong trào Tây Sơn",
+      "Chiêm ngưỡng Cây me cổ thụ 300 năm tuổi và uống nước Giếng đá tổ tiên",
+      "Mãn nhãn với màn trình diễn trống trận Tây Sơn 12 chiếc trống hào sảng",
+      "Tận mắt xem các thế võ cổ truyền Bình Định - Di sản văn hóa phi vật thể"
+    ],
+    tips: [
+      "Các suất biểu diễn nhạc võ thường diễn ra vào buổi sáng (khoảng 9h00 - 10h00)",
+      "Khuôn viên bảo tàng rất rộng và rợp bóng cây xanh mát, thích hợp đi dạo",
+      "Đừng quên mua đặc sản rượu Bàu Đá và nem chợ Huyện gần đó về làm quà"
     ]
   }
 ];
 
-/* Danh mục tour - cập nhật cho Quy Nhơn */
+/* Danh mục địa danh - 3 nhóm cảnh sắc chuẩn Quy Nhơn */
 const CATEGORIES = [
-{ id: "bien-dao", name: "Biển đảo", icon: "🏖️" },
-{ id: "thien-nhien", name: "Thiên nhiên", icon: "🌿" },
-{ id: "van-hoa", name: "Văn hóa - Lịch sử", icon: "🏛️" },
-{ id: "tron-goi", name: "Trọn gói", icon: "🎒" }
+  { id: "bien-dao", name: "Biển đảo", icon: "🏖️" },
+  { id: "thien-nhien", name: "Thiên nhiên", icon: "🌿" },
+  { id: "van-hoa", name: "Văn hóa - Lịch sử", icon: "🏛️" }
 ];
-
-/* Hàm format tiền VNĐ */
-function formatPrice(price) {
-return price.toLocaleString('vi-VN') + 'đ';
-}
 
 /* Hàm lấy tour theo ID */
 function getTourById(id) {
@@ -344,18 +237,10 @@ return TOURS.filter(tour => tour.category === category);
 
 /* Hàm tìm kiếm tour theo tên hoặc địa điểm */
 function searchTours(keyword) {
-const lower = keyword.toLowerCase();
-return TOURS.filter(tour =>
-tour.name.toLowerCase().includes(lower) ||
-tour.location.toLowerCase().includes(lower)
-);
-}
-
-/* Hàm lọc tour theo mức giá */
-function filterToursByPrice(tours, minPrice, maxPrice) {
-return tours.filter(tour => {
-if (minPrice && tour.price < minPrice) return false;
-if (maxPrice && tour.price > maxPrice) return false;
-return true;
-});
+  const lower = keyword.toLowerCase();
+  return TOURS.filter(tour =>
+    tour.name.toLowerCase().includes(lower) ||
+    tour.location.toLowerCase().includes(lower) ||
+    (tour.tags && tour.tags.some(tag => tag.toLowerCase().includes(lower)))
+  );
 }

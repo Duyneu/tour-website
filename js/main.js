@@ -1,7 +1,7 @@
 /* ===================================================
    main.js - Logic hiển thị website Thập Tứ Tour
    Chỉ giới thiệu các địa danh du lịch Quy Nhơn & Về tụi tôi
-   Không có chức năng đăng ký / đặt tour
+   Hoàn toàn phi lợi nhuận, không có giá tiền / đăng ký tour
    =================================================== */
 
 /* ===== PHẦN CHUNG (tất cả trang) ===== */
@@ -15,7 +15,6 @@ if (hamburger && nav) {
     nav.classList.toggle('open');
   });
 
-  // Đóng menu khi bấm vào link
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -44,10 +43,9 @@ if (backToTopBtn) {
 
 let currentCategory = 'all';
 let currentSearch = '';
-let currentPriceRange = '';
 
 /**
- * Render danh mục địa danh
+ * Render danh mục địa danh (Biển đảo, Thiên nhiên, Văn hóa)
  */
 function renderCategories() {
   const grid = document.getElementById('categoryGrid');
@@ -82,7 +80,7 @@ function renderCategories() {
 }
 
 /**
- * Render danh sách tour / địa danh Quy Nhơn
+ * Render danh sách thẻ địa danh Quy Nhơn (không có giá tiền)
  */
 function renderTourCards(tours) {
   const grid = document.getElementById('tourGrid');
@@ -93,7 +91,7 @@ function renderTourCards(tours) {
       <div class="no-tours">
         <span class="no-tours-icon">🔍</span>
         <h3>Không tìm thấy địa danh phù hợp</h3>
-        <p>Vui lòng thử tìm kiếm với từ khóa khác hoặc thay đổi bộ lọc.</p>
+        <p>Vui lòng thử tìm kiếm với từ khóa khác hoặc chọn mục "Tất cả địa danh".</p>
       </div>
     `;
     return;
@@ -106,10 +104,16 @@ function renderTourCards(tours) {
 
   let html = '';
   tours.forEach(tour => {
+    // Render các thẻ tag nhỏ
+    let tagsHtml = '';
+    if (tour.tags && tour.tags.length > 0) {
+      tagsHtml = `<div class="tour-tags">${tour.tags.map(t => `<span class="tour-tag-pill">${t}</span>`).join('')}</div>`;
+    }
+
     html += `
       <div class="tour-card" onclick="window.location.href='tour-detail.html?id=${tour.id}'">
         <div class="tour-card-img">
-          <img src="${tour.image}" alt="${tour.name}" loading="lazy">
+          <img src="${tour.image}" alt="${tour.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
           <span class="tour-card-badge">${getCatName(tour.category)}</span>
         </div>
         <div class="tour-card-body">
@@ -118,12 +122,9 @@ function renderTourCards(tours) {
             <span>📍 ${tour.location}</span>
             <span>🕐 Gợi ý: ${tour.duration} ngày</span>
           </div>
+          ${tagsHtml}
           <div class="tour-card-footer">
-            <div class="tour-card-price">
-              ${formatPrice(tour.price)}
-              <small>/chi phí gợi ý</small>
-            </div>
-            <button class="btn-detail">Xem giới thiệu →</button>
+            <button class="btn-detail btn-detail-full">Khám phá địa danh →</button>
           </div>
         </div>
       </div>
@@ -134,26 +135,25 @@ function renderTourCards(tours) {
 }
 
 /**
- * Áp dụng bộ lọc (danh mục + tìm kiếm + mức giá tham khảo)
+ * Lọc theo danh mục & tìm kiếm từ khóa
  */
 function applyFilters() {
   let result = TOURS;
 
+  // Lọc theo danh mục
   if (currentCategory && currentCategory !== 'all') {
     result = result.filter(t => t.category === currentCategory);
   }
 
+  // Lọc theo từ khóa tìm kiếm
   if (currentSearch) {
     const kw = currentSearch.toLowerCase();
     result = result.filter(t =>
       t.name.toLowerCase().includes(kw) ||
-      t.location.toLowerCase().includes(kw)
+      t.location.toLowerCase().includes(kw) ||
+      (t.tags && t.tags.some(tag => tag.toLowerCase().includes(kw))) ||
+      t.description.toLowerCase().includes(kw)
     );
-  }
-
-  if (currentPriceRange) {
-    const [min, max] = currentPriceRange.split('-').map(Number);
-    result = result.filter(t => t.price >= min && t.price <= max);
   }
 
   renderTourCards(result);
@@ -177,15 +177,7 @@ function initHomePage() {
       searchTimeout = setTimeout(() => {
         currentSearch = e.target.value.trim();
         applyFilters();
-      }, 300);
-    });
-  }
-
-  const priceFilter = document.getElementById('priceFilter');
-  if (priceFilter) {
-    priceFilter.addEventListener('change', (e) => {
-      currentPriceRange = e.target.value;
-      applyFilters();
+      }, 250);
     });
   }
 }
@@ -199,7 +191,7 @@ function getTourIdFromUrl() {
 }
 
 /**
- * Render trang bài viết giới thiệu địa danh Quy Nhơn
+ * Render trang bài viết giới thiệu địa danh (hoàn toàn không có giá tiền)
  */
 function renderTourDetail(tour) {
   const main = document.getElementById('tourDetailMain');
@@ -209,21 +201,21 @@ function renderTourDetail(tour) {
   const breadcrumbName = document.getElementById('breadcrumbName');
   if (breadcrumbName) breadcrumbName.textContent = tour.name;
 
-  // Lấy các tour khác gợi ý khám phá tiếp
+  // Lấy 3 địa danh khác gợi ý xem tiếp
   const otherTours = TOURS.filter(t => t.id !== tour.id).slice(0, 3);
 
   let html = `
     <!-- Ảnh bìa và tiêu đề địa danh -->
     <div class="place-header">
       <div class="place-image-wrap">
-        <img class="place-hero-img" src="${tour.image}" alt="${tour.name}">
+        <img class="place-hero-img" src="${tour.image}" alt="${tour.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
       </div>
       <div class="place-title-box">
         <h1>${tour.name}</h1>
         <div class="place-meta">
           <span>📍 <strong>Vị trí:</strong> ${tour.location}</span>
           <span>🕐 <strong>Thời gian lý tưởng:</strong> ${tour.duration} ngày</span>
-          <span>💰 <strong>Chi phí tham khảo:</strong> khoảng ${formatPrice(tour.price)}/người</span>
+          <span>🌊 <strong>Điểm đặc trưng:</strong> ${tour.tags ? tour.tags.join(' • ') : 'Cảnh sắc Quy Nhơn'}</span>
         </div>
       </div>
     </div>
@@ -234,21 +226,21 @@ function renderTourDetail(tour) {
         <span class="fact-icon">🌅</span>
         <div>
           <h4>Thời điểm đẹp nhất</h4>
-          <p>Tháng 3 - Tháng 9 (mùa khô biển êm, nắng đẹp)</p>
+          <p>Tháng 3 - Tháng 9 (mùa khô, biển êm, trời trong xanh rực rỡ)</p>
         </div>
       </div>
       <div class="fact-item">
         <span class="fact-icon">🛵</span>
         <div>
           <h4>Phương tiện di chuyển</h4>
-          <p>Xe máy, ô tô hoặc cano / tàu gỗ tùy điểm đến</p>
+          <p>Xe máy, ô tô hoặc cano / thuyền tùy điểm đến</p>
         </div>
       </div>
       <div class="fact-item">
         <span class="fact-icon">📸</span>
         <div>
-          <h4>Trải nghiệm nổi bật</h4>
-          <p>Tắm biển trong vắt, check-in vách đá, lặn san hô</p>
+          <h4>Trải nghiệm chính</h4>
+          <p>Ngắm cảnh biển đảo hoang sơ, check-in vách đá, thưởng ngoạn di tích</p>
         </div>
       </div>
     </div>
@@ -261,7 +253,7 @@ function renderTourDetail(tour) {
       </div>
     </div>
 
-    <!-- Lịch trình gợi ý -->
+    <!-- Lịch trình khám phá gợi ý -->
     <div class="place-section">
       <h2>📋 Lịch trình tham quan gợi ý</h2>
       <div class="itinerary-list">
@@ -286,27 +278,31 @@ function renderTourDetail(tour) {
       </div>
     </div>
 
-    <!-- Dịch vụ & Kinh nghiệm tham khảo -->
+    <!-- Trải nghiệm nổi bật & Lưu ý khi tham quan -->
     <div class="place-section">
-      <h2>💡 Kinh nghiệm & Chi phí gợi ý</h2>
+      <h2>💡 Cẩm nang & Bí quyết khám phá</h2>
       <div class="includes-excludes-grid">
         <div class="info-card info-includes">
-          <h3>✅ Chi phí gợi ý thường bao gồm</h3>
+          <h3>🌟 Trải nghiệm không nên bỏ lỡ</h3>
           <ul>
   `;
-  tour.includes.forEach(item => {
-    html += `<li>${item}</li>`;
-  });
+  if (tour.highlights) {
+    tour.highlights.forEach(item => {
+      html += `<li>${item}</li>`;
+    });
+  }
   html += `
           </ul>
         </div>
         <div class="info-card info-excludes">
-          <h3>🎒 Tự chuẩn bị & Chi phí cá nhân</h3>
+          <h3>🎒 Lưu ý & Chuẩn bị khi đi</h3>
           <ul>
   `;
-  tour.excludes.forEach(item => {
-    html += `<li>${item}</li>`;
-  });
+  if (tour.tips) {
+    tour.tips.forEach(item => {
+      html += `<li>${item}</li>`;
+    });
+  }
   html += `
           </ul>
         </div>
@@ -315,10 +311,10 @@ function renderTourDetail(tour) {
 
     <!-- Nút quay lại -->
     <div class="back-action-wrap">
-      <a href="index.html#tours" class="btn-back-home">← Quay lại danh sách địa danh</a>
+      <a href="index.html#tours" class="btn-back-home">← Quay lại danh sách tất cả địa danh</a>
     </div>
 
-    <!-- Gợi ý địa danh khác -->
+    <!-- Gợi ý các địa danh khác -->
     <div class="related-places">
       <h2>Khám phá thêm các điểm đến khác ở Quy Nhơn</h2>
       <div class="related-grid">
@@ -327,11 +323,11 @@ function renderTourDetail(tour) {
   otherTours.forEach(t => {
     html += `
       <div class="related-card" onclick="window.location.href='tour-detail.html?id=${t.id}'">
-        <img src="${t.image}" alt="${t.name}">
+        <img src="${t.image}" alt="${t.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
         <div class="related-body">
           <h4>${t.name}</h4>
           <p>📍 ${t.location}</p>
-          <span class="related-link">Xem giới thiệu →</span>
+          <span class="related-link">Khám phá địa danh →</span>
         </div>
       </div>
     `;
