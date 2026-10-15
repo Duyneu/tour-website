@@ -8,211 +8,211 @@ const TOURS = [
   // === 1: Kỳ Co & Eo Gió ===
   {
     id: 1,
-    name: "Kỳ Co - Eo Gió",
+    name: "Kỳ Co - Eo Gió (Nhơn Lý)",
     category: "bien-dao",
-    location: "Nhơn Lý, TP. Quy Nhơn",
-    duration: 1,
+    location: "Xã Nhơn Lý, TP. Quy Nhơn",
+    visitTime: "08:15 – 13:30 • Ngày 2",
+    duration: "Nửa ngày (Sáng Ngày 2)",
     image: "https://nhonlytourist.com/cache/image/605/images/nhonlytourist.com/thumbs/2025/04/image-1626-slide-1745202587-6805ad9bf0863.jpg",
-    tags: ["Maldives Việt Nam", "Vách đá kỳ vĩ", "Lặn san hô"],
-    description: "Kỳ Co được ví như 'Maldives của Việt Nam' với làn nước biển trong xanh ngọc bích hai màu rõ rệt, bãi cát trắng mịn ôm lấy vách núi hình vòng cung tuyệt đẹp. Cạnh đó là Eo Gió - eo biển hút gió quanh năm với con đường đi bộ ven vách đá ngoạn mục vươn ra biển lớn. Đây là điểm check-in mang tính biểu tượng số một mà bất cứ ai đến Quy Nhơn cũng phải ghé thăm.",
+    tags: ["08:15 Ngày 2", "Maldives Việt Nam", "Vách đá kỳ vĩ", "Lặn san hô"],
+    description: "Kỳ Co được ví như 'Maldives của Việt Nam' với làn nước trong xanh 2 màu ngọc bích, bãi cát trắng phau ôm lấy vách núi hình vòng cung. Cạnh đó là Eo Gió - con đường đi bộ ven vách đá tuyệt mỹ vươn ra đại dương lộng gió. Trong chuyến đi, cả đoàn sẽ đến check-in Eo Gió lúc 08:15, sau đó sang Kỳ Co tắm biển, vui chơi và ăn trưa hải sản tại Nhơn Lý.",
     itinerary: [
       {
-        day: 1,
-        title: "Khám phá Kỳ Co & Eo Gió trọn vẹn",
-        detail: "Sáng: Di chuyển từ trung tâm Quy Nhơn qua cầu Thị Nại đến bến ca-nô Nhơn Lý. Lướt sóng ca-nô ra bãi biển Kỳ Co, tự do tắm biển làn nước trong vắt, lặn ngắm rạn san hô Hòn Sẹo. Trưa: Thưởng thức hải sản tươi rói đặc trưng làng chài Nhơn Lý. Chiều: Dạo bước trên cung đường ven biển Eo Gió, ngắm hoàng hôn lộng gió buông xuống biển Quy Nhơn."
+        day: 2,
+        title: "08:15 - 09:45: Dạo bước cung đường Eo Gió",
+        detail: "Đoàn đi bộ men theo cung đường ven biển tuyệt đẹp, chụp ảnh lưu niệm tại cầu gỗ sát vách đá và chụp ảnh tập thể toàn đoàn giữa biển trời lộng gió."
+      },
+      {
+        day: 2,
+        title: "10:15 - 13:30: Tắm biển Kỳ Co & Ăn trưa hải sản Nhơn Lý",
+        detail: "Tự do vui chơi, tắm biển làn nước trong vắt tại bãi cát trắng Kỳ Co. Sau đó dùng bữa trưa hải sản tươi sống (Hoàng Thao Sea View / Phát Triển) với tôm sú, mực tươi, lẩu cá bớp trước khi về khách sạn nghỉ ngơi."
       }
     ],
     highlights: [
-      "Bãi cát trắng mịn và làn nước xanh 2 màu ngọc bích tại Kỳ Co",
-      "Con đường ven vách đá tuyệt đẹp ôm sát biển tại Eo Gió",
-      "Lặn ngắm rạn san hô tự nhiên và đi cano cao tốc lướt sóng",
-      "Thưởng thức các món ốc biển, nhum nướng mỡ hành làng chài"
+      "Thời gian ghé thăm trong chuyến đi: 08:15 – 13:30 Ngày 2",
+      "Con đường ven vách đá ôm sát biển tuyệt đẹp tại Eo Gió",
+      "Làn nước trong xanh hai màu và bãi cát trắng mịn Kỳ Co",
+      "Thưởng thức hải sản tươi rói tại các nhà hàng nổi tiếng Nhơn Lý"
     ],
     tips: [
-      "Thời điểm lý tưởng: Tháng 3 đến tháng 9 biển êm, trời trong xanh",
-      "Nên đi ca-nô vào buổi sáng để biển lặng và nắng nhẹ đẹp nhất",
-      "Chuẩn bị kem chống nắng, mũ rộng vành và túi chống nước cho điện thoại",
-      "Đường ven vách đá Eo Gió gió khá mạnh, chú ý giữ chắc mũ nón"
+      "Chuẩn bị kem chống nắng, đồ bơi, nón rộng vành và sạc dự phòng",
+      "Gió ở Eo Gió thổi khá mạnh, chú ý giữ chặt mũ và vật dụng cá nhân",
+      "Đoàn có hỗ trợ dù và áo mưa nếu thời tiết có thay đổi"
     ]
   },
 
-  // === 2: Cù Lao Xanh ===
+  // === 2: Biển Quy Nhơn & Quảng trường Nguyễn Tất Thành ===
   {
     id: 2,
-    name: "Cù Lao Xanh (Đảo Nhơn Châu)",
-    category: "bien-dao",
-    location: "Xã đảo Nhơn Châu, Quy Nhơn",
-    duration: 1,
-    image: "https://img.cnt.traveloka.com/tvlk/blog/2022/09/cu-lao-xanh-1.jpg?tr=q-70,c-at_max,w-1000,h-600",
-    tags: ["Đảo ngọc hoang sơ", "Hải đăng cổ 100 năm", "Làng chài yên bình"],
-    description: "Cù Lao Xanh là hòn đảo ngọc nằm cách đất liền Quy Nhơn khoảng 24km. Đảo vẫn giữ trọn nét đẹp nguyên sơ thanh bình với rừng cây xanh mướt, bãi biển trong vắt nhìn thấu đáy và ngọn hải đăng sừng sững hơn 100 năm tuổi do người Pháp xây dựng. Đây là nơi lý tưởng cho những ai muốn tìm về với thiên nhiên yên ả và khám phá cuộc sống ngư dân bình dị.",
+    name: "Biển Quy Nhơn & Quảng Trường Nguyễn Tất Thành",
+    category: "thien-nhien",
+    location: "Trung tâm TP. Quy Nhơn (gần Khách sạn Odin)",
+    visitTime: "15:30 – 17:30 • Ngày 1 & Ngày 2",
+    duration: "Buổi chiều Ngày 1 & Ngày 2",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    tags: ["15:30 Chiều", "Check-in trung tâm", "Dạo bờ biển", "Hoàng hôn"],
+    description: "Nằm ngay trung tâm thành phố và chỉ cách Khách sạn Odin vài bước chân, bờ biển Quy Nhơn uốn cong hình vầng trăng khuyết thơ mộng cùng Quảng trường trung tâm Nguyễn Tất Thành rộng lớn là không gian dạo mát, check-in lý tưởng của đoàn trong cả hai buổi chiều Ngày 1 và Ngày 2.",
     itinerary: [
       {
         day: 1,
-        title: "Hành trình một ngày trên xã đảo",
-        detail: "Sáng: Lên cano cao tốc từ cảng Hàm Tử ra đảo (chỉ khoảng 30 phút). Khám phá bãi đá Thảo Nguyên kỳ thú với muôn hình vạn trạng. Leo núi chinh phục ngọn Hải Đăng Cù Lao Xanh và Cột cờ Tổ quốc. Trưa: Dùng cơm trưa thân mật cùng người dân đảo với mực nhảy, cua đá. Chiều: Lặn ngắm san hô bãi Gala, tắm biển thỏa thích trước khi lên cano về đất liền."
+        title: "15:30 - 17:30 Ngày 1: Check-in chiều & Dạo biển nhẹ nhàng",
+        detail: "Sau giấc ngủ trưa hồi sức, đoàn cùng nhau đi bộ dạo biển Quy Nhơn, đón những làn gió biển mát rượi và chụp ảnh check-in tại Quảng trường Nguyễn Tất Thành."
+      },
+      {
+        day: 2,
+        title: "15:30 - 17:30 Ngày 2: Tự do khám phá phố biển & Thưởng thức cà phê",
+        detail: "Thời gian tự do: các bạn có thể tản bộ ven biển, ngắm hoàng hôn, ghé các quán cà phê ngắm sóng hoặc mua đặc sản phố biển Quy Nhơn."
       }
     ],
     highlights: [
-      "Ngọn hải đăng Plogamum cổ kính hơn một thế kỷ đứng uy nghiêm",
-      "Cột cờ Thanh Niên khẳng định chủ quyền biển đảo thiêng liêng",
-      "Bãi đá Thảo Nguyên với vô vàn phiến đá hình thù độc đáo",
-      "Rạn san hô bãi Gala nông và cực kỳ đa dạng sắc màu"
+      "Thời gian ghé thăm: 15:30 – 17:30 chiều Ngày 1 và Ngày 2",
+      "Quảng trường Nguyễn Tất Thành với tượng đài Bác Hồ và thân phụ trang nghiêm",
+      "Bờ cát thoai thoải, nước biển hiền hòa ngay trong lòng thành phố",
+      "Vị trí đắc địa, đi bộ thuận tiện từ khách sạn nghỉ ngơi"
     ],
     tips: [
-      "Nên mang theo căn cước công dân để xuất trình khi ra đảo",
-      "Nên thuê xe máy hoặc xe điện để dạo quanh vòng quanh đảo",
-      "Hãy giữ gìn vệ sinh môi trường, không xả rác và không bẻ san hô"
+      "Thời điểm nắng dịu, gió mát lý tưởng nhất để chụp ảnh kỷ niệm tập thể",
+      "Mang giày đi bộ hoặc dép êm ái để thoải mái dạo bước ven bờ biển",
+      "Ghé các quán cà phê Surf Bar hoặc view biển gần đó để hóng gió"
     ]
   },
 
-  // === 3: Hòn Khô ===
+  // === 3: Ẩm Thực Xuân Diệu & Chợ Đêm Quy Nhơn ===
   {
     id: 3,
-    name: "Hòn Khô (Đảo Nhơn Hải)",
-    category: "bien-dao",
-    location: "Làng chài Nhơn Hải, TP. Quy Nhơn",
-    duration: 1,
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    tags: ["Con đường dưới biển", "Cây cầu gỗ ven núi", "Chèo thuyền thúng"],
-    description: "Hòn Khô mang vẻ đẹp mộc mạc đúng như tên gọi, bao quanh bởi đá núi và biển cả trong vắt. Điểm độc đáo nhất tại đây là con đường đá ngầm xuyên biển dài hơn 500m nối liền đất liền với đảo, chỉ lộ rõ khi thủy triều rút. Cùng với cây cầu gỗ men theo vách núi và rạn san hô nguyên sinh ngay sát bờ, Hòn Khô mang đến cảm giác mạo hiểm và thư thái tuyệt vời.",
+    name: "Phố Hải Sản Xuân Diệu & Chợ Đêm Quy Nhơn",
+    category: "van-hoa",
+    location: "Đường Xuân Diệu & Chợ đêm đường An Dương Vương",
+    visitTime: "18:00 – 22:00 • Tối Ngày 1 & Ngày 2",
+    duration: "Buổi tối Ngày 1 & Ngày 2",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+    tags: ["Tối 18:00 - 22:00", "Hải sản tươi sống", "Chợ đêm", "Đặc sản"],
+    description: "Thiên đường ẩm thực đêm của Quy Nhơn trải dài dọc theo con đường biển Xuân Diệu với các quán hải sản nức tiếng: Hải sản Duy Mập (264 Xuân Diệu), Lộc Biển (48 Xuân Diệu), Cơm Ngon Mr Mộc... Tiếp nối là Chợ Đêm Quy Nhơn rộn rã sắc màu với hàng chục món ăn vặt xứ Nẫu và quầy quà lưu niệm phong phú.",
     itinerary: [
       {
         day: 1,
-        title: "Khám phá Hòn Khô & Làng chài Nhơn Hải",
-        detail: "Sáng: Vượt cầu Thị Nại đến làng chài Nhơn Hải. Đi thuyền thúng hoặc cano ra đảo Hòn Khô (chỉ 5-10 phút). Dạo bước check-in cây cầu gỗ dựng quanh vách đá, canh giờ thủy triều rút để đi bộ trên con đường đá xuyên biển. Chiều: Tham quan làng bích họa Nhơn Hải, tìm hiểu chương trình bảo tồn rùa biển quý hiếm."
+        title: "18:00 - 22:00 Ngày 1: Đại tiệc hải sản & Khám phá Chợ Đêm",
+        detail: "Ăn tối hải sản tại Hải Sản Quy Nhơn - 48 Xuân Diệu (Lộc Biển) với tôm tít, ghẹ hấp, ốc hương, lẩu hải sản. Sau 20:00 đoàn dạo Chợ đêm mua quà lưu niệm, ăn bánh xèo tôm nhảy, kem cuộn."
+      },
+      {
+        day: 2,
+        title: "18:00 - 22:00 Ngày 2: Thưởng thức hải sản Duy Mập & Mua quà lưu niệm",
+        detail: "Ăn tối tại Nhà hàng hải sản Duy Mập (264 Xuân Diệu) hoặc Mr Mộc. Tiếp tục dạo phố đêm, mua tré bó rơm, nem chợ Huyện, bánh ít lá gai mang về làm quà."
       }
     ],
     highlights: [
-      "Trải nghiệm đi bộ trên con đường đá lộ giữa biển khơi khi triều rút",
-      "Cây cầu gỗ mộc mạc ôm sát vách đá nhìn thẳng ra đại dương",
-      "Trải nghiệm cảm giác ngồi thuyền thúng lắc lư của ngư dân",
-      "Khám phá làng bích họa làng chài yên bình ven biển Nhơn Hải"
+      "Thời gian ghé thăm: 18:00 – 22:00 cả hai đêm Ngày 1 & Ngày 2",
+      "Hải sản biển tươi roi rói được tuyển chọn trực tiếp tại bể",
+      "Không khí chợ đêm sôi động với hàng trăm gian hàng quà lưu niệm",
+      "Mua các món quà xứ Nẫu: tré Bình Định, bánh ít lá gai, khô mực"
     ],
     tips: [
-      "Nên hỏi ngư dân trước về con nước để canh lúc con đường đá hiện lên",
-      "Đá ven bờ có nhiều vỏ hàu sắc nhọn, nên mang giày lội nước",
-      "Thử món bánh xèo mực nhảy tươi sống nổi tiếng tại làng chài"
+      "Quán Duy Mập và Lộc Biển rất đông khách, đi theo đoàn nên đến sớm để chọn bàn view biển đẹp",
+      "Nhớ hỏi giá trước khi chọn các loại ốc hiếm tại quầy hải sản",
+      "Chuẩn bị một ít tiền mặt nhỏ để thuận tiện ăn vặt tại chợ đêm"
     ]
   },
 
-  // === 4: Ghềnh Ráng Tiên Sa & Bãi Xép ===
+  // === 4: Trung tâm Khám Phá Khoa Học Vũ Trụ ===
   {
     id: 4,
-    name: "Ghềnh Ráng Tiên Sa - Bãi Xép",
-    category: "thien-nhien",
-    location: "Phường Ghềnh Ráng, TP. Quy Nhơn",
-    duration: 1,
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
-    tags: ["Bãi tắm Hoàng Hậu", "Mộ Hàn Mặc Tử", "Phim trường Hoa Vàng"],
-    description: "Ghềnh Ráng Tiên Sa nằm ngay sát trung tâm thành phố, là quần thể danh thắng kết hợp giữa núi non hùng vĩ và bờ biển xanh ngắt. Nơi đây nổi tiếng với Bãi Đá Trứng (bãi tắm Hoàng Hậu Nam Phương) với hàng triệu viên đá cuội nhẵn bóng khổng lồ, viếng thăm nơi an nghỉ của thi sĩ tài hoa Hàn Mặc Tử. Cách đó không xa là Bãi Xép hoang sơ yên tĩnh, từng là bối cảnh nhiều cảnh quay tuyệt mỹ.",
+    name: "Trung Tâm Khám Phá Khoa Học Vũ Trụ (ExploraScience)",
+    category: "van-hoa",
+    location: "Đại lộ Khoa học, Ghềnh Ráng, TP. Quy Nhơn",
+    visitTime: "Phương án thay thế • Ngày 2 khi thời tiết xấu",
+    duration: "Buổi sáng/chiều Ngày 2",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+    tags: ["Phương án dự phòng", "Khoa học vũ trụ", "Nhà chiếu hình vòm", "Độc đáo"],
+    description: "ExploraScience Quy Nhơn là Trung tâm khám phá khoa học đầu tiên tại Việt Nam và thứ hai của Đông Nam Á. Với nhà chiếu hình vũ trụ mái vòm hiện đại cùng 7 phòng khám phá khoa học tương tác trực quan (Sao Kim, Sao Hỏa, từ trường, robot...), đây là điểm đến thay thế hoàn hảo và cực kỳ thú vị cho đoàn nếu Ngày 2 thời tiết xấu không thể ra biển Kỳ Co.",
     itinerary: [
       {
-        day: 1,
-        title: "Dạo bước thi ca và ngắm đá trứng",
-        detail: "Sáng: Tham quan Ghềnh Ráng Tiên Sa, viếng thăm mộ thi sĩ Hàn Mặc Tử trên đồi Thi Nhân, ghé vườn thơ bút lửa Dzũ Kha. Xuống Bãi tắm Hoàng Hậu ngắm những hòn đá cuội tròn nhẵn như quả trứng chim khổng lồ. Chiều: Ghé Bãi Xép dạo bộ trên bờ cát vàng êm dịu, nhâm nhi cà phê ngắm sóng biển vỗ bờ."
+        day: 2,
+        title: "Kế hoạch thời tiết xấu: Khám phá dải ngân hà",
+        detail: "Nếu Ngày 2 trời mưa to hoặc biển động, đoàn sẽ di chuyển đến Trung tâm ExploraScience để xem phim khoa học vũ trụ vòm 360 độ và trải nghiệm tương tác vật lý thực tế."
       }
     ],
     highlights: [
-      "Bãi tắm Hoàng Hậu với vô số viên đá tròn nhẵn độc nhất vô nhị",
-      "Viếng đồi Thi Nhân và mộ nhà thơ Hàn Mặc Tử, tìm hiểu thơ văn xưa",
-      "Ghé thăm nghệ nhân viết thơ bằng bút lửa trên gỗ thông",
-      "Không gian làng chài Bãi Xép cổ kính, thanh bình nép mình dưới rặng dừa"
+      "Điểm đến ưu tiên hàng đầu trong phương án dự phòng thời tiết Ngày 2",
+      "Nhà chiếu hình vũ trụ mái vòm cong cực kỳ choáng ngợp và sống động",
+      "Hàng trăm mô hình khoa học vật lý và vũ trụ học trực quan tương tác",
+      "Không gian check-in kiến trúc hiện đại chuẩn quốc tế"
     ],
     tips: [
-      "Địa điểm nằm ngay trong thành phố, di chuyển bằng xe máy cực kỳ thuận tiện",
-      "Khi bước trên bãi đá trứng cần cẩn thận vì đá tròn nhẵn dễ trơn trượt",
-      "Buổi chiều từ 16h là thời điểm ngắm hoàng hôn và chụp ảnh thơ mộng nhất"
+      "Nếu rời đoàn để tham quan riêng, các bạn nhớ thông báo và xin phép trưởng đoàn",
+      "Nên tuân thủ hướng dẫn của thuyết minh viên khi tương tác với thiết bị",
+      "Trang bị máy ảnh đầy pin vì kiến trúc bên trong rất ấn tượng"
     ]
   },
 
-  // === 5: Hầm Hô Tây Sơn ===
+  // === 5: Khách Sạn Odin Quy Nhơn ===
   {
     id: 5,
-    name: "Hầm Hô (Kỳ Quan Đá Rừng Tây Sơn)",
+    name: "Khách Sạn Odin Quy Nhơn (Điểm Lưu Trú)",
     category: "thien-nhien",
-    location: "Huyện Tây Sơn, Bình Định",
-    duration: 1,
-    image: "https://images2.thanhnien.vn/528068263637045248/2025/5/9/1-ham-ho-hien-ra-nhu-net-cham-pha-sinh-dong-giua-nui-rung-hung-vianh-dung-nhan-1746806061076850294030.jpg",
-    tags: ["Kỳ quan đá bàn", "Chèo thuyền trên suối", "Rừng nguyên sinh"],
-    description: "Hầm Hô là một thắng cảnh thiên nhiên kỳ ảo thuộc huyện Tây Sơn, cách Quy Nhơn khoảng 50km. Tại đây, lòng sông rộng thu hẹp lại giữa hai vách đá dựng đứng, nơi những khối đá hoa cương khổng lồ muôn hình vạn trạng nhô lên giữa dòng nước trong vắt mát lạnh. Khung cảnh bạt ngàn của rừng xanh hòa cùng tiếng suối róc rách tạo nên một không gian dã ngoại sơn thủy hữu tình.",
+    location: "Trung tâm TP. Quy Nhơn",
+    visitTime: "Check-in 11:30 - 14:00 Ngày 1 • Lưu trú xuyên suốt",
+    duration: "Toàn bộ chuyến đi",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+    tags: ["Trụ sở đoàn", "Nghỉ ngơi tiện nghi", "Gần biển", "Ăn sáng ngon"],
+    description: "Khách sạn Odin là 'căn cứ địa' và điểm dừng chân lưu trú chính thức của đoàn trong suốt 2 ngày tại Quy Nhơn. Với vị trí đắc địa gần biển và quảng trường trung tâm, tiện nghi hiện đại và buffet sáng chu đáo, đây là nơi giúp các thành viên nghỉ ngơi, phục hồi thể lực sau chặng xe dài từ TP.HCM.",
     itinerary: [
       {
         day: 1,
-        title: "Một ngày trở về với thiên nhiên đại ngàn",
-        detail: "Sáng: Rời thành phố hướng về vùng đất Tây Sơn. Ngồi thuyền nan xuôi dòng kênh Lộc Giang tiến vào trung tâm danh thắng Hầm Hô giữa bóng cây rừng rợp mát. Trưa: Nghỉ chân bên ghềnh đá, thưởng thức gà nướng lá chanh, cơm lam, cá mương chiên giòn cuốn bánh tráng. Chiều: Trekking nhẹ qua các phiến đá Bàn Cờ Tiên, ngắm thác Vực Dông, tắm suối tự nhiên mát lành."
+        title: "11:30 - 15:30 Ngày 1: Cập bến, gửi đồ, nhận phòng & nghỉ ngơi",
+        detail: "11:30 xe đưa đoàn đến khách sạn Odin gửi hành lý và nghỉ ngơi nhẹ. 12:30 ăn trưa đặc sản. 14:00 nhận phòng chính thức, tắm rửa và ngủ bù lấy lại năng lượng."
+      },
+      {
+        day: 2,
+        title: "06:30 - 07:30 Ngày 2: Nạp năng lượng bữa sáng",
+        detail: "Ăn sáng tại khách sạn hoặc thưởng thức bún cá, bánh hỏi lòng heo trước khi khởi hành đi Eo Gió - Kỳ Co."
       }
     ],
     highlights: [
-      "Đi thuyền nan êm ả lướt trên mặt suối trong vắt giữa hai vách đá kỳ vĩ",
-      "Quần thể đá bàn tự nhiên kỳ ảo: Hòn Bóng, Đá Chuông, Bàn Cờ Tiên",
-      "Không khí trong lành, mát mẻ tự nhiên của rừng nguyên sinh",
-      "Ẩm thực suối rừng độc đáo: cá mương chiên giòn, chim mía Tây Sơn"
+      "Điểm tập kết hành lý và lưu trú chính của Thập Tứ Tour",
+      "Phòng ốc tiện nghi, sạch sẽ, máy lạnh và giường đệm êm ái",
+      "Vị trí trung tâm thuận tiện di chuyển ra biển và chợ đêm",
+      "Nếu trời mưa: Có sẵn phương án nghỉ ngơi và ăn uống ấm cúng ngay tại KS"
     ],
     tips: [
-      "Nên chuẩn bị một bộ đồ dự phòng nếu bạn muốn tắm suối",
-      "Đeo giày thể thao hoặc sandal có độ bám tốt để leo đá an toàn",
-      "Có thể kết hợp tham quan cùng Bảo tàng Quang Trung trong cùng một ngày"
+      "Nhận thẻ phòng nhớ giữ cẩn thận và kiểm tra hành lý cá nhân khi nhận phòng",
+      "Nếu chiều Ngày 1 trời mưa, có thể chọn nghỉ ngơi tại phòng hoặc ăn tại nhà hàng gần KS",
+      "Khách sạn có lễ tân hỗ trợ dù và che chắn khi đi lại"
     ]
   },
 
-  // === 6: Di sản Tháp Chăm ===
+  // === 6: Điểm hẹn ẩm thực đặc sản ===
   {
     id: 6,
-    name: "Quần Thể Tháp Chăm (Tháp Đôi & Tháp Bánh Ít)",
+    name: "Quán Ăn Đặc Sản: Bún Cá Ngọc Liên & Nem Chả Lợi",
     category: "van-hoa",
-    location: "Quy Nhơn & Tuy Phước, Bình Định",
-    duration: 1,
-    image: "https://mia.vn/media/uploads/blog-du-lich/thanh-do-ban-thap-banh-it-1755649067.jpg",
-    tags: ["Di sản Chăm Pa", "Kiến trúc gạch nung", "Bánh Ít & Tháp Đôi"],
-    description: "Bình Định là trung tâm văn hóa Chăm Pa xưa với mật độ tháp Chăm dày đặc và nguyên vẹn nhất Việt Nam. Tháp Đôi nằm ngay trung tâm thành phố với kiến trúc Angkor độc đáo, còn Tháp Bánh Ít tọa lạc trên đồi cao lộng gió ngắm trọn cánh đồng lúa Tuy Phước. Từng mảng tường gạch nung đỏ rực không vết mạch vữa và các tác phẩm điêu khắc thần thoại chạm khắc tinh xảo là kỳ quan kiến trúc vô giá.",
+    location: "Đường Nguyễn Huệ & Trung tâm TP. Quy Nhơn",
+    visitTime: "12:30 – 14:00 Ngày 1 & Sáng Ngày 2",
+    duration: "Bữa trưa Ngày 1 & Sáng Ngày 2",
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80",
+    tags: ["12:30 Ngày 1", "Bún cá Ngọc Liên", "Nem chả Lợi", "Bánh hỏi"],
+    description: "Chuyến đi Quy Nhơn không thể trọn vẹn nếu thiếu đi hương vị bún cá thanh ngọt từ nước hầm xương cá tươi ngon tại quán Bún cá Ngọc Liên lừng danh, hay những cuộn nem nướng vàng rộm cuốn bánh tráng rau sống tại Nem Chả Lợi. Đây là các điểm dừng chân nạp năng lượng chính thức trong lịch trình đoàn.",
     itinerary: [
       {
         day: 1,
-        title: "Dấu ấn vương triều ngàn năm",
-        detail: "Sáng: Ghé thăm Tháp Đôi (nằm ngay đường Trần Hưng Đạo, TP. Quy Nhơn), chiêm ngưỡng các phù điêu thần linh điêu khắc trên đá sa thạch. Di chuyển khoảng 15km đến quần thể Tháp Bánh Ít gồm 4 tòa tháp cổ tọa lạc trên ngọn đồi. Chiều: Leo lên tháp chính ngắm toàn cảnh sông nước đồng quê Bình Định bình yên trong ánh nắng chiều."
-      }
-    ],
-    highlights: [
-      "Chiêm ngưỡng kỹ thuật xây gạch không mạch vữa bí ẩn của người Chăm cổ",
-      "Quần thể 4 tòa tháp tại Tháp Bánh Ít với kiến trúc khác nhau trên đỉnh đồi",
-      "Góc nhìn panorama tuyệt đẹp bao quát đồng quê và dòng sông Côn",
-      "Tìm hiểu các tác phẩm điêu khắc tượng thần Shiva, chim thần Garuda"
-    ],
-    tips: [
-      "Trang phục lịch sự, kín đáo khi vào tham quan bên trong các lòng tháp",
-      "Nên mang theo ô dù hoặc nón rộng vành vì Tháp Bánh Ít phải leo đồi cao",
-      "Thời điểm chụp ảnh kiến trúc đẹp nhất là vào buổi sáng sớm hoặc 15h30 chiều"
-    ]
-  },
-
-  // === 7: Bảo tàng Quang Trung ===
-  {
-    id: 7,
-    name: "Bảo Tàng Quang Trung (Miền Đất Võ)",
-    category: "van-hoa",
-    location: "Thị trấn Phú Phong, Tây Sơn, Bình Định",
-    duration: 1,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
-    tags: ["Anh hùng áo vải", "Nhạc võ Tây Sơn", "Cây me cổ thụ 300 năm"],
-    description: "Bảo tàng Quang Trung được xây dựng ngay trên chính quê hương của ba anh em Tây Sơn Tam Kiệt (Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ). Nơi đây lưu giữ hàng trăm hiện vật quý giá gắn liền với cuộc khởi nghĩa nông dân áo vải lẫy lừng thế kỷ 18. Đặc biệt, du khách sẽ được thưởng thức màn biểu diễn Nhạc võ Tây Sơn hào hùng với dàn trống trận rực lửa và xem những đường quyền võ cổ truyền Bình Định nức tiếng gần xa.",
-    itinerary: [
+        title: "12:30 - 14:00 Ngày 1: Bữa trưa chào Quy Nhơn",
+        detail: "Đoàn thưởng thức tô bún cá chả cá trứ danh Ngọc Liên và món nem nướng, chả lụi đặc sản trứ danh Nem Chả Lợi sau chặng hành trình dài."
+      },
       {
-        day: 1,
-        title: "Hào khí Tây Sơn & Tinh hoa Đất Võ",
-        detail: "Sáng: Khởi hành đi Tây Sơn, viếng thăm Điện thờ Tây Sơn Tam Kiệt, uống ngụm nước ngọt mát lành từ Giếng nước xưa và nghỉ chân dưới Cây me cổ thụ hơn 300 năm tuổi. Xem biểu diễn Nhạc võ trống trận Tây Sơn và múa võ cổ truyền. Chiều: Tham quan khu trưng bày hiện vật, súng thần công, binh khí và các trận đánh lịch sử Ngọc Hồi - Đống Đa."
+        day: 2,
+        title: "06:30 - 07:30 Ngày 2: Bánh hỏi lòng heo nóng hổi",
+        detail: "Lựa chọn ăn sáng đặc sản xứ Nẫu: Bánh hỏi lòng heo kèm chén cháo huyết nóng hổi để tràn đầy sinh lực khám phá đảo."
       }
     ],
     highlights: [
-      "Chiêm bái Điện thờ Tây Sơn Tam Kiệt và các tướng lĩnh phong trào Tây Sơn",
-      "Chiêm ngưỡng Cây me cổ thụ 300 năm tuổi và uống nước Giếng đá tổ tiên",
-      "Mãn nhãn với màn trình diễn trống trận Tây Sơn 12 chiếc trống hào sảng",
-      "Tận mắt xem các thế võ cổ truyền Bình Định - Di sản văn hóa phi vật thể"
+      "Thưởng thức 2 thương hiệu ẩm thực biểu tượng số 1 xứ Nẫu",
+      "Bún chả cá ngọt thanh tự nhiên từ cá thu, cá mối tươi sống",
+      "Nem nướng thơm lừng chấm cùng nước sốt đậu phộng gia truyền béo ngậy",
+      "Món ăn nhẹ bụng, tiếp thêm năng lượng nhanh chóng cho cả đoàn"
     ],
     tips: [
-      "Các suất biểu diễn nhạc võ thường diễn ra vào buổi sáng (khoảng 9h00 - 10h00)",
-      "Khuôn viên bảo tàng rất rộng và rợp bóng cây xanh mát, thích hợp đi dạo",
-      "Đừng quên mua đặc sản rượu Bàu Đá và nem chợ Huyện gần đó về làm quà"
+      "Quán Ngọc Liên buổi trưa đông, cả đoàn vào theo nhóm để được phục vụ nhanh",
+      "Nên thử thêm ly nước ép dứa hoặc nước sâm thanh mát tại quán",
+      "Nếu trời mưa buổi chiều, có các phương án gần KS: Gia Vy 2 (1km), Nhà hàng 4Q (1.1km), Phở Danh, Cơm Thị"
     ]
   }
 ];
@@ -244,3 +244,215 @@ function searchTours(keyword) {
     (tour.tags && tour.tags.some(tag => tag.toLowerCase().includes(lower)))
   );
 }
+
+/* ===================================================
+   TIMELINE_DATA - Dữ liệu chi tiết lịch trình 2 ngày đầu
+   Kèm liên kết địa điểm nổi bật, ẩm thực & giải pháp trời mưa
+   =================================================== */
+const TIMELINE_DATA = [
+  {
+    day: 1,
+    title: "Ngày 1: Khởi Hành & Khám Phá Nhịp Sống Biển Quy Nhơn",
+    dateSummary: "Hành trình di chuyển, nhận phòng KS Odin, check-in quảng trường & đại tiệc hải sản",
+    events: [
+      {
+        time: "02:00",
+        icon: "🚌",
+        title: "Lên xe khởi hành đến Quy Nhơn",
+        desc: "Đoàn tập trung tại điểm hẹn, ổn định chỗ ngồi và bắt đầu chuyến hành trình đêm hướng về thành phố biển Quy Nhơn thơ mộng.",
+        highlightPlaceId: null,
+        placeName: null
+      },
+      {
+        time: "07:00",
+        icon: "🥣",
+        title: "Dừng chân ăn sáng & Vệ sinh cá nhân",
+        desc: "Xe dừng chân tại trạm dừng nghỉ. Các thành viên ăn sáng nạp năng lượng, vệ sinh cá nhân và thư giãn gân cốt sau chặng đường đêm.",
+        highlightPlaceId: null,
+        placeName: null
+      },
+      {
+        time: "07:00 – 12:00",
+        icon: "🛣️",
+        title: "Di chuyển quãng đường còn lại đến Quy Nhơn",
+        desc: "Tiếp tục di chuyển chặng cuối đến xứ Nẫu, ngắm khung cảnh thiên nhiên đồng quê và bờ biển duyên hải miền Trung biến chuyển qua khung cửa sổ.",
+        highlightPlaceId: null,
+        placeName: null
+      },
+      {
+        time: "11:30 – 12:30",
+        icon: "🏨",
+        title: "Đến Khách sạn Odin Quy Nhơn",
+        desc: "Xe cập bến Khách sạn Odin. Cả đoàn gửi hành lý tại quầy lễ tân (nếu chưa tới giờ nhận phòng). Nghỉ ngơi nhẹ tại sảnh, ăn nhẹ uống nước sau chuyến đi dài.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin Quy Nhơn"
+      },
+      {
+        time: "12:30 – 14:00",
+        icon: "🍜",
+        title: "Ăn trưa đặc sản Quy Nhơn",
+        desc: "Thưởng thức các món ngon trứ danh: Bún cá Ngọc Liên (nước dùng thanh ngọt, chả cá dai giòn) và Nem chả Lợi (nem nướng cuốn rau sống đậm vị xứ Nẫu).",
+        highlightPlaceId: 6,
+        placeName: "Bún cá Ngọc Liên & Nem chả Lợi"
+      },
+      {
+        time: "14:00 – 15:30",
+        icon: "🛏️",
+        title: "Nhận phòng – Tắm rửa, nghỉ ngơi & ngủ bù",
+        desc: "Nhận phòng chính thức tại Khách sạn Odin. Tắm rửa mát mẻ, nghỉ ngơi trên giường êm để hồi phục thể lực sẵn sàng cho buổi chiều dạo biển.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin Quy Nhơn"
+      },
+      {
+        time: "15:30 – 17:30",
+        icon: "🌊",
+        title: "Check-in chiều: Đi bộ biển Quy Nhơn + Quảng trường trung tâm",
+        desc: "Dạo bước trên bờ cát biển Quy Nhơn uốn cong thơ mộng, đón gió biển chiều và chụp ảnh kỷ niệm tại Quảng trường Nguyễn Tất Thành rộng lớn ngay gần khách sạn.",
+        highlightPlaceId: 2,
+        placeName: "Biển Quy Nhơn & Quảng trường Nguyễn Tất Thành"
+      },
+      {
+        time: "18:00 – 20:00",
+        icon: "🦀",
+        title: "Ăn tối hải sản tươi sống",
+        desc: "Thưởng thức bữa tối ngập tràn hải sản tại quán: Hải Sản Quy Nhơn - 48 Xuân Diệu (Lộc Biển) - không gian thoáng mát, menu hải sản tươi phong phú phù hợp đoàn đông.",
+        highlightPlaceId: 3,
+        placeName: "Hải Sản Lộc Biển (48 Xuân Diệu)"
+      },
+      {
+        time: "20:00 – 21:59",
+        icon: "🏮",
+        title: "Dạo tối tại Chợ đêm Quy Nhơn & Thưởng thức quà vặt",
+        desc: "Tản bộ hòa mình vào không khí nhộn nhịp của Chợ đêm Quy Nhơn, mua sắm đồ lưu niệm, quà đặc sản và nếm thử các món ăn vặt đường phố hấp dẫn.",
+        highlightPlaceId: 3,
+        placeName: "Chợ Đêm Quy Nhơn"
+      },
+      {
+        time: "22:00",
+        icon: "🌙",
+        title: "Về khách sạn Odin nghỉ ngơi",
+        desc: "Đoàn tập trung về lại Khách sạn Odin nghỉ ngơi, chuẩn bị tinh thần và trang phục cho hành trình khám phá Eo Gió - Kỳ Co vào sáng mai.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin Quy Nhơn"
+      }
+    ],
+    weatherPlan: {
+      condition: "Nếu chiều trời mưa:",
+      solutions: [
+        {
+          title: "Giải pháp 1",
+          detail: "Tự nghỉ ngơi thư giãn tại phòng khách sạn Odin, gọi đồ ăn hoặc dùng bữa ấm cúng ngay tại nhà hàng khách sạn."
+        },
+        {
+          title: "Giải pháp 2",
+          detail: "Di chuyển bằng taxi/che dù ăn tại các quán ăn, nhà hàng ngon gần khách sạn: Quán Gia Vy 2 (cách ~1km), Nhà hàng 4Q (cách ~1.1km), Phở Danh, Cơm Thị."
+        }
+      ]
+    }
+  },
+  {
+    day: 2,
+    title: "Ngày 2: Chinh Phục Eo Gió – Kỳ Co & Hải Sản Đêm Xuân Diệu",
+    dateSummary: "Thiên đường biển đảo Kỳ Co, con đường ven vách đá Eo Gió & hải sản Duy Mập",
+    events: [
+      {
+        time: "06:30 – 07:30",
+        icon: "🍳",
+        title: "Ăn sáng tại khách sạn hoặc đặc sản Quy Nhơn",
+        desc: "Dùng bữa sáng tại khách sạn Odin hoặc thưởng thức bún cá, bánh hỏi lòng heo nóng hổi. Chuẩn bị đồ dùng cần thiết: nón, kem chống nắng, đồ bơi, sạc dự phòng.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin / Bánh hỏi lòng heo"
+      },
+      {
+        time: "07:30 – 08:15",
+        icon: "🚗",
+        title: "Di chuyển đến Nhơn Lý – Ngắm cảnh ven biển",
+        desc: "Khởi hành từ Khách sạn Odin qua cầu Thị Nại (cây cầu vượt biển nổi tiếng) để đến xã bán đảo Nhơn Lý, chiêm ngưỡng cảnh sắc đầm Thị Nại và bờ biển bao la.",
+        highlightPlaceId: 1,
+        placeName: "Cung đường ven biển Nhơn Lý"
+      },
+      {
+        time: "08:15 – 09:45",
+        icon: "📸",
+        title: "Tham quan Eo Gió – Kỳ quan gió lộng",
+        desc: "Đoàn đi bộ theo cung đường ven biển lát gạch tuyệt đẹp, chụp ảnh tại cầu gỗ sát vách đá ngoạn mục, ngắm sóng vỗ trắng xóa và chụp ảnh lưu niệm toàn thể đoàn.",
+        highlightPlaceId: 1,
+        placeName: "Kỳ Co - Eo Gió (Nhơn Lý)"
+      },
+      {
+        time: "09:45 – 10:15",
+        icon: "🚤",
+        title: "Di chuyển sang bãi biển Kỳ Co",
+        desc: "Di chuyển từ bến Nhơn Lý sang Kỳ Co, chiêm ngưỡng làn nước chuyển màu từ xanh ngọc bích sang xanh thẳm kỳ thú.",
+        highlightPlaceId: 1,
+        placeName: "Kỳ Co (Nhơn Lý)"
+      },
+      {
+        time: "10:15 – 13:30",
+        icon: "🏖️",
+        title: "Vui chơi tắm biển Kỳ Co & Ăn trưa hải sản Nhơn Lý",
+        desc: "Thỏa sức tắm biển với bãi cát trắng mịn, check-in các góc 'sống ảo' xịn xò. Sau đó ăn trưa hải sản thịnh soạn tại Nhơn Lý (tôm, mực tươi, cá hấp, lẩu hải sản). Gợi ý: Nhà hàng Hoàng Thao Sea View hoặc Phát Triển.",
+        highlightPlaceId: 1,
+        placeName: "Bãi biển Kỳ Co & Hoàng Thao Sea View"
+      },
+      {
+        time: "13:30 – 14:30",
+        icon: "🏨",
+        title: "Trở về Khách sạn Odin nghỉ ngơi, tắm rửa",
+        desc: "Xe đón đoàn về lại khách sạn Odin tắm rửa nước ngọt, thư giãn và ngả lưng nghỉ trưa hồi phục thể lực sau buổi sáng vui chơi hết mình trên đảo.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin Quy Nhơn"
+      },
+      {
+        time: "15:30 – 17:30",
+        icon: "☕",
+        title: "Tự do khám phá khu vực trung tâm Quy Nhơn",
+        desc: "Các thành viên tự do dạo biển Quy Nhơn, check-in chụp ảnh tại Quảng trường Nguyễn Tất Thành, ghé các quán cà phê ngắm biển hoặc dạo quanh mua đặc sản xứ Nẫu.",
+        highlightPlaceId: 2,
+        placeName: "Quảng trường Nguyễn Tất Thành & Biển Quy Nhơn"
+      },
+      {
+        time: "18:00 – 20:00",
+        icon: "🦞",
+        title: "Ăn tối hải sản nổi tiếng trên đường biển Xuân Diệu",
+        desc: "Thưởng thức hải sản tươi ngon: tôm, cua, ghẹ, ốc móng tay, lẩu hải sản. Gợi ý hàng đầu: Nhà hàng hải sản Duy Mập (264 Xuân Diệu - đề xuất nhất), Lộc Biển (48 Xuân Diệu), hoặc Cơm Ngon Quy Nhơn Mr Mộc.",
+        highlightPlaceId: 3,
+        placeName: "Hải Sản Duy Mập (264 Xuân Diệu)"
+      },
+      {
+        time: "20:00 – 22:00",
+        icon: "🎁",
+        title: "Dạo biển, quảng trường, cà phê & Mua đặc sản quà quê",
+        desc: "Tản bộ ngắm biển đêm Quy Nhơn lung linh, uống cà phê trò chuyện, chọn mua đặc sản Bình Định làm quà cho người thân (tré rơm, nem chợ Huyện, bánh ít lá gai, bánh tráng nước dừa).",
+        highlightPlaceId: 3,
+        placeName: "Phố Biển Đêm & Đặc sản làm quà"
+      },
+      {
+        time: "22:00",
+        icon: "✨",
+        title: "Về khách sạn Odin nghỉ ngơi",
+        desc: "Về phòng khách sạn Odin nghỉ ngơi, tổng kết trọn vẹn 2 ngày tuyệt vời tại thành phố biển Quy Nhơn.",
+        highlightPlaceId: 5,
+        placeName: "Khách sạn Odin Quy Nhơn"
+      }
+    ],
+    weatherPlan: {
+      condition: "Nếu thời tiết xấu (mưa gió / biển động):",
+      solutions: [
+        {
+          title: "Phương án thay thế đặc biệt",
+          detail: "Lựa chọn tham quan 'Trung tâm Khám Phá Khoa Học Vũ Trụ' (ExploraScience Quy Nhơn) - trải nghiệm nhà chiếu hình vũ trụ vòm hiện đại và các phòng khám phá khoa học tương tác trong nhà cực kỳ lý thú."
+        },
+        {
+          title: "Lưu ý đoàn",
+          detail: "Thời gian dư ra có thể tự do khám phá nội thành Quy Nhơn hoặc nghỉ ngơi tại KS. Bắt buộc phải báo cáo cho ban tổ chức/đoàn nắm thông tin nếu có bạn rời đoàn."
+        },
+        {
+          title: "Buổi chiều trời mưa",
+          detail: "Thực hiện tương tự Ngày 1: nghỉ ngơi tại KS hoặc dùng bữa tại các nhà hàng ấm cúng lân cận (Gia Vy 2, 4Q, Phở Danh, Cơm Thị)."
+        }
+      ]
+    }
+  }
+];
+

@@ -80,7 +80,7 @@ function renderCategories() {
 }
 
 /**
- * Render danh sách thẻ địa danh Quy Nhơn (không có giá tiền)
+ * Render danh sách thẻ địa danh Quy Nhơn (gắn liền mốc thời gian ghé thăm)
  */
 function renderTourCards(tours) {
   const grid = document.getElementById('tourGrid');
@@ -90,7 +90,7 @@ function renderTourCards(tours) {
     grid.innerHTML = `
       <div class="no-tours">
         <span class="no-tours-icon">🔍</span>
-        <h3>Không tìm thấy địa danh phù hợp</h3>
+        <h3>Không tìm thấy địa điểm phù hợp</h3>
         <p>Vui lòng thử tìm kiếm với từ khóa khác hoặc chọn mục "Tất cả địa danh".</p>
       </div>
     `;
@@ -110,6 +110,17 @@ function renderTourCards(tours) {
       tagsHtml = `<div class="tour-tags">${tour.tags.map(t => `<span class="tour-tag-pill">${t}</span>`).join('')}</div>`;
     }
 
+    // Badge thời gian ghé thăm
+    let visitBadge = '';
+    if (tour.visitTime) {
+      visitBadge = `
+        <div class="tour-visittime-tag">
+          <span class="visittime-icon">⏰</span>
+          <span><strong>Ghé thăm:</strong> ${tour.visitTime}</span>
+        </div>
+      `;
+    }
+
     html += `
       <div class="tour-card" onclick="window.location.href='tour-detail.html?id=${tour.id}'">
         <div class="tour-card-img">
@@ -118,13 +129,14 @@ function renderTourCards(tours) {
         </div>
         <div class="tour-card-body">
           <h3>${tour.name}</h3>
+          ${visitBadge}
           <div class="tour-card-info">
             <span>📍 ${tour.location}</span>
-            <span>🕐 Gợi ý: ${tour.duration} ngày</span>
+            <span>⏱️ ${tour.duration}</span>
           </div>
           ${tagsHtml}
           <div class="tour-card-footer">
-            <button class="btn-detail btn-detail-full">Khám phá địa danh →</button>
+            <button class="btn-detail btn-detail-full">Xem chi tiết địa điểm →</button>
           </div>
         </div>
       </div>
@@ -132,6 +144,87 @@ function renderTourCards(tours) {
   });
 
   grid.innerHTML = html;
+}
+
+/**
+ * Render Lịch trình chuyến đi (Timeline 2 Ngày Đầu)
+ */
+function renderTimeline(dayNumber = 1) {
+  const container = document.getElementById('timelineContainer');
+  if (!container || typeof TIMELINE_DATA === 'undefined') return;
+
+  const dayData = TIMELINE_DATA.find(d => d.day === parseInt(dayNumber)) || TIMELINE_DATA[0];
+  if (!dayData) return;
+
+  let eventsHtml = '';
+  dayData.events.forEach((ev) => {
+    let placeLinkHtml = '';
+    if (ev.highlightPlaceId && ev.placeName) {
+      placeLinkHtml = `
+        <div class="timeline-place-tag">
+          <a href="tour-detail.html?id=${ev.highlightPlaceId}" title="Bấm xem giới thiệu chi tiết">
+            📍 <strong>Địa điểm trong chuyến đi:</strong> ${ev.placeName} <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      `;
+    }
+
+    eventsHtml += `
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-icon-box">${ev.icon || '📍'}</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-time-badge">${ev.time}</div>
+          <h3 class="timeline-event-title">${ev.title}</h3>
+          <p class="timeline-event-desc">${ev.desc}</p>
+          ${placeLinkHtml}
+        </div>
+      </div>
+    `;
+  });
+
+  // Khối phương án trời mưa / thời tiết xấu
+  let weatherHtml = '';
+  if (dayData.weatherPlan) {
+    let solutionsHtml = '';
+    dayData.weatherPlan.solutions.forEach(sol => {
+      solutionsHtml += `
+        <div class="weather-sol-item">
+          <span class="sol-badge">⚡ ${sol.title}:</span>
+          <p>${sol.detail}</p>
+        </div>
+      `;
+    });
+
+    weatherHtml = `
+      <div class="weather-plan-box">
+        <div class="weather-header">
+          <span class="weather-icon">🌧️</span>
+          <div>
+            <h4>Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa</h4>
+            <p class="weather-condition">${dayData.weatherPlan.condition}</p>
+          </div>
+        </div>
+        <div class="weather-solutions-list">
+          ${solutionsHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  container.innerHTML = `
+    <div class="timeline-day-header">
+      <div class="timeline-day-badge">LỊCH TRÌNH NGÀY ${dayData.day}</div>
+      <h3>${dayData.title}</h3>
+      <p class="timeline-day-summary">${dayData.dateSummary}</p>
+    </div>
+    <div class="timeline-list">
+      ${eventsHtml}
+    </div>
+    ${weatherHtml}
+  `;
 }
 
 /**
@@ -152,7 +245,8 @@ function applyFilters() {
       t.name.toLowerCase().includes(kw) ||
       t.location.toLowerCase().includes(kw) ||
       (t.tags && t.tags.some(tag => tag.toLowerCase().includes(kw))) ||
-      t.description.toLowerCase().includes(kw)
+      t.description.toLowerCase().includes(kw) ||
+      (t.visitTime && t.visitTime.toLowerCase().includes(kw))
     );
   }
 
@@ -168,6 +262,21 @@ function initHomePage() {
 
   renderCategories();
   renderTourCards(TOURS);
+
+  // Khởi tạo Timeline tabs & view
+  const timelineTabs = document.getElementById('timelineTabs');
+  if (timelineTabs) {
+    const tabBtns = timelineTabs.querySelectorAll('.timeline-tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const day = btn.dataset.day;
+        renderTimeline(day);
+      });
+    });
+    renderTimeline(1);
+  }
 
   const searchInput = document.getElementById('searchInput');
   let searchTimeout;
@@ -212,10 +321,19 @@ function renderTourDetail(tour) {
       </div>
       <div class="place-title-box">
         <h1>${tour.name}</h1>
+        ${tour.visitTime ? `
+        <div class="visit-schedule-banner">
+          <span class="schedule-icon">⏰</span>
+          <div>
+            <strong>Mốc thời gian ghé thăm trong chuyến đi:</strong>
+            <span class="schedule-time-text">${tour.visitTime}</span>
+          </div>
+        </div>
+        ` : ''}
         <div class="place-meta">
           <span>📍 <strong>Vị trí:</strong> ${tour.location}</span>
-          <span>🕐 <strong>Thời gian lý tưởng:</strong> ${tour.duration} ngày</span>
-          <span>🌊 <strong>Điểm đặc trưng:</strong> ${tour.tags ? tour.tags.join(' • ') : 'Cảnh sắc Quy Nhơn'}</span>
+          <span>🕐 <strong>Thời lượng:</strong> ${tour.duration}</span>
+          <span>🌊 <strong>Đặc trưng:</strong> ${tour.tags ? tour.tags.join(' • ') : 'Cảnh sắc Quy Nhơn'}</span>
         </div>
       </div>
     </div>
@@ -255,7 +373,7 @@ function renderTourDetail(tour) {
 
     <!-- Lịch trình khám phá gợi ý -->
     <div class="place-section">
-      <h2>📋 Lịch trình tham quan gợi ý</h2>
+      <h2>📋 Lịch trình tham quan trong chuyến đi</h2>
       <div class="itinerary-list">
   `;
 
@@ -280,10 +398,10 @@ function renderTourDetail(tour) {
 
     <!-- Trải nghiệm nổi bật & Lưu ý khi tham quan -->
     <div class="place-section">
-      <h2>💡 Cẩm nang & Bí quyết khám phá</h2>
+      <h2>💡 Cẩm nang & Bí quyết trải nghiệm</h2>
       <div class="includes-excludes-grid">
         <div class="info-card info-includes">
-          <h3>🌟 Trải nghiệm không nên bỏ lỡ</h3>
+          <h3>🌟 Điểm nổi bật chuyến đi</h3>
           <ul>
   `;
   if (tour.highlights) {
@@ -311,12 +429,13 @@ function renderTourDetail(tour) {
 
     <!-- Nút quay lại -->
     <div class="back-action-wrap">
-      <a href="index.html#tours" class="btn-back-home">← Quay lại danh sách tất cả địa danh</a>
+      <a href="index.html#dia-diem" class="btn-back-home">← Quay lại danh sách địa điểm nổi bật</a>
+      <a href="index.html#lich-trinh" class="btn-back-timeline">🗓️ Xem toàn bộ lịch trình 2 ngày →</a>
     </div>
 
     <!-- Gợi ý các địa danh khác -->
     <div class="related-places">
-      <h2>Khám phá thêm các điểm đến khác ở Quy Nhơn</h2>
+      <h2>Khám phá thêm các điểm đến khác trong chuyến đi</h2>
       <div class="related-grid">
   `;
 

@@ -24,7 +24,8 @@
         <ul class="nav-list">
           <li><a href="index.html" class="active">Trang chủ</a></li>
           <li><a href="#ve-tui-toi">Về chúng tôi</a></li>
-          <li><a href="#tours">Tour Quy Nhơn</a></li>
+          <li><a href="#lich-trinh">Lịch trình chuyến đi</a></li>
+          <li><a href="#dia-diem">Địa điểm nổi bật</a></li>
         </ul>
       </nav>
     </div>
@@ -37,10 +38,10 @@
         🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh TP.HCM
       </div>
       <h1>Khám Phá Vẻ Đẹp<br>Quy Nhơn - Bình Định</h1>
-      <p>Cùng tụi mình dạo quanh xứ Nẫu mộng mơ: từ làn nước trong xanh ngọc bích Kỳ Co, Eo Gió lộng gió, Hòn Khô hoang sơ đến di sản Tháp Chăm ngàn năm và Đất Võ Tây Sơn hào hùng.</p>
+      <p>Cùng tụi mình dạo quanh xứ Nẫu mộng mơ: từ làn nước trong xanh ngọc bích Kỳ Co, Eo Gió lộng gió, ẩm thực hải sản phố biển đến trải nghiệm vũ trụ kỳ thú tại ExploraScience.</p>
       <div class="hero-buttons">
-        <a href="#tours" class="hero-btn">Khám phá các tour Quy Nhơn</a>
-        <a href="#ve-tui-toi" class="hero-btn-outline">Về tụi tôi →</a>
+        <a href="#lich-trinh" class="hero-btn">Xem lịch trình chuyến đi</a>
+        <a href="#dia-diem" class="hero-btn-outline">Địa điểm nổi bật →</a>
       </div>
     </div>
   </section>
@@ -66,8 +67,8 @@
 
           <div class="about-stats-grid">
             <div class="stat-box">
-              <span class="stat-number">8+</span>
-              <span class="stat-label">Địa danh nổi tiếng</span>
+              <span class="stat-number">6+</span>
+              <span class="stat-label">Điểm đến nổi bật</span>
             </div>
             <div class="stat-box">
               <span class="stat-number">10A4</span>
@@ -90,6 +91,42 @@
     </div>
   </section>
 
+  <!-- ===== LỊCH TRÌNH CHUYẾN ĐI (TIMELINE 2 NGÀY ĐẦU) ===== -->
+  <section class="timeline-section" id="lich-trinh">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">🗓️ Lộ trình thực tế</span>
+        <h2>Lịch Trình Chi Tiết 2 Ngày Đầu</h2>
+        <p>Thời gian cụ thể, hoạt động từng buổi, địa điểm nổi bật ghé thăm & kế hoạch dự phòng</p>
+      </div>
+
+      <!-- Banner hỗ trợ dù & áo mưa -->
+      <div class="umbrella-alert-banner">
+        <span class="umbrella-icon">☂️</span>
+        <div class="umbrella-text">
+          <strong>Lưu ý chu đáo từ Thập Tứ Tour:</strong> Đoàn luôn chuẩn bị sẵn <strong>dù che và áo mưa tiện lợi</strong> để hỗ trợ tận tình cho các thành viên trong suốt chuyến đi!
+        </div>
+      </div>
+
+      <!-- Tabs chuyển Ngày 1 / Ngày 2 -->
+      <div class="timeline-tabs" id="timelineTabs">
+        <button class="timeline-tab-btn active" data-day="1" type="button">
+          <span class="tab-day-badge">Ngày 1</span>
+          <span class="tab-day-title">Khởi hành & Nhịp sống biển Quy Nhơn</span>
+        </button>
+        <button class="timeline-tab-btn" data-day="2" type="button">
+          <span class="tab-day-badge">Ngày 2</span>
+          <span class="tab-day-title">Chinh phục Kỳ Co – Eo Gió & Phố đêm</span>
+        </button>
+      </div>
+
+      <!-- Khung hiển thị Timeline -->
+      <div class="timeline-container" id="timelineContainer">
+        <!-- Render động bằng JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- ===== DANH MỤC ĐỊA DANH ===== -->
   <section class="categories" id="categories">
     <div class="container">
@@ -103,19 +140,24 @@
     </div>
   </section>
 
-  <!-- ===== TÌM KIẾM ĐỊA DANH ===== -->
-  <section class="search-filter" id="tours">
+  <!-- ===== TÌM KIẾM ĐỊA DANH NỔI BẬT ===== -->
+  <section class="search-filter" id="dia-diem">
     <div class="container">
+      <div class="section-title" style="margin-bottom: 25px;">
+        <span class="section-badge">📍 Điểm dừng chân</span>
+        <h2>Địa Điểm Nổi Bật Trong Chuyến Đi</h2>
+        <p>Các địa danh đoàn sẽ ghé thăm cùng mốc thời gian xuất hiện trong lịch trình</p>
+      </div>
       <div class="search-filter-bar">
         <div class="search-input-wrap">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" placeholder="Tìm kiếm địa danh: Kỳ Co, Eo Gió, Hòn Khô, Cù Lao Xanh, Tây Sơn, Tháp Chăm...">
+          <input type="text" id="searchInput" placeholder="Tìm kiếm địa điểm: Kỳ Co, Eo Gió, Khách sạn Odin, Xuân Diệu, Bún cá Ngọc Liên, ExploraScience...">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== DANH SÁCH TOUR ===== -->
+  <!-- ===== DANH SÁCH ĐỊA ĐIỂM ===== -->
   <section class="tours-section">
     <div class="container">
       <div class="tour-grid" id="tourGrid">
@@ -142,7 +184,8 @@
           <ul class="footer-links">
             <li><a href="#top">Trang chủ</a></li>
             <li><a href="#ve-tui-toi">Về tụi tôi</a></li>
-            <li><a href="#tours">Tour Quy Nhơn</a></li>
+            <li><a href="#lich-trinh">Lịch trình chuyến đi</a></li>
+            <li><a href="#dia-diem">Địa điểm nổi bật</a></li>
           </ul>
         </div>
         <div>

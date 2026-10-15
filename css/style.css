@@ -1969,4 +1969,470 @@ img {
   }
 }
 
+/* ===================================================
+   TIMELINE UI STYLES - Lịch trình chuyến đi 2 ngày đầu
+   =================================================== */
+
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+/* Banner nhắc nhở dù & áo mưa */
+.umbrella-alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 2px solid #6ee7b7;
+  padding: 18px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 35px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+  animation: fadeIn 0.4s ease;
+}
+
+.umbrella-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.umbrella-text {
+  font-size: 0.98rem;
+  color: #065f46;
+  line-height: 1.5;
+}
+
+.umbrella-text strong {
+  color: #047857;
+}
+
+/* Tabs chuyển Ngày 1 / Ngày 2 */
+.timeline-tabs {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.timeline-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: var(--white);
+  border: 2px solid var(--gray-200);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.timeline-tab-btn:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.timeline-tab-btn.active {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-color: var(--primary-dark);
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(3, 105, 161, 0.35);
+}
+
+.tab-day-badge {
+  background: rgba(3, 105, 161, 0.12);
+  color: var(--primary-dark);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.timeline-tab-btn.active .tab-day-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+.tab-day-title {
+  font-weight: 600;
+}
+
+/* Khung hiển thị Timeline */
+.timeline-container {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  position: relative;
+}
+
+/* Header ngày trong timeline */
+.timeline-day-header {
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 35px;
+  border-bottom: 2px dashed var(--gray-200);
+}
+
+.timeline-day-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--white);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 5px 16px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.35);
+}
+
+.timeline-day-header h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.timeline-day-summary {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* Danh sách Timeline dọc */
+.timeline-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 25px;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 50px;
+}
+
+.timeline-icon-box {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 10px rgba(3, 105, 161, 0.3);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon-box {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(3, 105, 161, 0.4);
+}
+
+.timeline-line {
+  flex: 1;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary-light), var(--gray-200));
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.timeline-item:last-child .timeline-line {
+  display: none;
+}
+
+/* Nội dung sự kiện */
+.timeline-content {
+  flex: 1;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 22px 25px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.timeline-content:hover {
+  background: var(--white);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+}
+
+.timeline-time-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--white);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+}
+
+.timeline-event-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.timeline-event-desc {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+/* Tag liên kết tới địa điểm nổi bật */
+.timeline-place-tag {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.timeline-place-tag a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: #f0f9ff;
+  border: 1.5px solid #7dd3fc;
+  color: var(--primary-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: var(--transition);
+}
+
+.timeline-place-tag a:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  transform: translateX(3px);
+  box-shadow: 0 4px 10px rgba(3, 105, 161, 0.25);
+}
+
+.timeline-place-tag a .arrow-icon {
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.timeline-place-tag a:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Khối phương án dự phòng thời tiết xấu / trời mưa */
+.weather-plan-box {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 2px dashed #38bdf8;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.12);
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.weather-header .weather-icon {
+  font-size: 2.2rem;
+}
+
+.weather-header h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.weather-condition {
+  font-size: 0.95rem;
+  color: #0369a1;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.weather-solutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weather-sol-item {
+  background: var(--white);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sol-badge {
+  font-weight: 700;
+  color: var(--accent-hover);
+  font-size: 0.92rem;
+}
+
+.weather-sol-item p {
+  font-size: 0.92rem;
+  color: #1e293b;
+  line-height: 1.55;
+}
+
+/* Badge mốc thời gian trên thẻ Card */
+.tour-visittime-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+
+.tour-visittime-tag strong {
+  color: #78350f;
+}
+
+/* Banner mốc thời gian trong trang chi tiết địa danh */
+.visit-schedule-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fffbeb;
+  border: 2px solid #fcd34d;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #92400e;
+  font-size: 0.95rem;
+}
+
+.visit-schedule-banner .schedule-icon {
+  font-size: 1.6rem;
+}
+
+.schedule-time-text {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #b45309;
+  margin-top: 2px;
+}
+
+.btn-back-timeline {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  margin-left: 10px;
+}
+
+.btn-back-timeline:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+/* Timeline Responsive */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 25px 15px;
+  }
+
+  .timeline-item {
+    gap: 15px;
+  }
+
+  .timeline-marker {
+    width: 38px;
+  }
+
+  .timeline-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .timeline-content {
+    padding: 16px;
+  }
+
+  .timeline-tab-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+  }
+
+  .umbrella-alert-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .weather-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-action-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-back-timeline {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+
 
