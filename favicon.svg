@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#oceanGrad)" />
+  <!-- Wave 1 (Deep) -->
+  <path d="M12 40 C 20 34, 28 46, 36 40 C 44 34, 50 42, 52 44 L 52 50 C 44 54, 20 54, 12 50 Z" fill="#38bdf8" opacity="0.6"/>
+  <!-- Wave 2 (Main) -->
+  <path d="M10 35 C 18 27, 26 43, 34 35 C 42 27, 48 37, 54 39 L 54 52 C 40 55, 22 55, 10 52 Z" fill="#ffffff" opacity="0.95"/>
+  <!-- Sun / Compass Accent -->
+  <circle cx="44" cy="22" r="6" fill="#f59e0b" />
+</svg>

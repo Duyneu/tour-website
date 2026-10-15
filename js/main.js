@@ -217,8 +217,8 @@ function renderTourDetail(tour) {
   const main = document.getElementById('tourDetailMain');
   if (!main) return;
 
-  // Cập nhật title trang và breadcrumb
-  document.title = `${tour.name} - Thập Tứ Tour`;
+  // Cập nhật title trang và breadcrumb (đưa Thập Tứ Tour lên đầu để luôn hiện trên tab trình duyệt)
+  document.title = `Thập Tứ Tour | ${tour.name}`;
   const breadcrumbName = document.getElementById('breadcrumbName');
   if (breadcrumbName) breadcrumbName.textContent = tour.name;
 
