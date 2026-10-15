@@ -12,7 +12,6 @@ const TOURS = [
     category: "bien-dao",
     location: "Nhơn Lý, TP. Quy Nhơn",
     duration: 1,
-    price: 650000,
     image: "https://nhonlytourist.com/cache/image/605/images/nhonlytourist.com/thumbs/2025/04/image-1626-slide-1745202587-6805ad9bf0863.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
@@ -51,7 +50,6 @@ const TOURS = [
     category: "bien-dao",
     location: "Cù Lao Xanh, Nhơn Châu, Quy Nhơn",
     duration: 1,
-    price: 750000,
     image: "https://img.cnt.traveloka.com/tvlk/blog/2022/09/cu-lao-xanh-1.jpg?tr=q-70,c-at_max,w-1000,h-600",
     gallery: [
       "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
@@ -89,7 +87,6 @@ const TOURS = [
     category: "bien-dao",
     location: "Nhơn Hải, TP. Quy Nhơn",
     duration: 1,
-    price: 450000,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmhd8vvJoq-sWWBnERcI0w6QEoe0RjAj4driZtaZAG7A&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
@@ -126,7 +123,6 @@ const TOURS = [
     category: "thien-nhien",
     location: "TP. Quy Nhơn, Bình Định",
     duration: 1,
-    price: 350000,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9iJ_O0p_zdzhNVtMiP6oa5XFnlSw_2npm1CsyUlAJw&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
@@ -163,7 +159,6 @@ const TOURS = [
     category: "thien-nhien",
     location: "Tây Sơn, Bình Định",
     duration: 1,
-    price: 500000,
     image: "https://images2.thanhnien.vn/528068263637045248/2025/5/9/1-ham-ho-hien-ra-nhu-net-cham-pha-sinh-dong-giua-nui-rung-hung-vianh-dung-nhan-1746806061076850294030.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
@@ -200,7 +195,6 @@ const TOURS = [
     category: "van-hoa",
     location: "Quy Nhơn - An Nhơn, Bình Định",
     duration: 1,
-    price: 400000,
     image: "https://mia.vn/media/uploads/blog-du-lich/thanh-do-ban-thap-banh-it-1755649067.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
@@ -237,7 +231,6 @@ const TOURS = [
     category: "van-hoa",
     location: "Tây Sơn, Bình Định",
     duration: 1,
-    price: 450000,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIOlGODj9eMgACvMCf5o1zd8FJnL1JC8U8lrp65yBO0b0MX6JSXvNIssRt&s=10",
     gallery: [
       "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
@@ -266,57 +259,6 @@ const TOURS = [
       "Tips cho HDV và tài xế"
     ]
   },
-
-  // === TOUR 8: Trọn gói - Quy Nhơn 3N2Đ ===
-  {
-    id: 8,
-    name: "Quy Nhơn Trọn Gói 3 Ngày 2 Đêm",
-    category: "tron-goi",
-    location: "Quy Nhơn - Tây Sơn, Bình Định",
-    duration: 3,
-    price: 2990000,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7obuzALdplUxVQ0O0G4-TLIcrY-DGOBz_yn7bFwwsdbzCsTz2XgEeabQ&s=10",
-    gallery: [
-      "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
-      "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
-    ],
-    description: "Tour trọn gói 3 ngày 2 đêm khám phá trọn vẹn Quy Nhơn - Bình Định: từ biển đảo Kỳ Co, Eo Gió, Hòn Khô hoang sơ, đến di sản Tháp Chàm ngàn năm, Bảo tàng Quang Trung hào hùng, thưởng thức ẩm thực đặc sản và ngắm hoàng hôn tuyệt đẹp trên bãi biển Quy Nhơn.",
-    itinerary: [
-      {
-        day: 1,
-        title: "Đón khách - Kỳ Co - Eo Gió",
-        detail: "Sáng: Đón khách tại sân bay/ga Quy Nhơn, nhận phòng khách sạn. 9:00 - Di chuyển đến bến tàu, cano ra Kỳ Co tắm biển, lặn ngắm san hô. Trưa: ăn hải sản tại Kỳ Co. Chiều: tham quan Eo Gió, check-in cầu kính, cổng trời. Tối: dạo biển Quy Nhơn, thưởng thức bánh xèo tôm nhảy, bún chả cá."
-      },
-      {
-        day: 2,
-        title: "Hòn Khô - Ghềnh Ráng - Tháp Đôi",
-        detail: "Sáng: Ra Hòn Khô bằng thúng chai, khám phá con đường đá giữa biển, lặn ngắm san hô Nhơn Hải. Trưa: ăn hải sản tại làng chài. Chiều: Ghềnh Ráng Tiên Sa, viếng mộ Hàn Mặc Tử, Bãi tắm Hoàng Hậu. 16:00 - Tháp Đôi. Tối: chợ đêm Quy Nhơn, thưởng thức bánh hỏi lòng heo."
-      },
-      {
-        day: 3,
-        title: "Tây Sơn - Tháp Bánh Ít - Tiễn khách",
-        detail: "Sáng: Di chuyển đến Tây Sơn, tham quan Bảo tàng Quang Trung, xem biểu diễn trống trận + võ cổ truyền. Trưa: ăn đặc sản Tây Sơn. Chiều: về qua Tháp Bánh Ít, Tháp Cánh Tiên chụp ảnh. 15:00 - Mua sắm đặc sản (rượu Bàu Đá, nem chả Quy Nhơn). 16:00 - Tiễn khách ra sân bay/ga. Kết thúc tour."
-      }
-    ],
-    includes: [
-      "Xe đưa đón sân bay/ga + tham quan",
-      "Khách sạn 3 sao (2 đêm, 2 người/phòng)",
-      "Các bữa ăn theo chương trình (2 sáng, 3 trưa, 2 tối)",
-      "Cano Kỳ Co + thúng chai Hòn Khô",
-      "Vé tham quan tất cả các điểm",
-      "Hướng dẫn viên suốt tuyến",
-      "Bảo hiểm du lịch"
-    ],
-    excludes: [
-      "Vé máy bay/tàu đến Quy Nhơn",
-      "Chi phí cá nhân",
-      "Trò chơi biển (dù lượn, kayak...)",
-      "Phụ thu phòng đơn: 600.000đ",
-      "Tips cho HDV và tài xế"
-    ]
-  }
-];
 
 /* Danh mục tour - cập nhật cho Quy Nhơn */
 const CATEGORIES = [
