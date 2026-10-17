@@ -155,7 +155,7 @@ function renderTourCards(tours) {
           </div>
           ${tagsHtml}
           <div class="tour-card-footer">
-            <button class="btn-detail btn-detail-full">Xem chi tiết địa điểm →</button>
+            <button class="btn-detail btn-detail-full" type="button">Xem chi tiết địa điểm <span class="btn-arrow">→</span></button>
           </div>
         </div>
       </div>
@@ -714,6 +714,12 @@ function initTiltEffect() {
         // Trả về vị trí ban đầu mượt mà
         card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        setTimeout(() => {
+          if (!card.matches(':hover')) {
+            card.style.transition = '';
+            card.style.transform = '';
+          }
+        }, 460);
       });
     });
   };

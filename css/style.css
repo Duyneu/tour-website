@@ -398,8 +398,16 @@ img {
   background: var(--white);
   padding: 20px 25px;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid var(--gray-200);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   flex-wrap: wrap;
+}
+
+.search-filter-bar:focus-within {
+  border-color: #38bdf8;
+  box-shadow: 0 10px 28px -5px rgba(14, 165, 233, 0.22);
+  transform: translateY(-2px);
 }
 
 .search-input-wrap {
@@ -414,13 +422,15 @@ img {
   border: 2px solid var(--gray-200);
   border-radius: var(--radius-sm);
   font-size: 1rem;
-  transition: var(--transition);
+  transition: all 0.25s ease;
   outline: none;
+  background: var(--white);
 }
 
 .search-input-wrap input:focus {
-  border-color: var(--primary-light);
-  box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+  background: #f8fafc;
 }
 
 .search-input-wrap .search-icon {
@@ -430,6 +440,13 @@ img {
   transform: translateY(-50%);
   font-size: 1.2rem;
   color: var(--text-light);
+  transition: transform 0.25s ease, color 0.25s ease;
+  pointer-events: none;
+}
+
+.search-filter-bar:focus-within .search-icon {
+  color: var(--primary);
+  transform: translateY(-50%) scale(1.18);
 }
 
 .price-filter {
@@ -471,33 +488,59 @@ img {
 
 .tour-card {
   background: var(--white);
+  border: 2px solid var(--gray-200);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .tour-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-8px) scale(1.01);
+  border-color: #38bdf8;
+  box-shadow: 0 20px 35px -8px rgba(3, 105, 161, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.35);
 }
 
 .tour-card-img {
   position: relative;
   height: 200px;
   overflow: hidden;
+  background: var(--gray-100);
 }
 
 .tour-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tour-card:hover .tour-card-img img {
   transform: scale(1.08);
+}
+
+/* Vệt sáng quét qua ảnh khi hover (Shimmer Sheen Reflection) */
+.tour-card-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  transform: skewX(-25deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tour-card:hover .tour-card-img::after {
+  left: 200%;
+  transition: left 0.85s ease-in-out;
 }
 
 .tour-card-badge {
@@ -513,14 +556,24 @@ img {
   box-shadow: 0 4px 12px rgba(3, 105, 161, 0.35);
   backdrop-filter: blur(4px);
   z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.tour-card:hover .tour-card-badge {
+  transform: translateY(-2px);
+  background: var(--primary-dark);
+  box-shadow: 0 6px 16px rgba(3, 105, 161, 0.45);
 }
 
 .tour-card-body {
-  padding: 20px;
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .tour-card-body h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--text);
@@ -529,13 +582,18 @@ img {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+.tour-card:hover .tour-card-body h3 {
+  color: var(--primary);
 }
 
 .tour-card-info {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   font-size: 0.9rem;
   color: var(--text-light);
 }
@@ -550,7 +608,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .tour-tag-pill {
@@ -558,40 +616,58 @@ img {
   color: var(--primary-dark);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: 50px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+}
+
+.tour-card:hover .tour-tag-pill {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
 }
 
 .tour-card-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 12px;
+  margin-top: auto;
+  padding-top: 14px;
   border-top: 1px solid var(--gray-100);
 }
 
 .btn-detail {
-  padding: 8px 20px;
-  background: var(--primary);
+  padding: 10px 22px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: var(--white);
   border: none;
   border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-detail-full {
   width: 100%;
-  padding: 10px 18px;
-  text-align: center;
-  font-size: 0.92rem;
-  font-weight: 700;
 }
 
-.btn-detail:hover {
-  background: var(--primary-dark);
+.btn-detail .btn-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-card:hover .btn-detail {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.45);
+}
+
+.tour-card:hover .btn-detail .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Không tìm thấy tour */
@@ -605,7 +681,8 @@ img {
 .no-tours .no-tours-icon {
   font-size: 4rem;
   margin-bottom: 15px;
-  display: block;
+  display: inline-block;
+  animation: floatingBob 3s ease-in-out infinite;
 }
 
 /* === TRANG CHI TIẾT TOUR === */
@@ -2896,11 +2973,13 @@ img {
 .category-grid .category-card:nth-child(4) { transition-delay: 0.26s; }
 
 .tour-grid .tour-card:nth-child(1) { transition-delay: 0.05s; }
-.tour-grid .tour-card:nth-child(2) { transition-delay: 0.12s; }
-.tour-grid .tour-card:nth-child(3) { transition-delay: 0.19s; }
-.tour-grid .tour-card:nth-child(4) { transition-delay: 0.26s; }
-.tour-grid .tour-card:nth-child(5) { transition-delay: 0.33s; }
-.tour-grid .tour-card:nth-child(6) { transition-delay: 0.40s; }
+.tour-grid .tour-card:nth-child(2) { transition-delay: 0.11s; }
+.tour-grid .tour-card:nth-child(3) { transition-delay: 0.17s; }
+.tour-grid .tour-card:nth-child(4) { transition-delay: 0.23s; }
+.tour-grid .tour-card:nth-child(5) { transition-delay: 0.29s; }
+.tour-grid .tour-card:nth-child(6) { transition-delay: 0.35s; }
+.tour-grid .tour-card:nth-child(7) { transition-delay: 0.41s; }
+.tour-grid .tour-card:nth-child(8) { transition-delay: 0.47s; }
 
 /* Micro-interaction: Gợn sóng xung quanh icon mốc thời gian */
 .timeline-icon-box {
