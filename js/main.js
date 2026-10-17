@@ -392,7 +392,7 @@ function renderTourDetail(tour) {
 
   let html = `
     <!-- Ảnh bìa và tiêu đề địa danh -->
-    <div class="place-header">
+    <div class="place-header reveal-on-scroll">
       <div class="place-image-wrap">
         <img class="place-hero-img" src="${tour.image}" alt="${tour.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
       </div>
@@ -416,22 +416,22 @@ function renderTourDetail(tour) {
     </div>
 
     <!-- Hộp thông tin nhanh -->
-    <div class="quick-facts-card">
-      <div class="fact-item">
+    <div class="quick-facts-card reveal-on-scroll">
+      <div class="fact-item tilt-card">
         <span class="fact-icon">🌅</span>
         <div>
           <h4>Thời điểm đẹp nhất</h4>
           <p>Tháng 3 - Tháng 9 (mùa khô, biển êm, trời trong xanh rực rỡ)</p>
         </div>
       </div>
-      <div class="fact-item">
+      <div class="fact-item tilt-card">
         <span class="fact-icon">🛵</span>
         <div>
           <h4>Phương tiện di chuyển</h4>
           <p>Xe máy, ô tô hoặc cano / thuyền tùy điểm đến</p>
         </div>
       </div>
-      <div class="fact-item">
+      <div class="fact-item tilt-card">
         <span class="fact-icon">📸</span>
         <div>
           <h4>Trải nghiệm chính</h4>
@@ -441,7 +441,7 @@ function renderTourDetail(tour) {
     </div>
 
     <!-- Giới thiệu chi tiết cảnh đẹp -->
-    <div class="place-section">
+    <div class="place-section reveal-on-scroll">
       <h2>✨ Vẻ đẹp đặc trưng của ${tour.name}</h2>
       <div class="place-description">
         ${tour.description}
@@ -449,14 +449,14 @@ function renderTourDetail(tour) {
     </div>
 
     <!-- Lịch trình khám phá gợi ý -->
-    <div class="place-section">
+    <div class="place-section reveal-on-scroll">
       <h2>📋 Lịch trình tham quan trong chuyến đi</h2>
       <div class="itinerary-list">
   `;
 
   tour.itinerary.forEach(item => {
     html += `
-      <div class="itinerary-card">
+      <div class="itinerary-card tilt-card">
         <div class="itinerary-badge">
           <span>Ngày</span>
           <strong>${item.day}</strong>
@@ -474,10 +474,10 @@ function renderTourDetail(tour) {
     </div>
 
     <!-- Trải nghiệm nổi bật & Lưu ý khi tham quan -->
-    <div class="place-section">
+    <div class="place-section reveal-on-scroll">
       <h2>💡 Cẩm nang & Bí quyết trải nghiệm</h2>
       <div class="includes-excludes-grid">
-        <div class="info-card info-includes">
+        <div class="info-card info-includes tilt-card">
           <h3>🌟 Điểm nổi bật chuyến đi</h3>
           <ul>
   `;
@@ -489,7 +489,7 @@ function renderTourDetail(tour) {
   html += `
           </ul>
         </div>
-        <div class="info-card info-excludes">
+        <div class="info-card info-excludes tilt-card">
           <h3>🎒 Lưu ý & Chuẩn bị khi đi</h3>
           <ul>
   `;
@@ -505,21 +505,23 @@ function renderTourDetail(tour) {
     </div>
 
     <!-- Nút quay lại -->
-    <div class="back-action-wrap">
+    <div class="back-action-wrap reveal-on-scroll">
       <a href="index.html#dia-diem" class="btn-back-home">← Quay lại danh sách địa điểm nổi bật</a>
       <a href="index.html#lich-trinh" class="btn-back-timeline">🗓️ Xem toàn bộ lịch trình 4 ngày 3 đêm →</a>
     </div>
 
     <!-- Gợi ý các địa danh khác -->
-    <div class="related-places">
+    <div class="related-places reveal-on-scroll">
       <h2>Khám phá thêm các điểm đến khác trong chuyến đi</h2>
       <div class="related-grid">
   `;
 
   otherTours.forEach(t => {
     html += `
-      <div class="related-card" onclick="window.location.href='tour-detail.html?id=${t.id}'">
-        <img src="${t.image}" alt="${t.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
+      <div class="related-card tilt-card" onclick="window.location.href='tour-detail.html?id=${t.id}'">
+        <div class="related-img-wrap">
+          <img src="${t.image}" alt="${t.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
+        </div>
         <div class="related-body">
           <h4>${t.name}</h4>
           <p>📍 ${t.location}</p>
@@ -535,6 +537,13 @@ function renderTourDetail(tour) {
   `;
 
   main.innerHTML = html;
+
+  if (typeof triggerScrollReveal === 'function') {
+    setTimeout(triggerScrollReveal, 40);
+  }
+  if (typeof initTiltEffect === 'function') {
+    initTiltEffect();
+  }
 }
 
 /**
