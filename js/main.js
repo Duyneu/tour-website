@@ -787,6 +787,206 @@ function initMagneticElements() {
 }
 
 /**
+ * 3c. Hiệu ứng nghiêng 3D con quay hồi chuyển trên điện thoại (Device Orientation Gyroscope Tilt)
+ * Tự động đồng bộ góc nghiêng vật lý của điện thoại (trái/phải, trước/sau) với thẻ card 3D
+ * Hỗ trợ mượt mà cả Android (tự động) & iOS Safari (cấp quyền qua cú chạm đầu tiên)
+ */
+function initDeviceOrientationTilt() {
+  // Chỉ kích hoạt trên thiết bị cảm ứng / điện thoại
+  const isTouchDevice = 'ontouchstart' in window || (navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (!isTouchDevice) return;
+
+  let hasOrientationEvent = false;
+  let isListening = false;
+  let animFrameId = null;
+
+  // Góc mục tiêu từ cảm biến điện thoại
+  let targetRotX = 0;
+  let targetRotY = 0;
+  let targetGlareX = 50;
+  let targetGlareY = 50;
+
+  // Góc hiện tại (được làm mượt bằng LERP để chuyển động siêu êm, loại bỏ hoàn toàn rung giật của tay)
+  let currentRotX = 0;
+  let currentRotY = 0;
+  let currentGlareX = 50;
+  let currentGlareY = 50;
+
+  let isActivelyMoving = false;
+  let idleCounter = 0;
+
+  // Tập hợp các thẻ đang hiển thị trong màn hình để tối ưu hóa hiệu năng 60-120fps
+  const visibleCards = new Set();
+
+  // IntersectionObserver phát hiện thẻ nào đang nằm trong khung nhìn màn hình
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        visibleCards.add(entry.target);
+        entry.target.classList.add('gyro-active');
+      } else {
+        visibleCards.delete(entry.target);
+        entry.target.classList.remove('gyro-active');
+        // Trả thẻ về trạng thái phẳng khi ra khỏi khung nhìn
+        entry.target.style.transform = '';
+      }
+    });
+  }, {
+    rootMargin: '40px 0px 40px 0px',
+    threshold: 0.05
+  });
+
+  const observeCards = () => {
+    const cards = document.querySelectorAll(
+      '.tilt-card, .tour-card, .category-card, .fact-item, .weather-plan-box, .timeline-content, .about-us-card, .related-card, .itinerary-card'
+    );
+    cards.forEach(card => {
+      if (!card.dataset.gyroObserved) {
+        card.dataset.gyroObserved = 'true';
+        cardObserver.observe(card);
+      }
+    });
+  };
+
+  observeCards();
+
+  if (typeof MutationObserver !== 'undefined') {
+    const mutationObs = new MutationObserver(() => {
+      observeCards();
+    });
+    mutationObs.observe(document.body, { childList: true, subtree: true });
+  }
+
+  // Vòng lặp Render 60-120fps sử dụng requestAnimationFrame và LERP
+  const updateTiltLoop = () => {
+    const lerp = 0.085;
+    const diffX = targetRotX - currentRotX;
+    const diffY = targetRotY - currentRotY;
+
+    if (Math.abs(diffX) > 0.005 || Math.abs(diffY) > 0.005) {
+      currentRotX += diffX * lerp;
+      currentRotY += diffY * lerp;
+      currentGlareX += (targetGlareX - currentGlareX) * lerp;
+      currentGlareY += (targetGlareY - currentGlareY) * lerp;
+      isActivelyMoving = true;
+      idleCounter = 0;
+    } else {
+      idleCounter++;
+      if (idleCounter > 30) {
+        isActivelyMoving = false;
+      }
+    }
+
+    if (isActivelyMoving && visibleCards.size > 0) {
+      const transformValue = `perspective(850px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg)`;
+      const gx = `${currentGlareX.toFixed(1)}%`;
+      const gy = `${currentGlareY.toFixed(1)}%`;
+
+      visibleCards.forEach(card => {
+        // Chỉ áp dụng khi thẻ đã hiển thị (đã hoàn thành hoặc không có animation cuộn che khuất)
+        if (card.classList.contains('is-revealed') || card.closest('.timeline-day-header, .place-header')) {
+          card.style.transform = transformValue;
+          card.style.setProperty('--mouse-x', gx);
+          card.style.setProperty('--mouse-y', gy);
+        }
+      });
+    }
+
+    animFrameId = requestAnimationFrame(updateTiltLoop);
+  };
+
+  // Xử lý dữ liệu con quay hồi chuyển
+  const handleOrientation = (e) => {
+    if (e.gamma === null && e.beta === null) return;
+
+    if (!hasOrientationEvent) {
+      hasOrientationEvent = true;
+      document.body.classList.add('gyro-active');
+      if (!animFrameId) {
+        animFrameId = requestAnimationFrame(updateTiltLoop);
+      }
+    }
+
+    let gamma = e.gamma || 0; // Trục nghiêng trái (-90) / phải (+90)
+    let beta = e.beta || 0;   // Trục nghiêng trước (-180) / sau (+180)
+
+    // Tự động nhận diện hướng màn hình ngang (Landscape) nếu người dùng xoay ngang điện thoại
+    const orientationAngle = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+    if (orientationAngle === 90) {
+      const temp = gamma;
+      gamma = -beta;
+      beta = temp;
+    } else if (orientationAngle === -90 || orientationAngle === 270) {
+      const temp = gamma;
+      gamma = beta;
+      beta = -temp;
+    }
+
+    // Góc nghiêng tự nhiên của người dùng khi cầm điện thoại là khoảng 45°
+    const deltaBeta = beta - 45;
+    const maxAngle = 9.5; // Giới hạn góc nghiêng tối đa để chữ và ảnh vẫn rõ ràng, sang trọng
+
+    // Tính toán góc nghiêng 3D
+    targetRotX = Math.max(-maxAngle, Math.min(maxAngle, deltaBeta * 0.32));
+    targetRotY = Math.max(-maxAngle, Math.min(maxAngle, gamma * 0.32));
+
+    // Tính toán tọa độ phản quang vệt sáng (Glare Sheen)
+    const rawGlareX = 50 + (gamma / 28) * 40;
+    const rawGlareY = 50 + (deltaBeta / 28) * 40;
+    targetGlareX = Math.max(10, Math.min(90, rawGlareX));
+    targetGlareY = Math.max(10, Math.min(90, rawGlareY));
+
+    // Đánh thức vòng lặp nếu đang tạm dừng
+    if (!isActivelyMoving) {
+      isActivelyMoving = true;
+      idleCounter = 0;
+    }
+  };
+
+  const startOrientationListener = () => {
+    if (isListening) return;
+    isListening = true;
+    window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+    if (!animFrameId) {
+      animFrameId = requestAnimationFrame(updateTiltLoop);
+    }
+  };
+
+  // Kiểm tra hỗ trợ iOS Safari 13+ (Yêu cầu xin quyền DeviceOrientationEvent.requestPermission)
+  if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+    const handleFirstGesture = () => {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            startOrientationListener();
+          }
+        })
+        .catch(() => {
+          // Người dùng từ chối hoặc lỗi bảo mật, duy trì hiển thị tĩnh bình thường
+        });
+    };
+
+    window.addEventListener('touchstart', handleFirstGesture, { once: true, passive: true });
+    window.addEventListener('click', handleFirstGesture, { once: true, passive: true });
+  } else if ('DeviceOrientationEvent' in window) {
+    // Android Chrome & trình duyệt chuẩn: khởi chạy trực tiếp ngay lập tức
+    startOrientationListener();
+  }
+
+  // Tạm dừng khi chuyển tab để bảo vệ pin và CPU
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+    } else if (isListening && !animFrameId) {
+      animFrameId = requestAnimationFrame(updateTiltLoop);
+    }
+  });
+}
+
+/**
  * 4. Hiệu ứng cuộn trang xuất hiện mượt (Scroll Reveal Animations)
  */
 let scrollRevealObserver = null;
@@ -880,6 +1080,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMagicCursor();
   initTiltEffect();
   initMagneticElements();
+  initDeviceOrientationTilt();
   initScrollReveal();
   initHeroParallax();
 });

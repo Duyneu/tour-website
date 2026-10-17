@@ -3120,7 +3120,7 @@ img {
   }
 }
 
-/* 5. Hiệu ứng 3D Interactive Tilt & Glare */
+/* 5. Hiệu ứng 3D Interactive Tilt & Glare (Chuột trên Máy tính & Con quay hồi chuyển Gyroscope trên Mobile) */
 .tilt-card {
   transform-style: preserve-3d;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease;
@@ -3128,20 +3128,33 @@ img {
   will-change: transform;
 }
 
-.tilt-card::after {
+/* Vệt sáng phản quang (Glare Sheen) - dùng ::before để không xung đột với tick xanh ::after của danh mục */
+.tilt-card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 65%);
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.32) 0%, rgba(56, 189, 248, 0.15) 30%, transparent 68%);
   transition: opacity 0.35s ease;
   z-index: 5;
 }
 
-.tilt-card:hover::after {
+.tilt-card:hover::before {
   opacity: 1;
+}
+
+/* Khi con quay hồi chuyển trên điện thoại hoạt động: vệt sáng phản quang tự động quét theo góc nghiêng điện thoại */
+body.gyro-active .tilt-card::before,
+.tilt-card.gyro-active::before {
+  opacity: 0.65;
+}
+
+/* Khi con quay hồi chuyển đang điều khiển: tắt CSS transition trên transform để LERP đạt độ mượt 60-120fps tuyệt đối */
+body.gyro-active .tilt-card,
+.tilt-card.gyro-active {
+  transition: box-shadow 0.3s ease, border-color 0.25s ease;
 }
 
 /* 6. Hiệu ứng Scroll Reveal (Cuộn tới đâu bay lên tới đó) */
