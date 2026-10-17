@@ -502,14 +502,17 @@ img {
 
 .tour-card-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 18px;
+  left: 18px;
   background: var(--primary);
   color: var(--white);
-  padding: 5px 14px;
+  padding: 6px 15px;
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.35);
+  backdrop-filter: blur(4px);
+  z-index: 2;
 }
 
 .tour-card-body {
