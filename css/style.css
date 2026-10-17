@@ -213,7 +213,7 @@ img {
 .categories {
   padding: 95px 0 40px;
   background: var(--gray-50);
-  border-top: 1px solid var(--gray-200);
+  border-top: none;
 }
 
 .section-title {
@@ -1574,6 +1574,7 @@ img {
   line-height: 0;
   background: var(--primary-bg);
   margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 .section-divider-curve svg {
@@ -2113,7 +2114,7 @@ img {
   padding: 105px 0 95px;
   background: #ffffff;
   position: relative;
-  border-top: 1px solid var(--gray-200);
+  border-top: none;
 }
 
 .section-badge {
