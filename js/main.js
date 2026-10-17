@@ -52,7 +52,7 @@ function renderCategories() {
   if (!grid) return;
 
   let html = `
-    <div class="category-card active" data-category="all">
+    <div class="category-card tilt-card reveal-on-scroll active" data-category="all">
       <span class="cat-icon">🌍</span>
       <span class="cat-name">Tất cả địa danh</span>
     </div>
@@ -60,7 +60,7 @@ function renderCategories() {
 
   CATEGORIES.forEach(cat => {
     html += `
-      <div class="category-card" data-category="${cat.id}">
+      <div class="category-card tilt-card reveal-on-scroll" data-category="${cat.id}">
         <span class="cat-icon">${cat.icon}</span>
         <span class="cat-name">${cat.name}</span>
       </div>
@@ -77,6 +77,10 @@ function renderCategories() {
       applyFilters();
     });
   });
+
+  if (typeof triggerScrollReveal === 'function') {
+    setTimeout(triggerScrollReveal, 30);
+  }
 }
 
 /**
@@ -144,6 +148,10 @@ function renderTourCards(tours) {
   });
 
   grid.innerHTML = html;
+
+  if (typeof triggerScrollReveal === 'function') {
+    setTimeout(triggerScrollReveal, 30);
+  }
 }
 
 /**
@@ -199,7 +207,7 @@ function renderTimeline(dayNumber = 1) {
     });
 
     weatherHtml = `
-      <div class="weather-plan-box">
+      <div class="weather-plan-box tilt-card reveal-on-scroll">
         <div class="weather-header">
           <span class="weather-icon">🌧️</span>
           <div>
@@ -215,7 +223,7 @@ function renderTimeline(dayNumber = 1) {
   }
 
   container.innerHTML = `
-    <div class="timeline-day-header">
+    <div class="timeline-day-header reveal-on-scroll">
       <div class="timeline-day-badge">LỊCH TRÌNH NGÀY ${dayData.day}</div>
       <h3>${dayData.title}</h3>
       <p class="timeline-day-summary">${dayData.dateSummary}</p>
@@ -225,6 +233,10 @@ function renderTimeline(dayNumber = 1) {
     </div>
     ${weatherHtml}
   `;
+
+  if (typeof triggerScrollReveal === 'function') {
+    setTimeout(triggerScrollReveal, 30);
+  }
 }
 
 /**
@@ -663,38 +675,45 @@ function initTiltEffect() {
 /**
  * 4. Hiệu ứng cuộn trang xuất hiện mượt (Scroll Reveal Animations)
  */
-function initScrollReveal() {
-  const observeElements = () => {
-    const elements = document.querySelectorAll('.reveal-on-scroll, .section-title, .timeline-item, .tour-card');
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach(el => el.classList.add('is-revealed'));
-      return;
-    }
+let scrollRevealObserver = null;
 
-    const observer = new IntersectionObserver((entries) => {
+function triggerScrollReveal() {
+  const elements = document.querySelectorAll(
+    '.reveal-on-scroll, .section-title, .timeline-item, .tour-card, .category-card, .weather-plan-box, .about-us-card, .umbrella-alert-banner, .timeline-tabs, .timeline-day-header'
+  );
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  if (!scrollRevealObserver) {
+    scrollRevealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -30px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
+  }
 
-    elements.forEach(el => {
-      if (!el.dataset.observed) {
-        el.dataset.observed = 'true';
-        observer.observe(el);
-      }
-    });
-  };
+  elements.forEach(el => {
+    if (!el.dataset.observed) {
+      el.dataset.observed = 'true';
+      scrollRevealObserver.observe(el);
+    }
+  });
+}
 
-  observeElements();
+function initScrollReveal() {
+  triggerScrollReveal();
 
   if (typeof MutationObserver !== 'undefined') {
     const domObserver = new MutationObserver(() => {
-      observeElements();
+      triggerScrollReveal();
     });
     domObserver.observe(document.body, { childList: true, subtree: true });
   }

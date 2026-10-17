@@ -97,14 +97,14 @@
   </div>
 
   <!-- ===== VỀ TỤI TÔI ===== -->
-  <section class="about-us-section reveal-on-scroll" id="ve-tui-toi">
+  <section class="about-us-section" id="ve-tui-toi">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title reveal-on-scroll">
         <h2>Về Chúng Tôi</h2>
         <p>Câu chuyện nhỏ đằng sau trang web Thập Tứ Tour</p>
       </div>
       
-      <div class="about-us-card tilt-card">
+      <div class="about-us-card tilt-card reveal-on-scroll">
         <div class="about-us-content">
           <span class="school-tag">🏫 Lớp 10A4 • Năm 2026 • THPT Lương Thế Vinh TP.HCM</span>
           <h3>Chào mọi người, tụi mình là Thập Tứ Tour! 👋</h3>
@@ -141,17 +141,24 @@
     </div>
   </section>
 
+  <!-- Dải chuyển tiếp phân cách mềm mại giữa 2 phần -->
+  <div class="section-divider-curve">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#ffffff" d="M0,35 C280,80 540,10 820,50 C1100,90 1300,30 1440,55 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
+
   <!-- ===== LỊCH TRÌNH CHUYẾN ĐI (TIMELINE 2 NGÀY ĐẦU) ===== -->
-  <section class="timeline-section reveal-on-scroll" id="lich-trinh">
+  <section class="timeline-section" id="lich-trinh">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title reveal-on-scroll">
         <span class="section-badge">🗓️ Lộ trình thực tế</span>
         <h2>Lịch Trình Chi Tiết 2 Ngày Đầu</h2>
         <p>Thời gian cụ thể, hoạt động từng buổi, địa điểm nổi bật ghé thăm & kế hoạch dự phòng</p>
       </div>
 
       <!-- Banner hỗ trợ dù & áo mưa -->
-      <div class="umbrella-alert-banner floating-badge">
+      <div class="umbrella-alert-banner floating-badge reveal-on-scroll">
         <span class="umbrella-icon">☂️</span>
         <div class="umbrella-text">
           <strong>Lưu ý chu đáo từ Thập Tứ Tour:</strong> Đoàn luôn chuẩn bị sẵn <strong>dù che và áo mưa tiện lợi</strong> để hỗ trợ tận tình cho các thành viên trong suốt chuyến đi!
@@ -159,7 +166,7 @@
       </div>
 
       <!-- Tabs chuyển Ngày 1 / Ngày 2 -->
-      <div class="timeline-tabs" id="timelineTabs">
+      <div class="timeline-tabs reveal-on-scroll" id="timelineTabs">
         <button class="timeline-tab-btn active" data-day="1" type="button">
           <span class="tab-day-badge">Ngày 1</span>
           <span class="tab-day-title">Khởi hành & Nhịp sống biển Quy Nhơn</span>
@@ -178,9 +185,9 @@
   </section>
 
   <!-- ===== DANH MỤC ĐỊA DANH ===== -->
-  <section class="categories reveal-on-scroll" id="categories">
+  <section class="categories" id="categories">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title reveal-on-scroll">
         <h2>Khám phá theo danh mục</h2>
         <p>Lựa chọn loại hình cảnh sắc Quy Nhơn bạn muốn tìm hiểu</p>
       </div>
@@ -191,14 +198,14 @@
   </section>
 
   <!-- ===== TÌM KIẾM ĐỊA DANH NỔI BẬT ===== -->
-  <section class="search-filter reveal-on-scroll" id="dia-diem">
+  <section class="search-filter" id="dia-diem">
     <div class="container">
-      <div class="section-title" style="margin-bottom: 25px;">
+      <div class="section-title reveal-on-scroll" style="margin-bottom: 25px;">
         <span class="section-badge">📍 Điểm dừng chân</span>
         <h2>Địa Điểm Nổi Bật Trong Chuyến Đi</h2>
         <p>Các địa danh đoàn sẽ ghé thăm cùng mốc thời gian xuất hiện trong lịch trình</p>
       </div>
-      <div class="search-filter-bar">
+      <div class="search-filter-bar reveal-on-scroll">
         <div class="search-input-wrap">
           <span class="search-icon">🔍</span>
           <input type="text" id="searchInput" placeholder="Tìm kiếm địa điểm: Kỳ Co, Eo Gió, Khách sạn Odin, Xuân Diệu, Bún cá Ngọc Liên, ExploraScience...">
@@ -208,7 +215,7 @@
   </section>
 
   <!-- ===== DANH SÁCH ĐỊA ĐIỂM ===== -->
-  <section class="tours-section reveal-on-scroll">
+  <section class="tours-section">
     <div class="container">
       <div class="tour-grid" id="tourGrid">
         <!-- Render bằng JS -->
@@ -217,7 +224,7 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer reveal-on-scroll">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">

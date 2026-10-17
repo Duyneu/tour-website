@@ -211,24 +211,29 @@ img {
 
 /* === DANH MỤC TOUR === */
 .categories {
-  padding: 60px 0 30px;
+  padding: 95px 0 40px;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .section-title h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.1rem;
+  font-weight: 800;
   color: var(--primary-dark);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
 }
 
 .section-title p {
   color: var(--text-light);
   font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .category-grid {
@@ -340,7 +345,7 @@ img {
 
 /* === DANH SÁCH TOUR (CARDS) === */
 .tours-section {
-  padding: 0 0 80px;
+  padding: 10px 0 110px;
 }
 
 .tour-grid {
@@ -1444,8 +1449,24 @@ img {
 
 /* === SECTION: VỀ TỤI TÔI === */
 .about-us-section {
-  padding: 80px 0;
+  padding: 95px 0 70px;
   background: linear-gradient(180deg, var(--gray-50) 0%, var(--primary-bg) 100%);
+  position: relative;
+}
+
+.section-divider-curve {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: var(--primary-bg);
+  margin-top: -1px;
+}
+
+.section-divider-curve svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 55px;
 }
 
 .about-us-card {
@@ -1973,15 +1994,23 @@ img {
    TIMELINE UI STYLES - Lịch trình chuyến đi 2 ngày đầu
    =================================================== */
 
+/* === SECTION: LỊCH TRÌNH CHUYẾN ĐI (TIMELINE) === */
+.timeline-section {
+  padding: 105px 0 95px;
+  background: #ffffff;
+  position: relative;
+  border-top: 1px solid var(--gray-200);
+}
+
 .section-badge {
   display: inline-block;
-  padding: 6px 16px;
+  padding: 7px 18px;
   background: var(--primary-bg);
   color: var(--primary);
   font-size: 0.85rem;
   font-weight: 700;
   border-radius: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   border: 1px solid rgba(14, 165, 233, 0.25);
@@ -1991,14 +2020,13 @@ img {
 .umbrella-alert-banner {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   background: linear-gradient(135deg, #ecfdf5, #d1fae5);
   border: 2px solid #6ee7b7;
-  padding: 18px 24px;
+  padding: 22px 28px;
   border-radius: var(--radius);
-  margin-bottom: 35px;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
-  animation: fadeIn 0.4s ease;
+  margin-bottom: 45px;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.12);
 }
 
 .umbrella-icon {
@@ -2685,8 +2713,8 @@ img {
 /* 6. Hiệu ứng Scroll Reveal (Cuộn tới đâu bay lên tới đó) */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -2695,21 +2723,57 @@ img {
   transform: translateY(0);
 }
 
+/* Từng mốc Timeline lướt từ trái sang phải khi cuộn xuống */
+.timeline-item {
+  opacity: 0;
+  transform: translate3d(-35px, 20px, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.timeline-item.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Từng thẻ địa điểm lướt từ dưới lên và phóng nhẹ khi cuộn xuống */
+.tour-card {
+  opacity: 0;
+  transform: translate3d(0, 45px, 0) scale(0.96);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.tour-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Thẻ danh mục lướt nhẹ từ dưới lên */
+.category-card {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.category-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 /* Độ trễ xuất hiện so le (Staggered Animation) cho các thẻ */
+.category-grid .category-card:nth-child(1) { transition-delay: 0.05s; }
+.category-grid .category-card:nth-child(2) { transition-delay: 0.12s; }
+.category-grid .category-card:nth-child(3) { transition-delay: 0.19s; }
+.category-grid .category-card:nth-child(4) { transition-delay: 0.26s; }
+
 .tour-grid .tour-card:nth-child(1) { transition-delay: 0.05s; }
 .tour-grid .tour-card:nth-child(2) { transition-delay: 0.12s; }
 .tour-grid .tour-card:nth-child(3) { transition-delay: 0.19s; }
 .tour-grid .tour-card:nth-child(4) { transition-delay: 0.26s; }
 .tour-grid .tour-card:nth-child(5) { transition-delay: 0.33s; }
 .tour-grid .tour-card:nth-child(6) { transition-delay: 0.40s; }
-
-.timeline-list .timeline-item:nth-child(odd) {
-  transition-delay: 0.05s;
-}
-
-.timeline-list .timeline-item:nth-child(even) {
-  transition-delay: 0.12s;
-}
 
 /* Micro-interaction: Gợn sóng xung quanh icon mốc thời gian */
 .timeline-icon-box {
