@@ -793,7 +793,7 @@ let scrollRevealObserver = null;
 
 function triggerScrollReveal() {
   const elements = document.querySelectorAll(
-    '.reveal-on-scroll, .section-title, .timeline-item, .tour-card, .category-card, .weather-plan-box, .about-us-card, .umbrella-alert-banner, .timeline-tabs, .timeline-day-header'
+    '.reveal-on-scroll, .section-title, .timeline-item, .tour-card, .category-card, .weather-plan-box, .about-us-card, .umbrella-alert-banner, .timeline-tabs, .timeline-day-header, .place-header, .quick-facts-card, .place-section, .itinerary-card, .related-places, .related-card'
   );
 
   if (!('IntersectionObserver' in window)) {
@@ -801,21 +801,32 @@ function triggerScrollReveal() {
     return;
   }
 
+  // Tự động hiển thị ngay các phần tử đã nằm trong tầm nhìn (đặc biệt tối ưu cho mobile)
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < vh + 60 && rect.bottom > -60) {
+      el.classList.add('is-revealed');
+    }
+  });
+
   if (!scrollRevealObserver) {
+    const isMobile = window.innerWidth <= 768;
     scrollRevealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
+          scrollRevealObserver.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: isMobile ? 0.02 : 0.08,
+      rootMargin: isMobile ? '0px 0px 80px 0px' : '0px 0px 30px 0px'
     });
   }
 
   elements.forEach(el => {
-    if (!el.dataset.observed) {
+    if (!el.classList.contains('is-revealed') && !el.dataset.observed) {
       el.dataset.observed = 'true';
       scrollRevealObserver.observe(el);
     }

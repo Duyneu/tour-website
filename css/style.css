@@ -1555,16 +1555,29 @@ img {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
   }
 
   .hero-btn {
-    padding: 14px 30px;
+    padding: 14px 28px;
     font-size: 1rem;
   }
 
   .tour-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tour-card-badge {
+    top: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    font-size: 0.78rem;
   }
 
   .category-grid {
@@ -1572,12 +1585,66 @@ img {
     gap: 10px;
   }
 
-  .category-card {
-    padding: 20px 10px;
+  .category-grid .category-card:first-child {
+    grid-column: 1 / -1;
   }
 
-  .booking-sidebar {
-    padding: 20px;
+  .category-card {
+    padding: 18px 12px;
+  }
+
+  .category-card.active::after {
+    top: 14px;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+
+  .timeline-section {
+    padding: 60px 0 50px;
+  }
+
+  .about-us-section {
+    padding: 60px 0 50px;
+  }
+
+  .categories {
+    padding: 60px 0 30px;
+  }
+
+  .tours-section {
+    padding: 0 0 60px;
+  }
+
+  .place-title-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .place-header {
+    margin-bottom: 25px;
+  }
+
+  .place-image-wrap {
+    height: 240px;
+  }
+
+  .place-title-box {
+    padding: 20px 18px;
+  }
+
+  .place-section {
+    padding: 22px 18px;
+  }
+
+  .fact-item {
+    padding: 18px 16px;
+  }
+
+  .itinerary-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 16px;
   }
 
   .modal {
@@ -1587,14 +1654,21 @@ img {
   .modal-body {
     padding: 20px;
   }
+}
 
-  .itinerary-item {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .tour-detail-main .tour-hero-img {
-    height: 250px;
+/* Phản hồi chạm tương tác mượt mà trên Mobile (Tactile Touch Feedback) */
+@media (hover: none) and (pointer: coarse) {
+  .tour-card:active,
+  .category-card:active,
+  .timeline-tab-btn:active,
+  .btn-detail:active,
+  .btn-back-home:active,
+  .btn-back-timeline:active,
+  .related-card:active,
+  .fact-item:active,
+  .hero-btn:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.12s ease !important;
   }
 }
 
