@@ -45,24 +45,32 @@ let currentCategory = 'all';
 let currentSearch = '';
 
 /**
- * Render danh mục địa danh (Biển đảo, Thiên nhiên, Văn hóa)
+ * Render danh mục địa danh (Biển đảo, Thiên nhiên, Văn hóa) kèm số lượng địa điểm
  */
 function renderCategories() {
   const grid = document.getElementById('categoryGrid');
-  if (!grid) return;
+  if (!grid || typeof TOURS === 'undefined') return;
 
+  const totalCount = TOURS.length;
   let html = `
     <div class="category-card tilt-card reveal-on-scroll active" data-category="all">
-      <span class="cat-icon">🌍</span>
+      <div class="cat-icon-wrap">
+        <span class="cat-icon">🌍</span>
+      </div>
       <span class="cat-name">Tất cả địa danh</span>
+      <span class="cat-count">${totalCount} địa điểm</span>
     </div>
   `;
 
   CATEGORIES.forEach(cat => {
+    const count = TOURS.filter(t => t.category === cat.id).length;
     html += `
       <div class="category-card tilt-card reveal-on-scroll" data-category="${cat.id}">
-        <span class="cat-icon">${cat.icon}</span>
+        <div class="cat-icon-wrap">
+          <span class="cat-icon">${cat.icon}</span>
+        </div>
         <span class="cat-name">${cat.name}</span>
+        <span class="cat-count">${count} địa điểm</span>
       </div>
     `;
   });
@@ -75,6 +83,13 @@ function renderCategories() {
       card.classList.add('active');
       currentCategory = card.dataset.category;
       applyFilters();
+
+      // Cuộn êm ái xuống phần địa điểm nổi bật để người dùng quan sát kết quả
+      const destSection = document.getElementById('dia-diem');
+      if (destSection) {
+        const top = destSection.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     });
   });
 
@@ -183,7 +198,7 @@ function renderTimeline(dayNumber = 1) {
           <div class="timeline-icon-box">${ev.icon || '📍'}</div>
           <div class="timeline-line"></div>
         </div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <div class="timeline-time-badge">${ev.time}</div>
           <h3 class="timeline-event-title">${ev.title}</h3>
           <p class="timeline-event-desc">${ev.desc}</p>
@@ -207,7 +222,7 @@ function renderTimeline(dayNumber = 1) {
     });
 
     weatherHtml = `
-      <div class="weather-plan-box reveal-on-scroll">
+      <div class="weather-plan-box tilt-card reveal-on-scroll">
         <div class="weather-header">
           <span class="weather-icon">🌧️</span>
           <div>
@@ -240,6 +255,55 @@ function renderTimeline(dayNumber = 1) {
 }
 
 /**
+ * Cập nhật badge thông tin bộ lọc danh mục / từ khóa
+ */
+function updateActiveFilterBadge(resultCount) {
+  const badgeWrap = document.getElementById('activeFilterBadge');
+  if (!badgeWrap) return;
+
+  if (currentCategory === 'all' && !currentSearch) {
+    badgeWrap.innerHTML = '';
+    badgeWrap.style.display = 'none';
+    return;
+  }
+
+  let catLabel = 'Tất cả địa danh';
+  if (currentCategory && currentCategory !== 'all') {
+    const cat = CATEGORIES.find(c => c.id === currentCategory);
+    catLabel = cat ? `${cat.icon} ${cat.name}` : currentCategory;
+  }
+
+  let filterDesc = `Đang xem: <strong>${catLabel}</strong>`;
+  if (currentSearch) {
+    filterDesc += ` • Từ khóa: "<em>${currentSearch}</em>"`;
+  }
+  filterDesc += ` (${resultCount} địa điểm phù hợp)`;
+
+  badgeWrap.innerHTML = `
+    <div class="filter-pill">
+      <span>${filterDesc}</span>
+      <button type="button" class="btn-clear-filter" id="btnClearFilter" title="Xem lại tất cả">✕ Xem tất cả</button>
+    </div>
+  `;
+  badgeWrap.style.display = 'block';
+
+  const clearBtn = document.getElementById('btnClearFilter');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      currentCategory = 'all';
+      currentSearch = '';
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.value = '';
+      const catCards = document.querySelectorAll('.category-card');
+      catCards.forEach(c => {
+        c.classList.toggle('active', c.dataset.category === 'all');
+      });
+      applyFilters();
+    });
+  }
+}
+
+/**
  * Lọc theo danh mục & tìm kiếm từ khóa
  */
 function applyFilters() {
@@ -263,6 +327,7 @@ function applyFilters() {
   }
 
   renderTourCards(result);
+  updateActiveFilterBadge(result.length);
 }
 
 /**
@@ -566,8 +631,22 @@ function initMagicCursor() {
       ring.style.opacity = '1';
     }
 
-    // Dot bám sát tức thì
+    // Dot bám sát tức thì không độ trễ
     dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+
+    // Xử lý hover toàn cục bằng closest() - HOÀN TOÀN KHÔNG BAO GIỜ BỊ NHẤP NHÁY
+    const interactiveEl = e.target && e.target.closest('a, button, .tour-card, .category-card, .timeline-tab-btn, input, select');
+    const shouldHover = !!interactiveEl;
+    if (shouldHover !== isHovering) {
+      isHovering = shouldHover;
+      if (isHovering) {
+        ring.classList.add('cursor-hover');
+        dot.classList.add('cursor-hover');
+      } else {
+        ring.classList.remove('cursor-hover');
+        dot.classList.remove('cursor-hover');
+      }
+    }
   }, { passive: true });
 
   window.addEventListener('mousedown', () => {
@@ -597,36 +676,6 @@ function initMagicCursor() {
     requestAnimationFrame(renderCursor);
   };
   requestAnimationFrame(renderCursor);
-
-  // Gắn sự kiện hover cho các phần tử tương tác (magnetic feel)
-  const attachHoverTargets = () => {
-    const targets = document.querySelectorAll('a, button, .tour-card, .category-card, .timeline-tab-btn, input, select');
-    targets.forEach(el => {
-      if (el.dataset.cursorBound) return;
-      el.dataset.cursorBound = 'true';
-
-      el.addEventListener('mouseenter', () => {
-        isHovering = true;
-        ring.classList.add('cursor-hover');
-        dot.classList.add('cursor-hover');
-      });
-
-      el.addEventListener('mouseleave', () => {
-        isHovering = false;
-        ring.classList.remove('cursor-hover');
-        dot.classList.remove('cursor-hover');
-      });
-    });
-  };
-
-  attachHoverTargets();
-
-  if (typeof MutationObserver !== 'undefined') {
-    const observer = new MutationObserver(() => {
-      attachHoverTargets();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
 }
 
 /**
@@ -636,10 +685,15 @@ function initTiltEffect() {
   if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
 
   const attachTilt = () => {
-    const cards = document.querySelectorAll('.tilt-card, .tour-card, .category-card, .weather-plan-box');
+    const cards = document.querySelectorAll('.tilt-card, .tour-card, .category-card, .weather-plan-box, .timeline-content');
     cards.forEach(card => {
       if (card.dataset.tiltBound) return;
       card.dataset.tiltBound = 'true';
+
+      card.addEventListener('mouseenter', () => {
+        // Tắt CSS transition khi đang rê chuột để tilt bám mượt tức thì không bị giật lag
+        card.style.transition = 'none';
+      });
 
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -648,15 +702,17 @@ function initTiltEffect() {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = -((y - centerY) / centerY) * 6;
-        const rotateY = ((x - centerX) / centerX) * 6;
+        const rotateX = -((y - centerY) / centerY) * 4.5;
+        const rotateY = ((x - centerX) / centerX) * 4.5;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(5px)`;
         card.style.setProperty('--mouse-x', `${((x / rect.width) * 100).toFixed(1)}%`);
         card.style.setProperty('--mouse-y', `${((y / rect.height) * 100).toFixed(1)}%`);
       });
 
       card.addEventListener('mouseleave', () => {
+        // Trả về vị trí ban đầu mượt mà
+        card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
       });
     });
@@ -667,6 +723,49 @@ function initTiltEffect() {
   if (typeof MutationObserver !== 'undefined') {
     const observer = new MutationObserver(() => {
       attachTilt();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+/**
+ * 3b. Hiệu ứng nam châm hút theo chuột cho nút Địa Điểm (Magnetic Follow)
+ */
+function initMagneticElements() {
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
+  const attachMagnetic = () => {
+    const magneticItems = document.querySelectorAll('.timeline-place-tag a');
+    magneticItems.forEach(item => {
+      if (item.dataset.magneticBound) return;
+      item.dataset.magneticBound = 'true';
+
+      item.addEventListener('mouseenter', () => {
+        item.style.transition = 'none';
+      });
+
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const relX = e.clientX - rect.left - rect.width / 2;
+        const relY = e.clientY - rect.top - rect.height / 2;
+        // Hút theo chuột nhẹ nhàng: di chuyển tối đa 5px ngang, 3px dọc
+        const moveX = (relX / (rect.width / 2)) * 5;
+        const moveY = (relY / (rect.height / 2)) * 3;
+        item.style.transform = `translate3d(${moveX.toFixed(1)}px, ${moveY.toFixed(1)}px, 0)`;
+      });
+
+      item.addEventListener('mouseleave', () => {
+        item.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+        item.style.transform = 'translate3d(0, 0, 0)';
+      });
+    });
+  };
+
+  attachMagnetic();
+
+  if (typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      attachMagnetic();
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }
@@ -754,6 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initMagicCursor();
   initTiltEffect();
+  initMagneticElements();
   initScrollReveal();
   initHeroParallax();
 });
