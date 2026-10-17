@@ -155,7 +155,7 @@ function renderTourCards(tours) {
 }
 
 /**
- * Render Lịch trình chuyến đi (Timeline 2 Ngày Đầu)
+ * Render Lịch trình chuyến đi (Timeline 4 Ngày 3 Đêm)
  */
 function renderTimeline(dayNumber = 1) {
   const container = document.getElementById('timelineContainer');
@@ -442,7 +442,7 @@ function renderTourDetail(tour) {
     <!-- Nút quay lại -->
     <div class="back-action-wrap">
       <a href="index.html#dia-diem" class="btn-back-home">← Quay lại danh sách địa điểm nổi bật</a>
-      <a href="index.html#lich-trinh" class="btn-back-timeline">🗓️ Xem toàn bộ lịch trình 2 ngày →</a>
+      <a href="index.html#lich-trinh" class="btn-back-timeline">🗓️ Xem toàn bộ lịch trình 4 ngày 3 đêm →</a>
     </div>
 
     <!-- Gợi ý các địa danh khác -->
