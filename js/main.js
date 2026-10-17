@@ -122,7 +122,7 @@ function renderTourCards(tours) {
     }
 
     html += `
-      <div class="tour-card" onclick="window.location.href='tour-detail.html?id=${tour.id}'">
+      <div class="tour-card tilt-card reveal-on-scroll" onclick="window.location.href='tour-detail.html?id=${tour.id}'">
         <div class="tour-card-img">
           <img src="${tour.image}" alt="${tour.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80';">
           <span class="tour-card-badge">${getCatName(tour.category)}</span>
@@ -170,12 +170,12 @@ function renderTimeline(dayNumber = 1) {
     }
 
     eventsHtml += `
-      <div class="timeline-item">
+      <div class="timeline-item reveal-on-scroll">
         <div class="timeline-marker">
           <div class="timeline-icon-box">${ev.icon || '📍'}</div>
           <div class="timeline-line"></div>
         </div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <div class="timeline-time-badge">${ev.time}</div>
           <h3 class="timeline-event-title">${ev.title}</h3>
           <p class="timeline-event-desc">${ev.desc}</p>
@@ -493,8 +493,249 @@ function initTourDetailPage() {
 }
 
 
+/* ===================================================
+   DYNAMIC INTERACTIVE FEATURES (Phong cách theforgottentoys.com)
+   - Magic Custom Cursor (chấm tròn + vòng tròn lerp + magnetic hover)
+   - Scroll Progress Indicator
+   - 3D Interactive Card Tilt & Dynamic Glare
+   - Scroll-triggered Reveal Animations (IntersectionObserver)
+   - Hero Mouse-track Parallax
+   =================================================== */
+
+/**
+ * 1. Thanh tiến trình cuộn trang (Scroll Progress Bar)
+ */
+function initScrollProgress() {
+  const progressBar = document.getElementById('scrollProgress');
+  if (!progressBar) return;
+
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+  };
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+}
+
+/**
+ * 2. Con trỏ chuột tương tác sáng tạo (Magic Cursor)
+ * Chỉ kích hoạt trên thiết bị dùng chuột (pointer: fine)
+ */
+function initMagicCursor() {
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  // Kiểm tra nếu là thiết bị cảm ứng thì ẩn con trỏ tùy biến
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+    dot.style.display = 'none';
+    ring.style.display = 'none';
+    return;
+  }
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+  let isHovering = false;
+  let isDown = false;
+  let isVisible = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!isVisible) {
+      isVisible = true;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+
+    // Dot bám sát tức thì
+    dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  }, { passive: true });
+
+  window.addEventListener('mousedown', () => {
+    isDown = true;
+    ring.classList.add('cursor-down');
+    dot.classList.add('cursor-down');
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    ring.classList.remove('cursor-down');
+    dot.classList.remove('cursor-down');
+  });
+
+  document.addEventListener('mouseleave', () => {
+    isVisible = false;
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+
+  // Vòng tròn ring lướt theo chuột với hiệu ứng gia tốc mượt mà (lerp)
+  const renderCursor = () => {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+
+    ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(${isHovering ? 1.5 : isDown ? 0.8 : 1})`;
+    requestAnimationFrame(renderCursor);
+  };
+  requestAnimationFrame(renderCursor);
+
+  // Gắn sự kiện hover cho các phần tử tương tác (magnetic feel)
+  const attachHoverTargets = () => {
+    const targets = document.querySelectorAll('a, button, .tour-card, .category-card, .timeline-tab-btn, .timeline-place-tag a, input, select');
+    targets.forEach(el => {
+      if (el.dataset.cursorBound) return;
+      el.dataset.cursorBound = 'true';
+
+      el.addEventListener('mouseenter', () => {
+        isHovering = true;
+        ring.classList.add('cursor-hover');
+        dot.classList.add('cursor-hover');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        isHovering = false;
+        ring.classList.remove('cursor-hover');
+        dot.classList.remove('cursor-hover');
+      });
+    });
+  };
+
+  attachHoverTargets();
+
+  if (typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      attachHoverTargets();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+/**
+ * 3. Hiệu ứng nghiêng 3D theo chuột (3D Interactive Tilt)
+ */
+function initTiltEffect() {
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
+  const attachTilt = () => {
+    const cards = document.querySelectorAll('.tilt-card, .tour-card, .category-card, .weather-plan-box');
+    cards.forEach(card => {
+      if (card.dataset.tiltBound) return;
+      card.dataset.tiltBound = 'true';
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -((y - centerY) / centerY) * 6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+        card.style.setProperty('--mouse-x', `${((x / rect.width) * 100).toFixed(1)}%`);
+        card.style.setProperty('--mouse-y', `${((y / rect.height) * 100).toFixed(1)}%`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    });
+  };
+
+  attachTilt();
+
+  if (typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      attachTilt();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+/**
+ * 4. Hiệu ứng cuộn trang xuất hiện mượt (Scroll Reveal Animations)
+ */
+function initScrollReveal() {
+  const observeElements = () => {
+    const elements = document.querySelectorAll('.reveal-on-scroll, .section-title, .timeline-item, .tour-card');
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    elements.forEach(el => {
+      if (!el.dataset.observed) {
+        el.dataset.observed = 'true';
+        observer.observe(el);
+      }
+    });
+  };
+
+  observeElements();
+
+  if (typeof MutationObserver !== 'undefined') {
+    const domObserver = new MutationObserver(() => {
+      observeElements();
+    });
+    domObserver.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+/**
+ * 5. Hiệu ứng Hero Parallax & Mouse Track 3D
+ */
+function initHeroParallax() {
+  const hero = document.querySelector('.hero');
+  if (!hero || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)) return;
+
+  const title = hero.querySelector('.hero-title-dynamic');
+  const badge = hero.querySelector('.floating-badge');
+  const glow = hero.querySelector('.hero-bg-floating-glow');
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    if (title) title.style.transform = `translate3d(${x * 14}px, ${y * 10}px, 0)`;
+    if (badge) badge.style.transform = `translate3d(${x * -8}px, ${y * -6}px, 0)`;
+    if (glow) glow.style.transform = `translate3d(${x * 35}px, ${y * 25}px, 0)`;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    if (title) title.style.transform = 'translate3d(0, 0, 0)';
+    if (badge) badge.style.transform = 'translate3d(0, 0, 0)';
+    if (glow) glow.style.transform = 'translate3d(0, 0, 0)';
+  });
+}
+
 /* ===== KHỞI TẠO KHI TẢI TRANG ===== */
 document.addEventListener('DOMContentLoaded', () => {
   initHomePage();
   initTourDetailPage();
+  initScrollProgress();
+  initMagicCursor();
+  initTiltEffect();
+  initScrollReveal();
+  initHeroParallax();
 });
+

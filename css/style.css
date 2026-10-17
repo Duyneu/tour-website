@@ -2434,5 +2434,312 @@ img {
   }
 }
 
+/* ===================================================
+   DYNAMIC MOTION & CREATIVE WEB EFFECTS
+   Phong cách TheForgottenToys: Motion, Parallax, Cursor, 3D
+   =================================================== */
+
+/* 1. Thanh tiến trình cuộn trang */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8, #f59e0b, #ec4899);
+  z-index: 99999;
+  transition: width 0.12s ease-out;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.85);
+}
+
+/* 2. Con trỏ chuột tương tác sáng tạo (Magic Cursor) */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate3d(-100px, -100px, 0);
+    margin-left: -4px;
+    margin-top: -4px;
+    transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.05s linear;
+    opacity: 0;
+    box-shadow: 0 0 8px #0ea5e9;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(14, 165, 233, 0.65);
+    background: rgba(14, 165, 233, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    transform: translate3d(-100px, -100px, 0);
+    margin-left: -18px;
+    margin-top: -18px;
+    transition: opacity 0.3s ease, border-color 0.2s ease, background-color 0.2s ease, width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0;
+    backdrop-filter: blur(1px);
+    will-change: transform;
+  }
+
+  .cursor-ring.cursor-hover {
+    border-color: rgba(245, 158, 11, 0.95);
+    background: rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+  }
+
+  .cursor-dot.cursor-hover {
+    background: #f59e0b;
+    box-shadow: 0 0 10px #f59e0b;
+  }
+
+  .cursor-ring.cursor-down {
+    transform: scale(0.75);
+    border-color: #0284c7;
+    background: rgba(2, 132, 199, 0.3);
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* 3. Dải băng chữ chạy vô tận (Infinite Marquee Ticker) */
+.marquee-ticker-wrap {
+  overflow: hidden;
+  user-select: none;
+  background: linear-gradient(135deg, #0c2d48, #0369a1);
+  color: #ffffff;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  box-shadow: 0 6px 20px rgba(3, 105, 161, 0.25);
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-ticker-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee-content .dot {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* 4. Hiệu ứng Hero Parallax & Floating Elements */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-floating-glow {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(3, 105, 161, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -275px;
+  margin-left: -275px;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(135deg, #ffffff 25%, #7dd3fc 65%, #fde047 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.floating-badge {
+  animation: floatingBob 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatingBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.pulse-glow {
+  position: relative;
+  overflow: hidden;
+  animation: pulseButtonGlow 3s infinite;
+}
+
+@keyframes pulseButtonGlow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 26px rgba(245, 158, 11, 0.75), 0 0 0 6px rgba(245, 158, 11, 0.2);
+  }
+}
+
+/* Hiệu ứng vệt sáng lướt qua nút (Shimmer sheen) */
+.pulse-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-25deg);
+  animation: sheenSlide 4s infinite ease-in-out;
+}
+
+@keyframes sheenSlide {
+  0%, 65% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* 5. Hiệu ứng 3D Interactive Tilt & Glare */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  position: relative;
+  will-change: transform;
+}
+
+.tilt-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 65%);
+  transition: opacity 0.35s ease;
+  z-index: 5;
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* 6. Hiệu ứng Scroll Reveal (Cuộn tới đâu bay lên tới đó) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Độ trễ xuất hiện so le (Staggered Animation) cho các thẻ */
+.tour-grid .tour-card:nth-child(1) { transition-delay: 0.05s; }
+.tour-grid .tour-card:nth-child(2) { transition-delay: 0.12s; }
+.tour-grid .tour-card:nth-child(3) { transition-delay: 0.19s; }
+.tour-grid .tour-card:nth-child(4) { transition-delay: 0.26s; }
+.tour-grid .tour-card:nth-child(5) { transition-delay: 0.33s; }
+.tour-grid .tour-card:nth-child(6) { transition-delay: 0.40s; }
+
+.timeline-list .timeline-item:nth-child(odd) {
+  transition-delay: 0.05s;
+}
+
+.timeline-list .timeline-item:nth-child(even) {
+  transition-delay: 0.12s;
+}
+
+/* Micro-interaction: Gợn sóng xung quanh icon mốc thời gian */
+.timeline-icon-box {
+  position: relative;
+}
+
+.timeline-icon-box::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(14, 165, 233, 0.4);
+  animation: markerPulse 2.5s infinite;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+
 
 

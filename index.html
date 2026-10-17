@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <!-- ===== THANH TIẾN TRÌNH CUỘN TRANG ===== -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- ===== CON TRỎ CHUỘT TƯƠNG TÁC (MAGIC CURSOR) ===== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container">
@@ -31,30 +38,73 @@
     </div>
   </header>
 
-  <!-- ===== HERO BANNER ===== -->
+  <!-- ===== HERO BANNER VỚI HIỆU ỨNG PARALLAX ===== -->
   <section class="hero" id="top">
+    <div class="hero-bg-floating-glow"></div>
     <div class="hero-content">
-      <div class="project-badge-pill">
+      <div class="project-badge-pill floating-badge">
         🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh TP.HCM
       </div>
-      <h1>Khám Phá Vẻ Đẹp<br>Quy Nhơn - Bình Định</h1>
+      <h1 class="hero-title-dynamic">Khám Phá Vẻ Đẹp<br><span class="hero-gradient-text">Quy Nhơn - Bình Định</span></h1>
       <p>Cùng tụi mình dạo quanh xứ Nẫu mộng mơ: từ làn nước trong xanh ngọc bích Kỳ Co, Eo Gió lộng gió, ẩm thực hải sản phố biển đến trải nghiệm vũ trụ kỳ thú tại ExploraScience.</p>
       <div class="hero-buttons">
-        <a href="#lich-trinh" class="hero-btn">Xem lịch trình chuyến đi</a>
+        <a href="#lich-trinh" class="hero-btn pulse-glow">Xem lịch trình chuyến đi</a>
         <a href="#dia-diem" class="hero-btn-outline">Địa điểm nổi bật →</a>
       </div>
     </div>
   </section>
 
+  <!-- ===== MARQUEE TICKER (DẢI CHỮ CHẠY VÔ TẬN) ===== -->
+  <div class="marquee-ticker-wrap">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>🌊 THẬP TỨ TOUR</span>
+        <span class="dot">•</span>
+        <span>🎓 LỚP 10A4 THPT LƯƠNG THẾ VINH (2026)</span>
+        <span class="dot">•</span>
+        <span>🏖️ KỲ CO - EO GIÓ</span>
+        <span class="dot">•</span>
+        <span>🍜 BÚN CÁ NGỌC LIÊN & NEM CHẢ LỢI</span>
+        <span class="dot">•</span>
+        <span>🦞 HẢI SẢN XUÂN DIỆU DUY MẬP</span>
+        <span class="dot">•</span>
+        <span>🚀 KHÁM PHÁ VŨ TRỤ EXPLORASCIENCE</span>
+        <span class="dot">•</span>
+        <span>☂️ SẴN SÀNG DÙ & ÁO MƯA</span>
+        <span class="dot">•</span>
+        <span>🏨 KHÁCH SẠN ODIN QUY NHƠN</span>
+        <span class="dot">•</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>🌊 THẬP TỨ TOUR</span>
+        <span class="dot">•</span>
+        <span>🎓 LỚP 10A4 THPT LƯƠNG THẾ VINH (2026)</span>
+        <span class="dot">•</span>
+        <span>🏖️ KỲ CO - EO GIÓ</span>
+        <span class="dot">•</span>
+        <span>🍜 BÚN CÁ NGỌC LIÊN & NEM CHẢ LỢI</span>
+        <span class="dot">•</span>
+        <span>🦞 HẢI SẢN XUÂN DIỆU DUY MẬP</span>
+        <span class="dot">•</span>
+        <span>🚀 KHÁM PHÁ VŨ TRỤ EXPLORASCIENCE</span>
+        <span class="dot">•</span>
+        <span>☂️ SẴN SÀNG DÙ & ÁO MƯA</span>
+        <span class="dot">•</span>
+        <span>🏨 KHÁCH SẠN ODIN QUY NHƠN</span>
+        <span class="dot">•</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== VỀ TỤI TÔI ===== -->
-  <section class="about-us-section" id="ve-tui-toi">
+  <section class="about-us-section reveal-on-scroll" id="ve-tui-toi">
     <div class="container">
       <div class="section-title">
         <h2>Về Chúng Tôi</h2>
         <p>Câu chuyện nhỏ đằng sau trang web Thập Tứ Tour</p>
       </div>
       
-      <div class="about-us-card">
+      <div class="about-us-card tilt-card">
         <div class="about-us-content">
           <span class="school-tag">🏫 Lớp 10A4 • Năm 2026 • THPT Lương Thế Vinh TP.HCM</span>
           <h3>Chào mọi người, tụi mình là Thập Tứ Tour! 👋</h3>
@@ -92,7 +142,7 @@
   </section>
 
   <!-- ===== LỊCH TRÌNH CHUYẾN ĐI (TIMELINE 2 NGÀY ĐẦU) ===== -->
-  <section class="timeline-section" id="lich-trinh">
+  <section class="timeline-section reveal-on-scroll" id="lich-trinh">
     <div class="container">
       <div class="section-title">
         <span class="section-badge">🗓️ Lộ trình thực tế</span>
@@ -101,7 +151,7 @@
       </div>
 
       <!-- Banner hỗ trợ dù & áo mưa -->
-      <div class="umbrella-alert-banner">
+      <div class="umbrella-alert-banner floating-badge">
         <span class="umbrella-icon">☂️</span>
         <div class="umbrella-text">
           <strong>Lưu ý chu đáo từ Thập Tứ Tour:</strong> Đoàn luôn chuẩn bị sẵn <strong>dù che và áo mưa tiện lợi</strong> để hỗ trợ tận tình cho các thành viên trong suốt chuyến đi!
@@ -128,7 +178,7 @@
   </section>
 
   <!-- ===== DANH MỤC ĐỊA DANH ===== -->
-  <section class="categories" id="categories">
+  <section class="categories reveal-on-scroll" id="categories">
     <div class="container">
       <div class="section-title">
         <h2>Khám phá theo danh mục</h2>
@@ -141,7 +191,7 @@
   </section>
 
   <!-- ===== TÌM KIẾM ĐỊA DANH NỔI BẬT ===== -->
-  <section class="search-filter" id="dia-diem">
+  <section class="search-filter reveal-on-scroll" id="dia-diem">
     <div class="container">
       <div class="section-title" style="margin-bottom: 25px;">
         <span class="section-badge">📍 Điểm dừng chân</span>
@@ -158,7 +208,7 @@
   </section>
 
   <!-- ===== DANH SÁCH ĐỊA ĐIỂM ===== -->
-  <section class="tours-section">
+  <section class="tours-section reveal-on-scroll">
     <div class="container">
       <div class="tour-grid" id="tourGrid">
         <!-- Render bằng JS -->
@@ -167,7 +217,7 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+  <footer class="footer reveal-on-scroll">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
