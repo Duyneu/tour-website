@@ -183,7 +183,7 @@ function renderTimeline(dayNumber = 1) {
           <div class="timeline-icon-box">${ev.icon || '📍'}</div>
           <div class="timeline-line"></div>
         </div>
-        <div class="timeline-content tilt-card">
+        <div class="timeline-content">
           <div class="timeline-time-badge">${ev.time}</div>
           <h3 class="timeline-event-title">${ev.title}</h3>
           <p class="timeline-event-desc">${ev.desc}</p>
@@ -207,7 +207,7 @@ function renderTimeline(dayNumber = 1) {
     });
 
     weatherHtml = `
-      <div class="weather-plan-box tilt-card reveal-on-scroll">
+      <div class="weather-plan-box reveal-on-scroll">
         <div class="weather-header">
           <span class="weather-icon">🌧️</span>
           <div>
@@ -600,7 +600,7 @@ function initMagicCursor() {
 
   // Gắn sự kiện hover cho các phần tử tương tác (magnetic feel)
   const attachHoverTargets = () => {
-    const targets = document.querySelectorAll('a, button, .tour-card, .category-card, .timeline-tab-btn, .timeline-place-tag a, input, select');
+    const targets = document.querySelectorAll('a, button, .tour-card, .category-card, .timeline-tab-btn, input, select');
     targets.forEach(el => {
       if (el.dataset.cursorBound) return;
       el.dataset.cursorBound = 'true';

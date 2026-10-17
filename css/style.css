@@ -2205,7 +2205,7 @@ img {
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-sm);
   padding: 22px 25px;
-  transition: var(--transition);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   position: relative;
 }
 
@@ -2213,7 +2213,6 @@ img {
   background: var(--white);
   border-color: var(--primary-light);
   box-shadow: var(--shadow-lg);
-  transform: translateX(4px);
 }
 
 .timeline-time-badge {
@@ -2246,34 +2245,43 @@ img {
 /* Tag liên kết tới địa điểm nổi bật */
 .timeline-place-tag {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .timeline-place-tag a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
+  padding: 8px 18px;
   background: #f0f9ff;
   border: 1.5px solid #7dd3fc;
   color: var(--primary-dark);
   font-size: 0.88rem;
   font-weight: 600;
   border-radius: 30px;
-  transition: var(--transition);
+  cursor: pointer !important;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.timeline-place-tag a * {
+  pointer-events: none;
+  cursor: pointer !important;
 }
 
 .timeline-place-tag a:hover {
   background: var(--primary);
   border-color: var(--primary);
   color: var(--white);
-  transform: translateX(3px);
-  box-shadow: 0 4px 10px rgba(3, 105, 161, 0.25);
+  box-shadow: 0 4px 14px rgba(3, 105, 161, 0.25);
 }
 
 .timeline-place-tag a .arrow-icon {
   font-weight: 800;
   transition: transform 0.2s ease;
+  display: inline-block;
 }
 
 .timeline-place-tag a:hover .arrow-icon {
@@ -2490,14 +2498,15 @@ img {
     height: 8px;
     background: #0ea5e9;
     border-radius: 50%;
-    pointer-events: none;
+    pointer-events: none !important;
     z-index: 999999;
     transform: translate3d(-100px, -100px, 0);
     margin-left: -4px;
     margin-top: -4px;
-    transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.05s linear;
+    transition: opacity 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     opacity: 0;
     box-shadow: 0 0 8px #0ea5e9;
+    will-change: transform;
   }
 
   .cursor-ring {
@@ -2506,24 +2515,23 @@ img {
     left: 0;
     width: 36px;
     height: 36px;
-    border: 2px solid rgba(14, 165, 233, 0.65);
-    background: rgba(14, 165, 233, 0.06);
+    border: 2px solid rgba(14, 165, 233, 0.7);
+    background: rgba(14, 165, 233, 0.08);
     border-radius: 50%;
-    pointer-events: none;
+    pointer-events: none !important;
     z-index: 999998;
     transform: translate3d(-100px, -100px, 0);
     margin-left: -18px;
     margin-top: -18px;
-    transition: opacity 0.3s ease, border-color 0.2s ease, background-color 0.2s ease, width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+    transition: opacity 0.25s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     opacity: 0;
-    backdrop-filter: blur(1px);
     will-change: transform;
   }
 
   .cursor-ring.cursor-hover {
     border-color: rgba(245, 158, 11, 0.95);
     background: rgba(245, 158, 11, 0.15);
-    box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
   }
 
   .cursor-dot.cursor-hover {
