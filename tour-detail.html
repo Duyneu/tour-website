@@ -22,28 +22,43 @@
     <div class="container">
       <a href="index.html" class="logo">
         <img src="logo.png" alt="Logo Thập Tứ Tour" class="logo-image">
-        <span>Thập Tứ Tour</span>
+        <span data-i18n="logo_title">Thập Tứ Tour</span>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+
       <nav class="nav" id="nav">
         <ul class="nav-list">
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="index.html#ve-tui-toi">Về chúng tôi</a></li>
-          <li><a href="index.html#lich-trinh">Lịch trình chuyến đi</a></li>
-          <li><a href="index.html#dia-diem">Địa điểm nổi bật</a></li>
+          <li><a href="index.html" data-i18n="nav_home">Trang chủ</a></li>
+          <li><a href="index.html#ve-tui-toi" data-i18n="nav_about">Về chúng tôi</a></li>
+          <li><a href="index.html#lich-trinh" data-i18n="nav_itinerary">Lịch trình chuyến đi</a></li>
+          <li><a href="index.html#categories" data-i18n="nav_categories">Danh mục</a></li>
+          <li><a href="index.html#dia-diem" data-i18n="nav_places">Địa điểm nổi bật</a></li>
         </ul>
       </nav>
+
+      <div class="header-right">
+        <!-- Nút chuyển đổi ngôn ngữ -->
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="vi" title="Tiếng Việt">
+            <span class="flag-icon">🇻🇳</span><span class="lang-code">VI</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" title="English">
+            <span class="flag-icon">🇬🇧</span><span class="lang-code">EN</span>
+          </button>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- ===== BREADCRUMB ===== -->
   <div class="breadcrumb">
     <div class="container">
-      <a href="index.html">Trang chủ</a>
+      <a href="index.html" data-i18n="breadcrumb_home">Trang chủ</a>
       <span>›</span>
-      <a href="index.html#dia-diem">Địa điểm nổi bật</a>
+      <a href="index.html#dia-diem" data-i18n="breadcrumb_places">Địa điểm nổi bật</a>
       <span>›</span>
       <span id="breadcrumbName">Chi tiết</span>
     </div>
@@ -65,26 +80,27 @@
         <div class="footer-about">
           <div class="logo">
             <img src="logo.png" alt="Logo Thập Tứ Tour" class="logo-image">
-            <span>Thập Tứ Tour</span>
+            <span data-i18n="logo_title">Thập Tứ Tour</span>
           </div>
-          <p>
-            Thập Tứ Tour là dự án giới thiệu các địa danh du lịch tuyệt đẹp tại Quy Nhơn - Bình Định của nhóm học sinh lớp 10A4 năm 2026, Trường THPT Lương Thế Vinh - TP. Hồ Chí Minh.
+          <p data-i18n="footer_desc">
+            Thập Tứ Tour là dự án cẩm nang du lịch Quy Nhơn - Bình Định của nhóm học sinh lớp 10A4 năm 2026, Trường THPT Lương Thế Vinh - TP. Hồ Chí Minh.
           </p>
         </div>
         <div>
-          <h3>Liên kết nhanh</h3>
+          <h3 data-i18n="footer_quicklinks">Liên kết nhanh</h3>
           <ul class="footer-links">
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="index.html#ve-tui-toi">Về chúng tôi</a></li>
-            <li><a href="index.html#lich-trinh">Lịch trình chuyến đi</a></li>
-            <li><a href="index.html#dia-diem">Địa điểm nổi bật</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Trang chủ</a></li>
+            <li><a href="index.html#ve-tui-toi" data-i18n="nav_about">Về chúng tôi</a></li>
+            <li><a href="index.html#lich-trinh" data-i18n="nav_itinerary">Lịch trình chuyến đi</a></li>
+            <li><a href="index.html#categories" data-i18n="nav_categories">Danh mục</a></li>
+            <li><a href="index.html#dia-diem" data-i18n="nav_places">Địa điểm nổi bật</a></li>
           </ul>
         </div>
         <div>
-          <h3>Thông tin liên hệ</h3>
+          <h3 data-i18n="footer_contact">Thông tin liên hệ</h3>
           <ul class="footer-links">
-            <li>🏫 Trường THPT Lương Thế Vinh, TP.HCM</li>
-            <li>📍 Quận 1, TP. Hồ Chí Minh, Việt Nam</li>
+            <li data-i18n="footer_school">🏫 Trường THPT Lương Thế Vinh, TP.HCM</li>
+            <li data-i18n="footer_address">📍 Quận 1, TP. Hồ Chí Minh, Việt Nam</li>
             <li>✉️ yenit4444@gmail.com</li>
             <li>📞 (+84) 774 805 419</li>
             <li>🌐 Lớp 10A4 Năm 2026 Trường LTV</li>
@@ -92,7 +108,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2024 - 2026 Thập Tứ Tour. Dự án giới thiệu du lịch Quy Nhơn của học sinh lớp 10A4 Trường THPT Lương Thế Vinh, TP.HCM.</p>
+        <p data-i18n="footer_rights">© 2024 - 2026 Thập Tứ Tour. Dự án cẩm nang du lịch Quy Nhơn của học sinh lớp 10A4 Trường THPT Lương Thế Vinh, TP.HCM.</p>
       </div>
     </div>
   </footer>
@@ -100,6 +116,7 @@
   <button class="back-to-top" id="backToTop">↑</button>
 
   <script src="js/tours.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

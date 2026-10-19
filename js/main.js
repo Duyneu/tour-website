@@ -51,26 +51,31 @@ function renderCategories() {
   const grid = document.getElementById('categoryGrid');
   if (!grid || typeof TOURS === 'undefined') return;
 
-  const totalCount = TOURS.length;
+  const categories = (typeof getLocalizedCategories === 'function') ? getLocalizedCategories() : CATEGORIES;
+  const tours = (typeof getLocalizedTours === 'function') ? getLocalizedTours() : TOURS;
+  const totalCount = tours.length;
+  const catAllName = (typeof t === 'function') ? t('cat_all') : 'Tất cả địa danh';
+  const placesSuffix = (typeof t === 'function') ? t('cat_places_count') : 'địa điểm';
+
   let html = `
-    <div class="category-card tilt-card reveal-on-scroll active" data-category="all">
+    <div class="category-card tilt-card reveal-on-scroll ${currentCategory === 'all' ? 'active' : ''}" data-category="all">
       <div class="cat-icon-wrap">
         <span class="cat-icon">🌍</span>
       </div>
-      <span class="cat-name">Tất cả địa danh</span>
-      <span class="cat-count">${totalCount} địa điểm</span>
+      <span class="cat-name">${catAllName}</span>
+      <span class="cat-count">${totalCount} ${placesSuffix}</span>
     </div>
   `;
 
-  CATEGORIES.forEach(cat => {
-    const count = TOURS.filter(t => t.category === cat.id).length;
+  categories.forEach(cat => {
+    const count = tours.filter(t => t.category === cat.id).length;
     html += `
-      <div class="category-card tilt-card reveal-on-scroll" data-category="${cat.id}">
+      <div class="category-card tilt-card reveal-on-scroll ${currentCategory === cat.id ? 'active' : ''}" data-category="${cat.id}">
         <div class="cat-icon-wrap">
           <span class="cat-icon">${cat.icon}</span>
         </div>
         <span class="cat-name">${cat.name}</span>
-        <span class="cat-count">${count} địa điểm</span>
+        <span class="cat-count">${count} ${placesSuffix}</span>
       </div>
     `;
   });
@@ -106,27 +111,32 @@ function renderTourCards(tours) {
   if (!grid) return;
 
   if (tours.length === 0) {
+    const noTitle = (typeof t === 'function') ? t('no_places_title') : 'Không tìm thấy địa điểm phù hợp';
+    const noSub = (typeof t === 'function') ? t('no_places_sub') : 'Vui lòng thử tìm kiếm với từ khóa khác hoặc chọn mục "Tất cả địa danh".';
     grid.innerHTML = `
       <div class="no-tours">
         <span class="no-tours-icon">🔍</span>
-        <h3>Không tìm thấy địa điểm phù hợp</h3>
-        <p>Vui lòng thử tìm kiếm với từ khóa khác hoặc chọn mục "Tất cả địa danh".</p>
+        <h3>${noTitle}</h3>
+        <p>${noSub}</p>
       </div>
     `;
     return;
   }
 
+  const categories = (typeof getLocalizedCategories === 'function') ? getLocalizedCategories() : CATEGORIES;
   const getCatName = (catId) => {
-    const cat = CATEGORIES.find(c => c.id === catId);
+    const cat = categories.find(c => c.id === catId);
     return cat ? cat.name : '';
   };
+  const visitPrefix = (typeof t === 'function') ? t('visit_prefix') : 'Ghé thăm:';
+  const btnText = (typeof t === 'function') ? t('btn_view_place') : 'Xem chi tiết địa điểm';
 
   let html = '';
   tours.forEach(tour => {
     // Render các thẻ tag nhỏ
     let tagsHtml = '';
     if (tour.tags && tour.tags.length > 0) {
-      tagsHtml = `<div class="tour-tags">${tour.tags.map(t => `<span class="tour-tag-pill">${t}</span>`).join('')}</div>`;
+      tagsHtml = `<div class="tour-tags">${tour.tags.map(tag => `<span class="tour-tag-pill">${tag}</span>`).join('')}</div>`;
     }
 
     // Badge thời gian ghé thăm
@@ -135,7 +145,7 @@ function renderTourCards(tours) {
       visitBadge = `
         <div class="tour-visittime-tag">
           <span class="visittime-icon">⏰</span>
-          <span><strong>Ghé thăm:</strong> ${tour.visitTime}</span>
+          <span><strong>${visitPrefix}</strong> ${tour.visitTime}</span>
         </div>
       `;
     }
@@ -155,7 +165,7 @@ function renderTourCards(tours) {
           </div>
           ${tagsHtml}
           <div class="tour-card-footer">
-            <button class="btn-detail btn-detail-full" type="button">Xem chi tiết địa điểm <span class="btn-arrow">→</span></button>
+            <button class="btn-detail btn-detail-full" type="button">${btnText} <span class="btn-arrow">→</span></button>
           </div>
         </div>
       </div>
@@ -176,8 +186,13 @@ function renderTimeline(dayNumber = 1) {
   const container = document.getElementById('timelineContainer');
   if (!container || typeof TIMELINE_DATA === 'undefined') return;
 
-  const dayData = TIMELINE_DATA.find(d => d.day === parseInt(dayNumber)) || TIMELINE_DATA[0];
+  const timelineData = (typeof getLocalizedTimeline === 'function') ? getLocalizedTimeline() : TIMELINE_DATA;
+  const dayData = timelineData.find(d => d.day === parseInt(dayNumber)) || timelineData[0];
   if (!dayData) return;
+
+  const placeLinkPrefix = (typeof t === 'function') ? t('timeline_place_link') : '📍 <strong>Địa điểm trong chuyến đi:</strong>';
+  const weatherTitle = (typeof t === 'function') ? t('weather_plan_title') : 'Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa';
+  const dayBadgePrefix = (typeof t === 'function') ? t('day_badge_prefix') : 'LỊCH TRÌNH NGÀY';
 
   let eventsHtml = '';
   dayData.events.forEach((ev) => {
@@ -186,7 +201,7 @@ function renderTimeline(dayNumber = 1) {
       placeLinkHtml = `
         <div class="timeline-place-tag">
           <a href="tour-detail.html?id=${ev.highlightPlaceId}" title="Bấm xem giới thiệu chi tiết">
-            📍 <strong>Địa điểm trong chuyến đi:</strong> ${ev.placeName} <span class="arrow-icon">→</span>
+            ${placeLinkPrefix} ${ev.placeName} <span class="arrow-icon">→</span>
           </a>
         </div>
       `;
@@ -226,7 +241,7 @@ function renderTimeline(dayNumber = 1) {
         <div class="weather-header">
           <span class="weather-icon">🌧️</span>
           <div>
-            <h4>Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa</h4>
+            <h4>${weatherTitle}</h4>
             <p class="weather-condition">${dayData.weatherPlan.condition}</p>
           </div>
         </div>
@@ -239,7 +254,7 @@ function renderTimeline(dayNumber = 1) {
 
   container.innerHTML = `
     <div class="timeline-day-header reveal-on-scroll">
-      <div class="timeline-day-badge">LỊCH TRÌNH NGÀY ${dayData.day}</div>
+      <div class="timeline-day-badge">${dayBadgePrefix} ${dayData.day}</div>
       <h3>${dayData.title}</h3>
       <p class="timeline-day-summary">${dayData.dateSummary}</p>
     </div>
@@ -267,22 +282,30 @@ function updateActiveFilterBadge(resultCount) {
     return;
   }
 
-  let catLabel = 'Tất cả địa danh';
+  const isEn = typeof getCurrentLang === 'function' && getCurrentLang() === 'en';
+  const categories = (typeof getLocalizedCategories === 'function') ? getLocalizedCategories() : CATEGORIES;
+
+  let catLabel = isEn ? 'All Destinations' : 'Tất cả địa danh';
   if (currentCategory && currentCategory !== 'all') {
-    const cat = CATEGORIES.find(c => c.id === currentCategory);
+    const cat = categories.find(c => c.id === currentCategory);
     catLabel = cat ? `${cat.icon} ${cat.name}` : currentCategory;
   }
 
-  let filterDesc = `Đang xem: <strong>${catLabel}</strong>`;
+  const viewingPrefix = isEn ? 'Showing:' : 'Đang xem:';
+  const keywordPrefix = isEn ? 'Keyword:' : 'Từ khóa:';
+  const placesSuffix = isEn ? 'matching places' : 'địa điểm phù hợp';
+  const clearText = isEn ? '✕ View all' : '✕ Xem tất cả';
+
+  let filterDesc = `${viewingPrefix} <strong>${catLabel}</strong>`;
   if (currentSearch) {
-    filterDesc += ` • Từ khóa: "<em>${currentSearch}</em>"`;
+    filterDesc += ` • ${keywordPrefix} "<em>${currentSearch}</em>"`;
   }
-  filterDesc += ` (${resultCount} địa điểm phù hợp)`;
+  filterDesc += ` (${resultCount} ${placesSuffix})`;
 
   badgeWrap.innerHTML = `
     <div class="filter-pill">
       <span>${filterDesc}</span>
-      <button type="button" class="btn-clear-filter" id="btnClearFilter" title="Xem lại tất cả">✕ Xem tất cả</button>
+      <button type="button" class="btn-clear-filter" id="btnClearFilter" title="${isEn ? 'Reset filter' : 'Xem lại tất cả'}">${clearText}</button>
     </div>
   `;
   badgeWrap.style.display = 'block';
@@ -307,7 +330,8 @@ function updateActiveFilterBadge(resultCount) {
  * Lọc theo danh mục & tìm kiếm từ khóa
  */
 function applyFilters() {
-  let result = TOURS;
+  const tours = (typeof getLocalizedTours === 'function') ? getLocalizedTours() : TOURS;
+  let result = tours;
 
   // Lọc theo danh mục
   if (currentCategory && currentCategory !== 'all') {
@@ -337,8 +361,9 @@ function initHomePage() {
   const tourGrid = document.getElementById('tourGrid');
   if (!tourGrid) return;
 
+  const currentTours = (typeof getLocalizedTours === 'function') ? getLocalizedTours() : TOURS;
   renderCategories();
-  renderTourCards(TOURS);
+  renderTourCards(currentTours);
 
   // Khởi tạo Timeline tabs & view
   const timelineTabs = document.getElementById('timelineTabs');
@@ -383,12 +408,36 @@ function renderTourDetail(tour) {
   const main = document.getElementById('tourDetailMain');
   if (!main) return;
 
-  document.title = `Thập Tứ Tour | ${tour.name}`;
+  const isEn = typeof getCurrentLang === 'function' && getCurrentLang() === 'en';
+  const siteTitle = (typeof t === 'function') ? t('logo_title') : 'Thập Tứ Tour';
+  document.title = `${siteTitle} | ${tour.name}`;
   const breadcrumbName = document.getElementById('breadcrumbName');
   if (breadcrumbName) breadcrumbName.textContent = tour.name;
 
   // Lấy 3 địa danh khác gợi ý xem tiếp
-  const otherTours = TOURS.filter(t => t.id !== tour.id).slice(0, 3);
+  const allTours = (typeof getLocalizedTours === 'function') ? getLocalizedTours() : TOURS;
+  const otherTours = allTours.filter(t => t.id !== tour.id).slice(0, 3);
+
+  // Labels từ hệ thống đa ngôn ngữ
+  const visitTitle = (typeof t === 'function') ? t('detail_visit_title') : 'Mốc thời gian ghé thăm trong chuyến đi:';
+  const locLabel = (typeof t === 'function') ? t('detail_location') : 'Vị trí:';
+  const durLabel = (typeof t === 'function') ? t('detail_duration') : 'Thời lượng:';
+  const tagLabel = (typeof t === 'function') ? t('detail_tags') : 'Đặc trưng:';
+  const bestTimeTitle = (typeof t === 'function') ? t('detail_best_time') : 'Thời điểm đẹp nhất';
+  const bestTimeDesc = (typeof t === 'function') ? t('detail_best_time_desc') : 'Tháng 3 - Tháng 9 (mùa khô, biển êm, trời trong xanh rực rỡ)';
+  const transTitle = (typeof t === 'function') ? t('detail_transport') : 'Phương tiện di chuyển';
+  const transDesc = (typeof t === 'function') ? t('detail_transport_desc') : 'Xe máy, ô tô hoặc cano / thuyền tùy điểm đến';
+  const expTitle = (typeof t === 'function') ? t('detail_experience') : 'Trải nghiệm chính';
+  const expDesc = (typeof t === 'function') ? t('detail_experience_desc') : 'Ngắm cảnh biển đảo hoang sơ, check-in vách đá, thưởng ngoạn di tích';
+  const descHeading = (typeof t === 'function') ? t('detail_desc_heading') : '✨ Vẻ đẹp đặc trưng của';
+  const itinHeading = (typeof t === 'function') ? t('detail_itinerary_heading') : '📋 Lịch trình tham quan trong chuyến đi';
+  const dayBadgeText = (typeof t === 'function') ? t('detail_day_badge') : 'Ngày';
+  const highHeading = (typeof t === 'function') ? t('detail_highlights_heading') : '🌟 Điểm nổi bật chuyến đi';
+  const tipsHeading = (typeof t === 'function') ? t('detail_tips_heading') : '🎒 Lưu ý & Chuẩn bị khi đi';
+  const backPlacesText = (typeof t === 'function') ? t('detail_back_places') : '← Quay lại danh sách địa điểm nổi bật';
+  const backTimelineText = (typeof t === 'function') ? t('detail_back_timeline') : '🗓️ Xem toàn bộ lịch trình 4 ngày 3 đêm →';
+  const relatedHeading = (typeof t === 'function') ? t('detail_related_heading') : 'Khám phá thêm các điểm đến khác trong chuyến đi';
+  const relatedBtnText = (typeof t === 'function') ? t('detail_related_btn') : 'Khám phá địa danh →';
 
   let html = `
     <!-- Ảnh bìa và tiêu đề địa danh -->
@@ -402,15 +451,15 @@ function renderTourDetail(tour) {
         <div class="visit-schedule-banner">
           <span class="schedule-icon">⏰</span>
           <div>
-            <strong>Mốc thời gian ghé thăm trong chuyến đi:</strong>
+            <strong>${visitTitle}</strong>
             <span class="schedule-time-text">${tour.visitTime}</span>
           </div>
         </div>
         ` : ''}
         <div class="place-meta">
-          <span>📍 <strong>Vị trí:</strong> ${tour.location}</span>
-          <span>🕐 <strong>Thời lượng:</strong> ${tour.duration}</span>
-          <span>🌊 <strong>Đặc trưng:</strong> ${tour.tags ? tour.tags.join(' • ') : 'Cảnh sắc Quy Nhơn'}</span>
+          <span>📍 <strong>${locLabel}</strong> ${tour.location}</span>
+          <span>🕐 <strong>${durLabel}</strong> ${tour.duration}</span>
+          <span>🌊 <strong>${tagLabel}</strong> ${tour.tags ? tour.tags.join(' • ') : (isEn ? 'Quy Nhon Coastal Scenery' : 'Cảnh sắc Quy Nhơn')}</span>
         </div>
       </div>
     </div>
@@ -420,29 +469,29 @@ function renderTourDetail(tour) {
       <div class="fact-item tilt-card">
         <span class="fact-icon">🌅</span>
         <div>
-          <h4>Thời điểm đẹp nhất</h4>
-          <p>Tháng 3 - Tháng 9 (mùa khô, biển êm, trời trong xanh rực rỡ)</p>
+          <h4>${bestTimeTitle}</h4>
+          <p>${bestTimeDesc}</p>
         </div>
       </div>
       <div class="fact-item tilt-card">
         <span class="fact-icon">🛵</span>
         <div>
-          <h4>Phương tiện di chuyển</h4>
-          <p>Xe máy, ô tô hoặc cano / thuyền tùy điểm đến</p>
+          <h4>${transTitle}</h4>
+          <p>${transDesc}</p>
         </div>
       </div>
       <div class="fact-item tilt-card">
         <span class="fact-icon">📸</span>
         <div>
-          <h4>Trải nghiệm chính</h4>
-          <p>Ngắm cảnh biển đảo hoang sơ, check-in vách đá, thưởng ngoạn di tích</p>
+          <h4>${expTitle}</h4>
+          <p>${expDesc}</p>
         </div>
       </div>
     </div>
 
     <!-- Giới thiệu chi tiết cảnh đẹp -->
     <div class="place-section reveal-on-scroll">
-      <h2>✨ Vẻ đẹp đặc trưng của ${tour.name}</h2>
+      <h2>${descHeading} ${tour.name}</h2>
       <div class="place-description">
         ${tour.description}
       </div>
@@ -450,7 +499,7 @@ function renderTourDetail(tour) {
 
     <!-- Lịch trình khám phá gợi ý -->
     <div class="place-section reveal-on-scroll">
-      <h2>📋 Lịch trình tham quan trong chuyến đi</h2>
+      <h2>${itinHeading}</h2>
       <div class="itinerary-list">
   `;
 
@@ -458,7 +507,7 @@ function renderTourDetail(tour) {
     html += `
       <div class="itinerary-card tilt-card">
         <div class="itinerary-badge">
-          <span>Ngày</span>
+          <span>${dayBadgeText}</span>
           <strong>${item.day}</strong>
         </div>
         <div class="itinerary-body">
@@ -475,10 +524,10 @@ function renderTourDetail(tour) {
 
     <!-- Trải nghiệm nổi bật & Lưu ý khi tham quan -->
     <div class="place-section reveal-on-scroll">
-      <h2>💡 Cẩm nang & Bí quyết trải nghiệm</h2>
+      <h2>${tipsHeading}</h2>
       <div class="includes-excludes-grid">
         <div class="info-card info-includes tilt-card">
-          <h3>🌟 Điểm nổi bật chuyến đi</h3>
+          <h3>${highHeading}</h3>
           <ul>
   `;
   if (tour.highlights) {
@@ -490,7 +539,7 @@ function renderTourDetail(tour) {
           </ul>
         </div>
         <div class="info-card info-excludes tilt-card">
-          <h3>🎒 Lưu ý & Chuẩn bị khi đi</h3>
+          <h3>${tipsHeading}</h3>
           <ul>
   `;
   if (tour.tips) {
@@ -506,13 +555,13 @@ function renderTourDetail(tour) {
 
     <!-- Nút quay lại -->
     <div class="back-action-wrap reveal-on-scroll">
-      <a href="index.html#dia-diem" class="btn-back-home">← Quay lại danh sách địa điểm nổi bật</a>
-      <a href="index.html#lich-trinh" class="btn-back-timeline">🗓️ Xem toàn bộ lịch trình 4 ngày 3 đêm →</a>
+      <a href="index.html#dia-diem" class="btn-back-home">${backPlacesText}</a>
+      <a href="index.html#lich-trinh" class="btn-back-timeline">${backTimelineText}</a>
     </div>
 
     <!-- Gợi ý các địa danh khác -->
     <div class="related-places reveal-on-scroll">
-      <h2>Khám phá thêm các điểm đến khác trong chuyến đi</h2>
+      <h2>${relatedHeading}</h2>
       <div class="related-grid">
   `;
 
@@ -525,7 +574,7 @@ function renderTourDetail(tour) {
         <div class="related-body">
           <h4>${t.name}</h4>
           <p>📍 ${t.location}</p>
-          <span class="related-link">Khám phá địa danh →</span>
+          <span class="related-link">${relatedBtnText}</span>
         </div>
       </div>
     `;
@@ -553,29 +602,160 @@ function initTourDetailPage() {
   const tourDetailMain = document.getElementById('tourDetailMain');
   if (!tourDetailMain) return;
 
+  const isEn = typeof getCurrentLang === 'function' && getCurrentLang() === 'en';
   const tourId = getTourIdFromUrl();
   if (!tourId) {
+    const notFoundTitle = isEn ? 'Destination not found!' : 'Không tìm thấy địa danh!';
+    const notFoundLink = isEn ? '← Click here to view all destinations' : '← Bấm vào đây để xem danh sách các địa danh';
     tourDetailMain.innerHTML = `
       <div class="no-tours">
-        <h2>Không tìm thấy địa danh!</h2>
-        <p><a href="index.html#tours">← Bấm vào đây để xem danh sách các địa danh</a></p>
+        <h2>${notFoundTitle}</h2>
+        <p><a href="index.html#dia-diem">${notFoundLink}</a></p>
       </div>
     `;
     return;
   }
 
-  const tour = getTourById(tourId);
+  const allTours = (typeof getLocalizedTours === 'function') ? getLocalizedTours() : TOURS;
+  const tour = allTours.find(t => t.id === parseInt(tourId));
   if (!tour) {
+    const notFoundTitle = isEn ? 'Destination does not exist!' : 'Địa danh không tồn tại!';
+    const notFoundLink = isEn ? '← Click here to view all destinations' : '← Bấm vào đây để xem danh sách các địa danh';
     tourDetailMain.innerHTML = `
       <div class="no-tours">
-        <h2>Địa danh không tồn tại!</h2>
-        <p><a href="index.html#tours">← Bấm vào đây để xem danh sách các địa danh</a></p>
+        <h2>${notFoundTitle}</h2>
+        <p><a href="index.html#dia-diem">${notFoundLink}</a></p>
       </div>
     `;
     return;
   }
 
   renderTourDetail(tour);
+}
+
+/**
+ * Cập nhật nội dung các nút tab lịch trình (Ngày 1 / 2 / 3 / 4)
+ */
+function updateTimelineTabs(lang) {
+  const tabsContainer = document.getElementById('timelineTabs');
+  if (!tabsContainer) return;
+
+  const tabData = {
+    vi: [
+      { day: 1, badge: 'Ngày 1', title: 'Khởi hành & Biển Quy Nhơn' },
+      { day: 2, badge: 'Ngày 2', title: 'Kỳ Co – Eo Gió & Phố đêm' },
+      { day: 3, badge: 'Ngày 3', title: 'Ghềnh Ráng Tiên Sa & Dạo phố' },
+      { day: 4, badge: 'Ngày 4', title: 'Check-in kỉ niệm & Về TP.HCM' }
+    ],
+    en: [
+      { day: 1, badge: 'Day 1', title: 'Departure & Quy Nhon Beach' },
+      { day: 2, badge: 'Day 2', title: 'Ky Co – Eo Gio & Night Streets' },
+      { day: 3, badge: 'Day 3', title: 'Ghenh Rang & Science Center' },
+      { day: 4, badge: 'Day 4', title: 'Farewell Photos & Back to HCMC' }
+    ]
+  };
+
+  const currentTabs = tabData[lang] || tabData.vi;
+  const tabBtns = tabsContainer.querySelectorAll('.timeline-tab-btn');
+  tabBtns.forEach((btn, index) => {
+    const data = currentTabs[index];
+    if (data) {
+      const badge = btn.querySelector('.tab-day-badge');
+      const title = btn.querySelector('.tab-day-title');
+      if (badge) badge.textContent = data.badge;
+      if (title) title.textContent = data.title;
+    }
+  });
+}
+
+/**
+ * Cập nhật dòng chữ chạy ngang (Marquee ticker)
+ */
+function updateMarqueeTicker(lang) {
+  const marqueeBoxes = document.querySelectorAll('.marquee-track .marquee-content');
+  if (!marqueeBoxes || marqueeBoxes.length === 0) return;
+
+  const contentVI = `
+    <span>🌊 THẬP TỨ TOUR</span>
+    <span class="dot">•</span>
+    <span>🎓 LỚP 10A4 THPT LƯƠNG THẾ VINH (2026)</span>
+    <span class="dot">•</span>
+    <span>🏖️ KỲ CO - EO GIÓ</span>
+    <span class="dot">•</span>
+    <span>🌄 GHỀNH RÁNG TIÊN SA - ĐỒI THI NHÂN</span>
+    <span class="dot">•</span>
+    <span>🏛️ BẢO TÀNG TỔNG HỢP BÌNH ĐỊNH</span>
+    <span class="dot">•</span>
+    <span>🍲 NHÀ HÀNG CƠM MẬU QUY NHƠN</span>
+    <span class="dot">•</span>
+    <span>🍜 BÚN CÁ NGỌC LIÊN & NEM CHẢ LỢI</span>
+    <span class="dot">•</span>
+    <span>🦞 HẢI SẢN XUÂN DIỆU DUY MẬP</span>
+    <span class="dot">•</span>
+    <span>🚀 KHÁM PHÁ VŨ TRỤ EXPLORASCIENCE</span>
+    <span class="dot">•</span>
+    <span>☂️ SẴN SÀNG DÙ & ÁO MƯA</span>
+    <span class="dot">•</span>
+    <span>🏨 KHÁCH SẠN ODIN QUY NHƠN</span>
+    <span class="dot">•</span>
+  `;
+
+  const contentEN = `
+    <span>🌊 THAP TU TOUR</span>
+    <span class="dot">•</span>
+    <span>🎓 CLASS 10A4 LUONG THE VINH (2026)</span>
+    <span class="dot">•</span>
+    <span>🏖️ KY CO - EO GIO</span>
+    <span class="dot">•</span>
+    <span>🌄 GHENH RANG TIEN SA HILLSIDE</span>
+    <span class="dot">•</span>
+    <span>🏛️ BINH DINH GENERAL MUSEUM</span>
+    <span class="dot">•</span>
+    <span>🍲 COM MAU RETRO RESTAURANT</span>
+    <span class="dot">•</span>
+    <span>🍜 NGOC LIEN FISH NOODLES & NEM LOI</span>
+    <span class="dot">•</span>
+    <span>🦞 XUAN DIEU SEAFOOD STREET</span>
+    <span class="dot">•</span>
+    <span>🚀 EXPLORASCIENCE SPACE CENTER</span>
+    <span class="dot">•</span>
+    <span>☂️ UMBRELLAS & RAINCOATS READY</span>
+    <span class="dot">•</span>
+    <span>🏨 ODIN HOTEL QUY NHON</span>
+    <span class="dot">•</span>
+  `;
+
+  const chosenContent = lang === 'en' ? contentEN : contentVI;
+  marqueeBoxes.forEach(box => {
+    box.innerHTML = chosenContent;
+  });
+}
+
+/**
+ * Khởi tạo bộ chuyển đổi ngôn ngữ (Language Switcher)
+ */
+function initLanguageSwitcher() {
+  const currentLang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'vi';
+
+  // Đồng bộ trạng thái giao diện và thuộc tính lang
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+    btn.addEventListener('click', (e) => {
+      const targetLang = e.currentTarget.dataset.lang;
+      if (typeof switchLanguage === 'function') {
+        switchLanguage(targetLang);
+      }
+    });
+  });
+
+  // Nếu người dùng đã chọn English trước đó, áp dụng ngay tức thì
+  if (currentLang === 'en' && typeof switchLanguage === 'function') {
+    switchLanguage('en');
+  } else {
+    updateTimelineTabs('vi');
+    updateMarqueeTicker('vi');
+  }
 }
 
 
@@ -1076,6 +1256,7 @@ function initHeroParallax() {
 document.addEventListener('DOMContentLoaded', () => {
   initHomePage();
   initTourDetailPage();
+  initLanguageSwitcher();
   initScrollProgress();
   initMagicCursor();
   initTiltEffect();
