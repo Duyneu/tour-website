@@ -487,6 +487,13 @@ function renderTourDetail(tour) {
           <p>${expDesc}</p>
         </div>
       </div>
+      <div class="fact-item tilt-card">
+        <span class="fact-icon">🏷️</span>
+        <div>
+          <h4>${isEn ? 'Tour Package' : 'Gói tour trải nghiệm'}</h4>
+          <p>${isEn ? 'Included in full 4D3N tour (5,920,000 VND / student)' : 'Nằm trong tour trọn gói 4N3Đ (5.920.000đ / người)'}</p>
+        </div>
+      </div>
     </div>
 
     <!-- Giới thiệu chi tiết cảnh đẹp -->
@@ -680,6 +687,8 @@ function updateMarqueeTicker(lang) {
     <span class="dot">•</span>
     <span>🎓 LỚP 10A4 THPT LƯƠNG THẾ VINH (2026)</span>
     <span class="dot">•</span>
+    <span>💰 GIÁ CẢ TOUR: 5.920.000đ / NGƯỜI</span>
+    <span class="dot">•</span>
     <span>🏖️ KỲ CO - EO GIÓ</span>
     <span class="dot">•</span>
     <span>🌄 GHỀNH RÁNG TIÊN SA - ĐỒI THI NHÂN</span>
@@ -704,6 +713,8 @@ function updateMarqueeTicker(lang) {
     <span>🌊 THAP TU TOUR</span>
     <span class="dot">•</span>
     <span>🎓 CLASS 10A4 LUONG THE VINH (2026)</span>
+    <span class="dot">•</span>
+    <span>💰 ALL-INCLUSIVE TOUR: 5,920,000 VND / PERSON</span>
     <span class="dot">•</span>
     <span>🏖️ KY CO - EO GIO</span>
     <span class="dot">•</span>
