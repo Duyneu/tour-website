@@ -55,7 +55,7 @@ const I18N = {
     cost_feat_care: "<strong>Hỗ trợ chu đáo</strong>: dù che, áo mưa tiện lợi dự phòng thời tiết & bảo hiểm du lịch trọn tour",
     tab_day_prefix: "NGÀY",
     day_badge_prefix: "LỊCH TRÌNH NGÀY",
-    timeline_place_link: "📍 <strong>Địa điểm trong chuyến đi:</strong>",
+    places_section_badge: "<strong>📍 Điểm dừng chân</strong>",
     weather_plan_title: "Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa",
 
     // Categories
@@ -160,7 +160,7 @@ const I18N = {
     cost_feat_care: "<strong>Thoughtful amenities</strong>: umbrellas, raincoats for bad weather backup & comprehensive travel insurance",
     tab_day_prefix: "DAY",
     day_badge_prefix: "ITINERARY DAY",
-    timeline_place_link: "📍 <strong>Stop on the itinerary:</strong>",
+    places_section_badge: "<strong>📍 Stops on the Itinerary</strong>",
     weather_plan_title: "Backup Plan for Rainy / Bad Weather",
 
     // Categories
