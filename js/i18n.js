@@ -55,7 +55,8 @@ const I18N = {
     cost_feat_care: "<strong>Hỗ trợ chu đáo</strong>: dù che, áo mưa tiện lợi dự phòng thời tiết & bảo hiểm du lịch trọn tour",
     tab_day_prefix: "NGÀY",
     day_badge_prefix: "LỊCH TRÌNH NGÀY",
-    places_section_badge: "<strong>📍 Điểm dừng chân</strong>",
+    timeline_place_link: "📍 <strong>Địa điểm trong chuyến đi:</strong>",
+    places_section_badge: "📍 Điểm dừng chân",
     weather_plan_title: "Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa",
 
     // Categories
@@ -71,7 +72,7 @@ const I18N = {
     active_filter_total: "trên tổng số",
 
     // Featured Places
-    places_section_title: "Địa Điểm Nổi Bật",
+        places_section_title: "Địa Điểm Nổi Bật",
     places_section_sub: "Các điểm dừng chân đặc sắc trong chuyến đi Quy Nhơn 4N3Đ của lớp 10A4",
     visit_prefix: "Ghé thăm:",
     btn_view_place: "Xem chi tiết địa điểm",
@@ -160,7 +161,8 @@ const I18N = {
     cost_feat_care: "<strong>Thoughtful amenities</strong>: umbrellas, raincoats for bad weather backup & comprehensive travel insurance",
     tab_day_prefix: "DAY",
     day_badge_prefix: "ITINERARY DAY",
-    places_section_badge: "<strong>📍 Stops on the Itinerary</strong>",
+    timeline_place_link: "📍 <strong>Stop on the itinerary:</strong>",
+    places_section_badge: "📍 Featured Destinations",
     weather_plan_title: "Backup Plan for Rainy / Bad Weather",
 
     // Categories
@@ -176,7 +178,7 @@ const I18N = {
     active_filter_total: "out of total",
 
     // Featured Places
-    places_section_title: "Featured Destinations",
+        places_section_title: "Featured Destinations",
     places_section_sub: "Signature stops across our 4D3N Quy Nhon journey by Class 10A4",
     visit_prefix: "Visit time:",
     btn_view_place: "View place details",

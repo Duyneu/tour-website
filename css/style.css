@@ -1563,13 +1563,19 @@ img {
     height: 32px;
   }
 
-  /* Back to Top Mobile */
+  /* Back to Top Mobile - Tối ưu không che chữ & hiệu ứng kính mờ */
   .back-to-top {
-    bottom: 20px;
-    right: 16px;
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
+    bottom: 16px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    background: rgba(3, 105, 161, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    z-index: 99;
   }
   /* Header mobile */
   .hamburger {
@@ -2660,10 +2666,11 @@ img {
   }
 
   .cost-feat-item {
-    padding: 11px 13px;
+    padding: 11px 45px 11px 13px;
     gap: 10px;
     font-size: 0.86rem;
     line-height: 1.45;
+    position: relative;
   }
 
   .cost-price-badge {

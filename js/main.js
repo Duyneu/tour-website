@@ -23,16 +23,35 @@ if (hamburger && nav) {
   });
 }
 
-// Nút back to top
+// Nút back to top - Tự ẩn khi cuộn xuống đọc, chỉ hiện khi cuộn ngược lên trên mobile
 const backToTopBtn = document.getElementById('backToTop');
 if (backToTopBtn) {
+  let lastScrollY = window.scrollY;
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTopBtn.classList.add('show');
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 400) {
+      if (window.innerWidth <= 768) {
+        // Trên mobile: khi người dùng đang lướt xuống đọc bài -> ẩn đi để KHÔNG BAO GIỜ che chữ/thẻ
+        if (currentScrollY > lastScrollY + 6) {
+          backToTopBtn.classList.remove('show');
+        } 
+        // Khi người dùng vuốt ngược lên để quay lại -> hiển thị lại nút
+        else if (currentScrollY < lastScrollY - 6) {
+          backToTopBtn.classList.add('show');
+        }
+      } else {
+        // Desktop màn rộng -> hiện bình thường
+        backToTopBtn.classList.add('show');
+      }
     } else {
       backToTopBtn.classList.remove('show');
     }
-  });
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
