@@ -510,7 +510,7 @@ function renderTourDetail(tour) {
         <span class="fact-icon">🏷️</span>
         <div>
           <h4>${isEn ? 'Tour Package' : 'Gói tour trải nghiệm'}</h4>
-          <p>${isEn ? 'Included in full 4D3N tour (5,920,000 VND / student)' : 'Nằm trong tour trọn gói 4N3Đ (5.920.000đ / người)'}</p>
+          <p>${isEn ? 'Included in full 4D3N tour (5,920,000&nbsp;VND / student)' : 'Nằm trong tour trọn gói 4N3Đ (5.920.000đ / người)'}</p>
         </div>
       </div>
     </div>

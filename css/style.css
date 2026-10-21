@@ -1647,12 +1647,18 @@ img {
   }
 
   .hero-price-badge {
-    font-size: 0.8rem;
-    padding: 6px 14px;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .hero-price-badge strong {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    white-space: nowrap !important;
   }
 
   .hero h1 {
@@ -1685,6 +1691,24 @@ img {
     justify-content: center;
     display: flex;
     align-items: center;
+  }
+
+  /* Mobile tour-cost-left h3 - Giữ giá và tiêu đề trên cùng 1 dòng */
+  .tour-cost-left h3 {
+    font-size: 1.05rem;
+    gap: 6px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .tour-cost-left h3 strong {
+    font-size: 1.22rem;
+    white-space: nowrap !important;
+  }
+
+  .tour-cost-left h3 small {
+    font-size: 0.8rem;
+    white-space: nowrap !important;
   }
 
   /* Categories */
@@ -1891,6 +1915,15 @@ img {
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
   letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.price-nowrap,
+.hero-price-badge strong,
+.tour-cost-left h3 strong,
+.cost-amount,
+.stat-box.stat-highlight-price .stat-number {
+  white-space: nowrap !important;
 }
 
 .hero-price-badge strong {
@@ -1898,6 +1931,7 @@ img {
   font-size: 1.05rem;
   font-weight: 800;
   text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  white-space: nowrap !important;
 }
 
 .hero-buttons {
@@ -2804,10 +2838,14 @@ img {
 }
 
 .tour-cost-left h3 {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   color: var(--primary-dark);
   font-weight: 800;
   margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .tour-cost-left h3 strong {

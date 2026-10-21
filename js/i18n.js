@@ -16,7 +16,7 @@ const I18N = {
 
     // Hero section
     hero_badge: "🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh TP.HCM",
-    hero_price_badge: "🏷️ Giá tour trọn gói 4N3Đ: <strong>5.920.000đ</strong> / bạn",
+    hero_price_badge: "🏷️ Trọn gói 4N3Đ: <strong class=\"price-nowrap\">5.920.000đ</strong> / bạn",
     hero_title: "Khám Phá Vẻ Đẹp<br><span class=\"hero-gradient-text\">Quy Nhơn - Bình Định</span>",
     hero_desc: "Cẩm nang du lịch Quy Nhơn cùng tập thể 10A4: dạo biển vầng trăng khuyết, đón gió Eo Gió - Kỳ Co, khám phá vũ trụ ExploraScience và thưởng thức hải sản tươi ngon.",
     hero_btn_itinerary: "Xem lịch trình chuyến đi",
@@ -45,8 +45,9 @@ const I18N = {
     itinerary_sub: "Hành trình trọn vẹn khám phá Quy Nhơn: chi tiết từng mốc giờ, địa điểm dừng chân, ẩm thực đặc sản & phương án dự phòng thời tiết",
     umbrella_notice: "<strong>Lưu ý chu đáo từ Thập Tứ Tour:</strong> Đoàn luôn chuẩn bị sẵn <strong>dù che và áo mưa tiện lợi</strong> để hỗ trợ tận tình cho các thành viên trong suốt chuyến đi!",
     cost_tag: "🏷️ CHI PHÍ TRỌN GÓI 4N3Đ",
-    cost_heading: "Giá Cả Tour Trọn Gói: <strong>5.920.000đ</strong> <small>/ thành viên</small>",
+    cost_heading: "Giá Trọn Gói: <strong class=\"price-nowrap\">5.920.000đ</strong> <small>/ người</small>",
     cost_desc: "Mức kinh phí thực tế và minh bạch cho chuyến đi 4 ngày 3 đêm của học sinh lớp 10A4, đã bao trọn toàn bộ dịch vụ chất lượng:",
+    cost_amount: "5.920.000đ",
     cost_period: "4 Ngày 3 Đêm • Trọn gói",
     cost_feat_bus: "<strong>Xe giường nằm khứ hồi</strong> TP.HCM - Quy Nhơn & xe du lịch đời mới suốt hành trình",
     cost_feat_hotel: "<strong>Khách sạn 4 sao Odin Quy Nhơn</strong> (nghỉ ngơi 3 đêm, hồ bơi sân thượng, vị trí trung tâm)",
@@ -122,7 +123,7 @@ const I18N = {
 
     // Hero section
     hero_badge: "🎓 Student Project • Class 10A4, Luong The Vinh High School",
-    hero_price_badge: "🏷️ All-inclusive 4D3N Cost: <strong>5,920,000 VND</strong> / student",
+    hero_price_badge: "🏷️ 4D3N Package: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> / student",
     hero_title: "Discover the Charm of<br><span class=\"hero-gradient-text\">Quy Nhon - Binh Dinh</span>",
     hero_desc: "A handcrafted travel guide by Class 10A4: scenic beaches at Ky Co & Eo Gio, stargazing at ExploraScience, and authentic local coastal delicacies.",
     hero_btn_itinerary: "Explore 4-Day Itinerary",
@@ -151,7 +152,7 @@ const I18N = {
     itinerary_sub: "Our day-by-day journey through Quy Nhon: exact timings, stops, local food highlights, and weather backup plans",
     umbrella_notice: "<strong>Thoughtful Tip from Thap Tu Tour:</strong> Our group always brings along <strong>umbrellas and raincoats</strong> to keep everyone comfortable throughout the trip!",
     cost_tag: "🏷️ ALL-INCLUSIVE 4D3N PACKAGE",
-    cost_heading: "Total Tour Package Price: <strong>5,920,000 VND</strong> <small>/ student</small>",
+    cost_heading: "Package Price: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> <small>/ student</small>",
     cost_desc: "Our real, transparent all-inclusive budget for Class 10A4's 4-day 3-night trip, covering all quality services:",
     cost_period: "4 Days 3 Nights • All-inclusive",
     cost_feat_bus: "<strong>Round-trip sleeper coach</strong> HCMC - Quy Nhon & dedicated tour bus throughout the journey",
