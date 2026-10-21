@@ -1772,6 +1772,44 @@ img {
     justify-content: center;
   }
 
+  /* Feature items trong Tour Cost Card - Căn giữa cân đối */
+  .tour-cost-features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .cost-feat-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 18px;
+    gap: 8px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .cost-feat-item .feat-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .cost-feat-item .feat-text {
+    text-align: center;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .cost-feat-item .feat-text strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.96rem;
+    color: var(--primary-dark);
+    text-align: center;
+  }
+
   /* Categories */
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2761,8 +2799,8 @@ img {
   }
 
   .cost-feat-item {
-    padding: 11px 45px 11px 13px;
-    gap: 10px;
+    padding: 16px 18px;
+    gap: 8px;
     font-size: 0.86rem;
     line-height: 1.45;
     position: relative;
