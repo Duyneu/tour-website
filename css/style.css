@@ -1708,37 +1708,42 @@ img {
     align-items: center;
   }
 
-  /* Mobile Tour Cost Header - Bố cục chuẩn không lệch viền */
+  /* Mobile Tour Cost Header - Căn giữa cân đối hoàn hảo */
   .tour-cost-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 14px;
-    padding-bottom: 16px;
-    margin-bottom: 18px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   .tour-cost-left {
     width: 100%;
     min-width: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .cost-tag {
-    font-size: 0.72rem;
-    padding: 4px 12px;
-    margin-bottom: 8px;
+    font-size: 0.74rem;
+    padding: 5px 14px;
+    margin: 0 auto 10px auto;
     letter-spacing: 0.3px;
-    max-width: 100%;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
   }
 
   .tour-cost-left h3 {
     font-size: 1.15rem;
     line-height: 1.35;
-    margin-bottom: 6px;
-    display: block;
-    white-space: normal;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 100%;
   }
 
   .tour-cost-left h3 strong {
@@ -1751,6 +1756,20 @@ img {
   .tour-cost-left h3 small {
     font-size: 0.85rem;
     white-space: nowrap !important;
+  }
+
+  .tour-cost-left p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 96%;
+  }
+
+  .tour-cost-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   /* Categories */

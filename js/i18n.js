@@ -154,6 +154,7 @@ const I18N = {
     cost_tag: "🏷️ 4D3N ALL-INCLUSIVE",
     cost_heading: "Package Price: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> <small>/ student</small>",
     cost_desc: "Our real, transparent all-inclusive budget for Class 10A4's 4-day 3-night trip, covering all quality services:",
+    cost_amount: "5,920,000 VND",
     cost_period: "4 Days 3 Nights • All-inclusive",
     cost_feat_bus: "<strong>Round-trip sleeper coach</strong> HCMC - Quy Nhon & dedicated tour bus throughout the journey",
     cost_feat_hotel: "<strong>4-Star Odin Hotel Quy Nhon</strong> (3-night stay, rooftop infinity pool, prime central location)",
