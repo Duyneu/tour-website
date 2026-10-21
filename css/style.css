@@ -1632,32 +1632,47 @@ img {
     min-height: auto;
   }
 
-  .hero-badges {
+  .hero-badges-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 8px;
     margin-bottom: 14px;
-    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
   }
 
   .project-badge-pill {
-    font-size: 0.75rem;
-    padding: 6px 14px;
-    letter-spacing: 0.2px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    letter-spacing: 0.1px;
     text-transform: none;
     text-align: center;
+    max-width: 92vw;
+    box-sizing: border-box;
+    white-space: normal;
+    line-height: 1.35;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-price-badge {
-    font-size: 0.78rem;
-    padding: 6px 12px;
+    font-size: 0.75rem;
+    padding: 5px 14px;
     white-space: nowrap;
-    max-width: 100%;
+    max-width: 92vw;
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
   }
 
   .hero-price-badge strong {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     white-space: nowrap !important;
   }
 
@@ -1693,21 +1708,48 @@ img {
     align-items: center;
   }
 
-  /* Mobile tour-cost-left h3 - Giữ giá và tiêu đề trên cùng 1 dòng */
+  /* Mobile Tour Cost Header - Bố cục chuẩn không lệch viền */
+  .tour-cost-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+
+  .tour-cost-left {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cost-tag {
+    font-size: 0.72rem;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
   .tour-cost-left h3 {
-    font-size: 1.05rem;
-    gap: 6px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin-bottom: 6px;
+    display: block;
+    white-space: normal;
   }
 
   .tour-cost-left h3 strong {
-    font-size: 1.22rem;
+    font-size: 1.35rem;
+    color: #d97706;
     white-space: nowrap !important;
+    display: inline-block;
   }
 
   .tour-cost-left h3 small {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     white-space: nowrap !important;
   }
 

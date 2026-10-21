@@ -15,7 +15,7 @@ const I18N = {
     nav_places: "Địa điểm nổi bật",
 
     // Hero section
-    hero_badge: "🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh TP.HCM",
+    hero_badge: "🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh",
     hero_price_badge: "🏷️ Trọn gói 4N3Đ: <strong class=\"price-nowrap\">5.920.000đ</strong> / bạn",
     hero_title: "Khám Phá Vẻ Đẹp<br><span class=\"hero-gradient-text\">Quy Nhơn - Bình Định</span>",
     hero_desc: "Cẩm nang du lịch Quy Nhơn cùng tập thể 10A4: dạo biển vầng trăng khuyết, đón gió Eo Gió - Kỳ Co, khám phá vũ trụ ExploraScience và thưởng thức hải sản tươi ngon.",
@@ -122,8 +122,8 @@ const I18N = {
     nav_places: "Highlights",
 
     // Hero section
-    hero_badge: "🎓 Student Project • Class 10A4, Luong The Vinh High School",
-    hero_price_badge: "🏷️ 4D3N Package: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> / student",
+    hero_badge: "🎓 Class 10A4 Project • Luong The Vinh High School",
+    hero_price_badge: "🏷️ 4D3N Tour: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> / student",
     hero_title: "Discover the Charm of<br><span class=\"hero-gradient-text\">Quy Nhon - Binh Dinh</span>",
     hero_desc: "A handcrafted travel guide by Class 10A4: scenic beaches at Ky Co & Eo Gio, stargazing at ExploraScience, and authentic local coastal delicacies.",
     hero_btn_itinerary: "Explore 4-Day Itinerary",
@@ -151,7 +151,7 @@ const I18N = {
     itinerary_title: "Detailed 4-Day 3-Night Schedule",
     itinerary_sub: "Our day-by-day journey through Quy Nhon: exact timings, stops, local food highlights, and weather backup plans",
     umbrella_notice: "<strong>Thoughtful Tip from Thap Tu Tour:</strong> Our group always brings along <strong>umbrellas and raincoats</strong> to keep everyone comfortable throughout the trip!",
-    cost_tag: "🏷️ ALL-INCLUSIVE 4D3N PACKAGE",
+    cost_tag: "🏷️ 4D3N ALL-INCLUSIVE",
     cost_heading: "Package Price: <strong class=\"price-nowrap\">5,920,000&nbsp;VND</strong> <small>/ student</small>",
     cost_desc: "Our real, transparent all-inclusive budget for Class 10A4's 4-day 3-night trip, covering all quality services:",
     cost_period: "4 Days 3 Nights • All-inclusive",
