@@ -669,14 +669,14 @@ function updateTimelineTabs(lang) {
   const tabData = {
     vi: [
       { day: 1, badge: 'Ngày 1', title: 'Khởi hành & Biển Quy Nhơn' },
-      { day: 2, badge: 'Ngày 2', title: 'Kỳ Co – Eo Gió & Phố đêm' },
-      { day: 3, badge: 'Ngày 3', title: 'Ghềnh Ráng Tiên Sa & Dạo phố' },
+      { day: 2, badge: 'Ngày 2', title: 'Kỳ Co – Eo Gió & Tịnh Xá' },
+      { day: 3, badge: 'Ngày 3', title: 'ExploraScience & Ghềnh Ráng' },
       { day: 4, badge: 'Ngày 4', title: 'Check-in kỉ niệm & Về TP.HCM' }
     ],
     en: [
       { day: 1, badge: 'Day 1', title: 'Departure & Quy Nhon Beach' },
-      { day: 2, badge: 'Day 2', title: 'Ky Co – Eo Gio & Night Streets' },
-      { day: 3, badge: 'Day 3', title: 'Ghenh Rang & Science Center' },
+      { day: 2, badge: 'Day 2', title: 'Ky Co – Eo Gio & Pagoda' },
+      { day: 3, badge: 'Day 3', title: 'ExploraScience & Ghenh Rang' },
       { day: 4, badge: 'Day 4', title: 'Farewell Photos & Back to HCMC' }
     ]
   };
@@ -708,7 +708,7 @@ function updateMarqueeTicker(lang) {
     <span class="dot">•</span>
     <span>💰 GIÁ CẢ TOUR: 5.920.000đ / NGƯỜI</span>
     <span class="dot">•</span>
-    <span>🏖️ KỲ CO - EO GIÓ</span>
+    <span>🏖️ KỲ CO - EO GIÓ - TỊNH XÁ NGỌC HÒA</span>
     <span class="dot">•</span>
     <span>🌄 GHỀNH RÁNG TIÊN SA - ĐỒI THI NHÂN</span>
     <span class="dot">•</span>
@@ -718,7 +718,9 @@ function updateMarqueeTicker(lang) {
     <span class="dot">•</span>
     <span>🍜 BÚN CÁ NGỌC LIÊN & NEM CHẢ LỢI</span>
     <span class="dot">•</span>
-    <span>🦞 HẢI SẢN XUÂN DIỆU DUY MẬP</span>
+    <span>🥞 BÁNH XÈO TÔM NHẢY DIÊN HỒNG</span>
+    <span class="dot">•</span>
+    <span>🦞 HẢI SẢN LỘC BIỂN & CÂU MỰC ĐÊM</span>
     <span class="dot">•</span>
     <span>🚀 KHÁM PHÁ VŨ TRỤ EXPLORASCIENCE</span>
     <span class="dot">•</span>
@@ -735,7 +737,7 @@ function updateMarqueeTicker(lang) {
     <span class="dot">•</span>
     <span>💰 ALL-INCLUSIVE TOUR: 5,920,000 VND / PERSON</span>
     <span class="dot">•</span>
-    <span>🏖️ KY CO - EO GIO</span>
+    <span>🏖️ KY CO - EO GIO & NGOC HOA PAGODA</span>
     <span class="dot">•</span>
     <span>🌄 GHENH RANG TIEN SA HILLSIDE</span>
     <span class="dot">•</span>
@@ -745,7 +747,9 @@ function updateMarqueeTicker(lang) {
     <span class="dot">•</span>
     <span>🍜 NGOC LIEN FISH NOODLES & NEM LOI</span>
     <span class="dot">•</span>
-    <span>🦞 XUAN DIEU SEAFOOD STREET</span>
+    <span>🥞 DIEN HONG CRISPY SHRIMP PANCAKES</span>
+    <span class="dot">•</span>
+    <span>🦞 LOC BIEN SEAFOOD & SQUID FISHING</span>
     <span class="dot">•</span>
     <span>🚀 EXPLORASCIENCE SPACE CENTER</span>
     <span class="dot">•</span>

@@ -229,293 +229,323 @@ const CATEGORIES_EN = [
 
 /* Dữ liệu Địa Danh bằng Tiếng Anh (Tự nhiên, cụ thể, không sáo rỗng) */
 const TOURS_EN = [
+  // === 1: Ky Co, Eo Gio & Ngoc Hoa Pagoda ===
   {
     id: 1,
-    name: "Ky Co - Eo Gio (Nhon Ly)",
+    name: "Ky Co - Eo Gio & Ngoc Hoa Pagoda (Nhon Ly)",
     category: "bien-dao",
     location: "Nhon Ly Commune, Quy Nhon City",
-    visitTime: "08:15 – 13:30 • Day 2",
-    duration: "Half day (Morning of Day 2)",
-    tags: ["08:15 Day 2", "Vietnam's Maldives", "Scenic Cliffs", "Coral Snorkeling"],
-    description: "Ky Co is hailed as the 'Maldives of Vietnam' for its crystal-clear turquoise waters and soft white sand sheltered by crescent-shaped mountain cliffs. Right next to it is Eo Gio, a coastal walking trail hugging the rugged rock face over the open sea. Our schedule visits Eo Gio in the morning, followed by swimming at Ky Co and fresh seafood at Nhon Ly.",
+    visitTime: "08:15 – 16:00 • Day 2",
+    duration: "Full Day 2 (08:15 – 16:00)",
+    tags: ["08:15 Day 2", "Speedboat & Snorkeling", "Ngoc Hoa Pagoda", "Eo Gio Cliffs", "Nhon Ly Seafood Feast"],
+    description: "Ky Co is hailed as the 'Maldives of Vietnam' with two-tone turquoise waters and soft white sand sheltered by crescent-shaped mountain cliffs. Adjacent is majestic Eo Gio, a cliffside walkway hugging the ocean, and serene Ngoc Hoa Pagoda featuring Vietnam's tallest twin Guanyin statue. Our Day 2 schedule includes taking a speedboat to Ky Co for coral snorkeling at Bai Dua, a 7-8 dish fresh seafood feast in Nhon Ly fishing village, visiting Ngoc Hoa Pagoda at 14:00, and walking the Eo Gio cliffside trail at 15:00.",
     itinerary: [
       {
         day: 2,
-        title: "08:15 - 09:45: Coastal Walking Trail at Eo Gio",
-        detail: "Walk along the scenic cliffside pathway, take group photos by the wooden walkway against dramatic sea cliffs, and enjoy the ocean breeze."
+        title: "08:15 - 12:20: Speedboat to Ky Co Island, Coral Snorkeling & Swimming",
+        detail: "Book Ky Co island tour at Nhon Ly (450,000 – 490,000 VND / person including round-trip speedboat, beach admission, coral snorkeling at Bai Dua with goggles and life vests, freshwater shower, and village seafood lunch). Swim in turquoise waters and take photos on pristine sand."
       },
       {
         day: 2,
-        title: "10:15 - 13:30: Swimming at Ky Co & Seafood Lunch in Nhon Ly",
-        detail: "Swim in the clear waters of Ky Co beach, then head to a local Nhon Ly restaurant (Hoang Thao Sea View / Phat Trien) for fresh prawns, squid, and cobia hotpot before returning to the hotel."
+        title: "12:40 - 13:50: Fresh Seafood Feast in Nhon Ly Village",
+        detail: "Enjoy a village seafood feast featuring 7-8 fresh dishes caught daily: steamed prawns, tender squid, local fried fish, seafood hotpot, and clams."
+      },
+      {
+        day: 2,
+        title: "14:00 - 15:00: Visit Ngoc Hoa Pagoda",
+        detail: "Pay respects at this peaceful sanctuary overlooking the ocean, home to Vietnam's tallest dual Buddha Guanyin statue (Free admission)."
+      },
+      {
+        day: 2,
+        title: "15:00 - 16:00: Walk along Eo Gio Scenic Coastal Cliff Trail",
+        detail: "Walk the coastal trail hugging the cliffs, take group photos on the wooden seaside walkway, and feel the sea breeze (Eo Gio ticket: 22,000 VND / person)."
       }
     ],
     highlights: [
-      "Scheduled visit: 08:15 – 13:30 on Day 2",
-      "Spectacular cliffside walking path along the sea at Eo Gio",
-      "Two-tone turquoise water and soft white sand at Ky Co",
-      "Freshly prepared local seafood in Nhon Ly fishing village"
+      "Scheduled visit: 08:15 – 16:00 on Day 2 (Ky Co, Nhon Ly village, Ngoc Hoa Pagoda & Eo Gio)",
+      "Round-trip speedboat, coral snorkeling at Bai Dua, and turquoise beach swimming",
+      "Delicious 7-8 dish seafood lunch prepared fresh in Nhon Ly fishing village",
+      "Dual Guanyin statue at Ngoc Hoa Pagoda and scenic cliffside walking trail at Eo Gio"
     ],
     tips: [
-      "Bring sunscreen, swimwear, wide-brim hats, and a power bank",
-      "Strong wind at Eo Gio — hold on tight to hats and loose personal items",
-      "Our team provides backup umbrellas and raincoats if weather shifts"
+      "Bring sunscreen, swimwear, wide-brim hats, towels, and a power bank",
+      "Ky Co tour package runs 450,000 – 490,000 VND / person including speedboat, snorkeling, and seafood lunch",
+      "Eo Gio entrance is 22,000 VND / person; Ngoc Hoa Pagoda is free entry"
     ]
   },
+
+  // === 2: Quy Nhon Beach & Crescent Bay (Central Square) ===
   {
     id: 2,
     name: "Quy Nhon Beach & Crescent Bay (Central Square)",
     category: "thien-nhien",
     location: "Downtown Quy Nhon (near Odin Hotel)",
-    visitTime: "Afternoon Days 1 & 2 • Morning Day 3 (07:50 - 09:45) • Morning Day 4 (08:45 - 09:40)",
-    duration: "Visited across all 4 days",
-    tags: ["Crescent Bay", "Nguyen Tat Thanh Square", "Morning Swim", "Sunset Walk"],
-    description: "Curving right along the heart of downtown and just minutes on foot from Odin Hotel, the crescent-shaped beach and spacious Nguyen Tat Thanh Square serve as our group's central gathering hub: breezy afternoon walks on Days 1 & 2, sunrise swimming on Day 3, and farewell group photos on the morning of Day 4.",
+    visitTime: "Afternoon Day 1 (16:00), Day 2 (16:30) • Morning Day 4 (08:45 – 09:40)",
+    duration: "Visited across multiple days of 4D3N",
+    tags: ["Crescent Bay", "Nguyen Tat Thanh Square", "Farewell Photos", "Sunset Walk"],
+    description: "Curving right along the heart of downtown and just minutes on foot from Odin Hotel, the crescent-shaped beach and spacious Nguyen Tat Thanh Square serve as our group's central gathering hub: afternoon strolls on Day 1 (16:00 - 17:50), sunset leisure on Day 2 (16:30 - 17:30), and memorable farewell class photos on the morning of Day 4 (08:45 - 09:40).",
     itinerary: [
       {
         day: 1,
-        title: "15:30 - 17:30 Day 1: Afternoon Arrival & Seaside Walk",
-        detail: "After an afternoon rest, our group walks along the downtown beach, feeling the fresh sea breeze and taking photos at Nguyen Tat Thanh Square."
+        title: "16:00 - 17:50 Day 1: Afternoon Arrival & Seaside Walk",
+        detail: "After an afternoon rest, our group walks along the downtown beach, enjoying the refreshing ocean breeze and taking photos at Nguyen Tat Thanh Square."
       },
       {
         day: 2,
-        title: "15:30 - 17:30 Day 2: Free Exploration & Seaside Cafes",
-        detail: "Free time for everyone: stroll along the promenade, catch the sunset, relax at oceanview cafes, or pick up local dried snacks."
-      },
-      {
-        day: 3,
-        title: "07:50 - 09:45 Day 3: Morning Swimming & Group Photos",
-        detail: "Under gentle morning sun and calm waves, everyone enjoys a swim in the crescent bay and memorable photos in the clear sea."
+        title: "16:30 - 17:30 Day 2: Free Exploration & Sunset Cafes",
+        detail: "Free time for everyone: stroll along the promenade, catch the golden sunset, relax at oceanview cafes, or shop for local specialties."
       },
       {
         day: 4,
         title: "08:45 - 09:40 Day 4: Farewell Photo Session",
-        detail: "The entire class gathers at the square and beach for final group photos before checking out and boarding the bus back to HCMC."
+        detail: "The entire class gathers at Nguyen Tat Thanh Square (08:45 - 09:00) and moves down to Crescent Bay Beach (09:20 - 09:40) for final group photos before checking out."
       }
     ],
     highlights: [
-      "Scheduled visits: Afternoons of Days 1 & 2, morning Day 3 (swim), morning Day 4 (farewell photos)",
+      "Scheduled visits: Afternoon Day 1 (16:00), afternoon Day 2 (16:30), morning Day 4 (08:45 - 09:40)",
       "Gentle sloping sand and calm waves right in the city center",
       "Spacious square with prominent monument and seaside open spaces",
       "Convenient walking distance just minutes from Odin Hotel"
     ],
     tips: [
-      "Early morning Day 3 (07:50 - 09:45) offers the calmest water and mildest sun for swimming",
+      "Wear your class uniform or best outfits on Day 4 morning for great group photos",
       "Wear comfortable sandals or walking shoes along the seaside promenade",
       "Stop by Surf Bar or nearby beach cafes for cold drinks and sea breeze"
     ]
   },
+
+  // === 3: Xuan Dieu Street, Night Market & Squid Fishing ===
   {
     id: 3,
-    name: "Xuan Dieu Seafood Street & Night Market",
+    name: "Xuan Dieu Seafood Street, Night Market & Squid Fishing",
     category: "van-hoa",
     location: "Xuan Dieu & An Duong Vuong St, Quy Nhon",
-    visitTime: "18:00 – 22:00 (Nights 1 & 2) • 20:20 – 22:00 (Night 3)",
+    visitTime: "Night 1 (18:00 – 21:50) • Night 2 (18:00 – 19:00) • Night 3 (21:30 – 22:20)",
     duration: "Evenings of Days 1, 2, and 3",
-    tags: ["Xuan Dieu Seafood", "Night Market", "Horse Carriage", "Street Snacks"],
-    description: "Quy Nhon's evening culinary hub stretches along oceanfront Xuan Dieu street, lined with celebrated seafood eateries like Duy Map (264 Xuan Dieu) and Loc Bien (48 Xuan Dieu). Further along is the colorful Quy Nhon Night Market and the scenic boulevard where visitors can experience horse-drawn carriage rides along the sea.",
+    tags: ["Loc Bien Seafood", "Night Market", "Night Squid Fishing", "Horse Carriage"],
+    description: "The coastal Xuan Dieu – An Duong Vuong boulevard is the vibrant heartbeat of Quy Nhon nightlife. On Night 1, we enjoy fresh seafood at Loc Bien (48 Xuan Dieu) and explore the bustling Night Market. On Night 2, try the thrilling night squid fishing experience in a coastal village. On Night 3, stroll the seaside avenue, enjoy oceanview coffee, and ride vintage horse carriages.",
     itinerary: [
       {
         day: 1,
-        title: "18:00 - 22:00 Night 1: Seafood Feast at Loc Bien & Night Market",
-        detail: "Group dinner at Loc Bien (48 Xuan Dieu) with grilled scallops, steamed prawns, and fish hotpot, followed by a walk through the bustling Night Market."
+        title: "18:00 - 21:50 Night 1: Seafood at Loc Bien & Night Market Exploration",
+        detail: "Seafood dinner at Loc Bien (48 Xuan Dieu, 150k – 500k VND/person depending on choice), followed by a walk through Quy Nhon Night Market for souvenirs and street snacks."
       },
       {
         day: 2,
-        title: "18:00 - 20:00 Night 2: Premium Seafood at Duy Map",
-        detail: "Dinner at Duy Map (264 Xuan Dieu) featuring live seafood tanks, oceanfront seating, and evening city views."
+        title: "18:00 - 19:00 Night 2: Night Squid Fishing in Coastal Village (Optional)",
+        detail: "Board a local canoe out to sea to try night squid fishing with fishing rods and bait alongside local fishermen (self-funded in small groups)."
       },
       {
         day: 3,
-        title: "20:20 - 22:00 Night 3: Horse Carriage Ride & Evening Snacks",
-        detail: "Board horse carriages along Xuan Dieu and An Duong Vuong streets, followed by street snacks and desserts before heading back to the hotel."
+        title: "21:30 - 22:20 Night 3: Oceanview Cafe & Horse Carriage Ride (Optional)",
+        detail: "Stroll along breezy Xuan Dieu – An Duong Vuong boulevard, relax with seaside drinks, or take a nostalgic horse-drawn carriage ride under the night lights."
       }
     ],
     highlights: [
       "Scheduled visits: Evenings of Days 1, 2, and 3",
-      "Fresh live seafood cooked to order right by the beach",
-      "Lively Night Market with souvenirs, handicrafts, and local sweets",
-      "Horse-drawn carriage ride along the cool coastal road on Night 3"
+      "Fresh live seafood cooked to order at Loc Bien 48 Xuan Dieu",
+      "Exciting night squid fishing adventure in a seaside village",
+      "Lively Night Market atmosphere and scenic horse carriage ride along the coastline"
     ],
     tips: [
-      "Ask for prices by weight on live seafood before ordering for transparency",
-      "Try local Quy Nhon desserts such as warm soybean milk and mixed sweet soup at the market",
-      "Keep wallets and phones secure when browsing crowded night market stalls"
+      "Squid fishing and horse carriage rides are self-funded optional activities best enjoyed in groups",
+      "Keep smaller cash notes ready for easy shopping and snacks at the Night Market",
+      "Always return to the hotel by curfew for group safety and well-deserved rest"
     ]
   },
+
+  // === 4: ExploraScience Quy Nhon (Space & Science Center) ===
   {
     id: 4,
-    name: "Ghenh Rang Tien Sa & Han Mac Tu Memorial",
-    category: "thien-nhien",
-    location: "03 Han Mac Tu, Ghenh Rang Ward, Quy Nhon",
-    visitTime: "08:15 – 10:15 • Day 3",
-    duration: "2 hours (Morning of Day 3)",
-    tags: ["Egg Stone Beach", "Poet Han Mac Tu", "Panoramic Sea View", "Heritage"],
-    description: "Located just 3 km south of downtown, Ghenh Rang Tien Sa features a peaceful coastal hillside with Egg Stone Beach (Queen's Beach) covered in smooth rounded stones, the hillside resting place of celebrated poet Han Mac Tu, and a sweeping view across the entire crescent bay of Quy Nhon.",
+    name: "ExploraScience Quy Nhon (Space & Science Discovery Center)",
+    category: "van-hoa",
+    location: "Science Avenue, Ghenh Rang, Quy Nhon City",
+    visitTime: "08:00 – 10:45 • Morning of Day 3",
+    duration: "2 hours 45 minutes (Morning of Day 3)",
+    tags: ["08:00 Day 3", "Space Science", "Full-Dome Planetarium", "Tesla Coil", "Interactive STEM"],
+    description: "ExploraScience Quy Nhon is Vietnam's first public science discovery center and the second in Southeast Asia. Scheduled as our primary destination on Day 3 morning (08:00 – 10:45), the futuristic center features an 80-seat full-dome 360° planetarium projecting cosmic films, an electrifying Tesla coil high-voltage lightning demonstration, and 7 interactive science galleries (Mars, Venus, Solar System, robotics, and physics).",
     itinerary: [
       {
         day: 3,
-        title: "08:15 - 09:15: Egg Stone Beach (Queen's Beach)",
-        detail: "Walk down to the unique pebble beach once favored by Queen Nam Phuong, admire smooth sea-rounded stones, and take photos against coastal rock formations."
-      },
-      {
-        day: 3,
-        title: "09:15 - 10:15: Han Mac Tu Memorial Hill & Dzũ Kha Woodcarving",
-        detail: "Walk up the tree-shaded stone path to poet Han Mac Tu's memorial, visit artisan Dzu Kha's calligraphy studio, and enjoy the panoramic view of the bay."
+        title: "08:00 - 10:45 Day 3: Cosmic Exploration & Interactive Science",
+        detail: "Complete exploration of ExploraScience: 360-degree full-dome space projection film, observation of high-voltage Tesla electrical arcs, and hands-on experiments across multiple interactive galleries."
       }
     ],
     highlights: [
-      "Scheduled visit: 08:15 – 10:15 on Day 3",
-      "Distinctive beach covered with naturally polished egg-shaped pebbles",
-      "Memorial of celebrated modern Vietnamese poet Han Mac Tu",
-      "Breathtaking viewpoint overlooking Quy Nhon city and its crescent bay"
+      "Official headline visit: 08:00 – 10:45 morning of Day 3",
+      "Immersive 360-degree full-dome planetarium universe projection",
+      "One-of-a-kind live Tesla coil electrical lightning show",
+      "Hundreds of interactive physics and space exploration exhibits",
+      "World-class futuristic architecture and fantastic photo spots"
     ],
     tips: [
-      "Wear flat walking shoes or sneakers; paths and coastal rocks can be uneven",
-      "Please do not take pebbles from Queen's Beach to help preserve the natural site",
-      "Listen to the live woodburning calligraphy demonstrations by artisan Dzu Kha"
+      "Be on time as the planetarium doors lock promptly when showtimes begin",
+      "Follow safety guides closely near high-voltage demonstrations",
+      "100% indoor and air-conditioned, completely immune to any outdoor weather"
     ]
   },
+
+  // === 5: Odin Hotel Quy Nhon ===
   {
     id: 5,
     name: "Odin Hotel Quy Nhon (4-Star Accommodation)",
-    category: "van-hoa",
-    location: "06 Tran Phu, Ward Le Hong Phong, Quy Nhon",
-    visitTime: "Base hotel across all 4 days (Days 1 to 4)",
-    duration: "4 Days 3 Nights accommodation",
-    tags: ["4-Star Hotel", "Central Location", "Rooftop Pool", "Near the Beach"],
-    description: "Odin Hotel Quy Nhon serves as our official base accommodation throughout the 4-day trip. Situated centrally on Tran Phu street, the hotel is within walking distance of the beach, night food streets, and central squares, featuring modern rooms, high-speed Wi-Fi, and a scenic rooftop pool.",
+    category: "thien-nhien",
+    location: "06 Tran Phu, Downtown Quy Nhon City",
+    visitTime: "Base hotel across 4D3N (Check-in 14:05 Day 1 - Check-out 10:00 - 11:30 Day 4)",
+    duration: "Full 4 Days 3 Nights accommodation",
+    tags: ["Group Base", "4-Star Comfort", "Near the Beach", "Buffet Breakfast"],
+    description: "Odin Hotel Quy Nhon serves as our official 4-star base accommodation throughout the 4-day trip. Situated centrally on Tran Phu street, the hotel is within walking distance of the beach and central square, offering modern air-conditioned rooms, comfortable bedding, a rooftop swimming pool, and daily breakfast (complimentary for guests).",
     itinerary: [
       {
         day: 1,
-        title: "11:30 - 14:00 Day 1: Arrival & Check-in",
-        detail: "Arrive, store luggage at reception, enjoy lunch, then check into rooms at 14:00 for an afternoon rest."
+        title: "11:50 - 15:30 Day 1: Arrival, Luggage Storage, Lunch & Rest",
+        detail: "11:50 arrive at hotel, store luggage, and rest. 12:35 lunch at Ngoc Lien / Nem Loi. 14:05 check in, take a refreshing shower, and nap to recharge."
       },
       {
         day: 2,
-        title: "Day 2: Breakfast & Base Station",
-        detail: "Buffet breakfast at the hotel restaurant before departing for Ky Co - Eo Gio, returning at midday for rest."
+        title: "06:30 - 07:30 Day 2: Free Hotel Breakfast & Excursion Prep",
+        detail: "Complimentary breakfast at hotel restaurant before departing for Ky Co - Eo Gio; return around 16:00 to shower and refresh."
       },
       {
         day: 3,
-        title: "Day 3: Midday Rest & Rooftop Pool",
-        detail: "Rest after morning sightseeing, with optional relaxation at the rooftop pool before afternoon stops."
+        title: "Midday Recharge & Evening Prep on Day 3",
+        detail: "Return to hotel for midday rest (12:15 - 13:15) after Com Mau lunch, and shower/dress up (18:10 - 18:45) before dinner at HQ Restaurant."
       },
       {
         day: 4,
-        title: "09:45 - 10:30 Day 4: Check-out & Farewell",
-        detail: "Check out of rooms, settle personal services, load luggage onto the coach, and begin the return trip."
+        title: "10:00 - 11:30 Day 4: Pack & Check-out before 12:00",
+        detail: "Pack belongings, hand over room keys before 12:00, then head to farewell lunch at Com Mau before 13:30 departure."
       }
     ],
     highlights: [
-      "Our official 4-star base across the entire 4D3N trip",
-      "Convenient central location, just 5 minutes walk to Quy Nhon beach",
-      "Rooftop swimming pool with panoramic views of both city and coastline",
-      "Professional hospitality, secure keycard access, and spacious rooms"
+      "Official 4-star lodging and central coordination base for Thap Tu Tour",
+      "Spacious rooms, plush bedding, and strong Wi-Fi",
+      "Prime downtown location within minutes of the beach and night markets",
+      "Daily complimentary breakfast from 06:30 to 07:30"
     ],
     tips: [
-      "Keep room keycards safe; notify class coordinators immediately if lost",
-      "Check hotel amenities before departure to avoid leaving phone chargers or clothes",
-      "Standard hotel check-in is 14:00 and check-out is before 11:00"
+      "Keep keycards safe; report immediately to class coordinators if misplaced",
+      "Check under pillows and phone chargers before checking out on Day 4 morning",
+      "Hotel reception provides umbrella assistance if raining"
     ]
   },
+
+  // === 6: Quy Nhon Culinary Highlights ===
   {
     id: 6,
-    name: "Ngoc Lien Fish Cake Noodles & Nem Cha Loi",
+    name: "Quy Nhon Culinary Highlights: Ngoc Lien, Com Mau, Dien Hong Pancakes & HQ",
     category: "van-hoa",
-    location: "379 Nguyen Hue & 113 Tang Bat Ho, Quy Nhon",
-    visitTime: "12:30 – 14:00 (Day 1) • 17:30 – 18:45 (Day 3)",
-    duration: "Signature local meals on Days 1 and 3",
-    tags: ["Fish Cake Soup", "Grilled Nem", "Traditional Broth", "Authentic Cuisine"],
-    description: "Two quintessential culinary institutions of Quy Nhon: Ngoc Lien offers aromatic fish noodle soup with clear bone broth and chewy homemade fish cakes; Nem Cha Loi serves smoky grilled pork rolls wrapped in rice paper with crisp vegetables and rich dipping sauce.",
+    location: "Downtown Quy Nhon City",
+    visitTime: "Lunch Day 1 (12:35), Dinner Day 2 (19:30), Lunch Days 3 & 4 (11:00 - 13:00), Dinner Day 3 (19:45)",
+    duration: "Signature meals across the 4D3N itinerary",
+    tags: ["Ngoc Lien Fish Soup 65k", "Nem Cha Loi", "Dien Hong Shrimp Pancakes", "Com Mau", "HQ Restaurant"],
+    description: "Cuisine is a memorable pillar of our journey: from Ngoc Lien fish cake soup (65,000 VND / person) or Nem Cha Loi for Day 1 lunch, crispy jumping-shrimp pancakes at Dien Hong (25k-35k VND/each) on Day 2 dinner, to nostalgic 1980s subsidy-era family meals at Com Mau for lunches on Days 3 and 4, and an inviting dinner at HQ Restaurant on Night 3.",
     itinerary: [
       {
         day: 1,
-        title: "12:30 - 14:00 Day 1: Welcome Lunch with Fish Cake Noodles",
-        detail: "Our first meal in Quy Nhon: bowls of fragrant fish cake noodles with fresh herbs and pickled shallots to restore energy after the road trip."
+        title: "12:35 - 14:00 Day 1: Ngoc Lien Fish Soup (65k) or Nem Cha Loi",
+        detail: "Welcome lunch in Quy Nhon: bowls of savory fish cake noodle soup or flavorful grilled pork rolls with fresh herbs."
+      },
+      {
+        day: 2,
+        title: "19:30 - 20:50 Day 2: Dien Hong Crispy Jumping-Shrimp Pancakes",
+        detail: "Dinner savoring golden crispy pancakes with sweet fresh shrimp and tender bean sprouts (25,000 – 35,000 VND each, ~4 pancakes per person)."
       },
       {
         day: 3,
-        title: "17:30 - 18:45 Day 3: Grilled Nem Feast at Loi",
-        detail: "Early dinner savoring hot grilled pork rolls, crispy fried ram skewers, and homemade chili dipping sauce."
+        title: "11:00 - 12:00 Day 3: Traditional Meal at Com Mau Quy Nhon",
+        detail: "Claypot braised fish, crab spinach soup, and boiled pork with pickled eggplant in a 1980s retro dining setting."
+      },
+      {
+        day: 3,
+        title: "19:45 - 21:00 Day 3: Cozy Group Dinner at HQ Restaurant",
+        detail: "Shared dinner at HQ Restaurant with a rich and varied menu in a spacious dining atmosphere."
+      },
+      {
+        day: 4,
+        title: "12:00 - 13:00 Day 4: Farewell Lunch at Com Mau Restaurant",
+        detail: "Final shared lunch at Com Mau before boarding the coach back to Ho Chi Minh City at 13:30."
       }
     ],
     highlights: [
-      "Scheduled visits: Lunch on Day 1 (Ngoc Lien) and dinner on Day 3 (Nem Loi)",
-      "Traditional fish cakes made from fresh local mackerel and barracuda",
-      "Signature dipping sauce simmered from liver, peanuts, and spices",
-      "Spacious dining areas well-suited for large student groups"
+      "Taste the full spectrum of authentic Binh Dinh regional food",
+      "Clear savory fish cake noodle broth at Ngoc Lien (65k VND) and fragrant grilled nem",
+      "Signature crispy jumping-shrimp pancakes at popular Dien Hong",
+      "Authentic claypot rice in 1980s retro atmosphere at Com Mau",
+      "Hearty group dinner at HQ Restaurant"
     ],
     tips: [
-      "Add a dash of local pickled shallots and lime to enhance the fish broth",
-      "Ngoc Lien also packages vacuum-sealed fish cakes if you wish to buy gifts",
-      "Arrive on schedule as these popular spots get busy during peak hours"
+      "Com Mau gets busy at peak lunch hours; our group has reserved seating",
+      "Eat Dien Hong pancakes fresh and hot, wrapped in rice paper with herbs and chili garlic dip"
     ]
   },
+
+  // === 7: Ghenh Rang Tien Sa ===
   {
     id: 7,
-    name: "Com Mau Quy Nhon (Subsidized-Era Restaurant)",
-    category: "van-hoa",
-    location: "72 An Duong Vuong, Quy Nhon City",
-    visitTime: "11:45 – 13:15 • Day 3",
-    duration: "1.5 hours (Lunch on Day 3)",
-    tags: ["Retro Concept", "1980s Vietnam", "Home-style Cooking", "Claypot Rice"],
-    description: "Com Mau recreates the nostalgic atmosphere of Vietnam's 1980s subsidy period with vintage posters, enamel bowls, and stamp coupon order slips. The menu features classic Vietnamese home-cooked dishes: claypot braised fish, boiled morning glory with dipping sauce, sour crab soup, and crispy rice crust.",
+    name: "Ghenh Rang Tien Sa - Han Mac Tu Hill & Tien Sa Beach",
+    category: "thien-nhien",
+    location: "Ghenh Rang Ward, Quy Nhon City (~3 km south of center)",
+    visitTime: "15:00 – 18:00 • Afternoon of Day 3",
+    duration: "3 hours (Afternoon of Day 3)",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    tags: ["15:00 Day 3", "Poet Han Mac Tu", "Poet Hill", "Queen's Egg Stone Beach", "Stone Church", "Tien Sa Beach"],
+    description: "Ghenh Rang Tien Sa is a celebrated national scenic landmark along Quy Nhon bay. The site is intimately tied to poet Han Mac Tu with his hillside memorial nestled amidst pine trees, the historic stone church, the extraordinary Queen's Beach covered in smooth egg-shaped pebbles, and the emerald waters of Tien Sa Beach sheltered by coastal cliffs.",
     itinerary: [
       {
         day: 3,
-        title: "11:45: Arrival & Coupon-Style Seating",
-        detail: "Group settles into retro dining quarters decorated with authentic vintage memorabilia and enamel tableware."
+        title: "15:00 - 16:30 Day 3: Han Mac Tu Memorial, Poet Hill & Stone Church",
+        detail: "Ascend Poet Hill to poet Han Mac Tu's resting place, listen to poetry readings, admire Dzu Kha woodburning calligraphy, visit the stone church, and view Queen's Egg Stone Beach."
       },
       {
         day: 3,
-        title: "12:00 - 13:15: Traditional Family Meal",
-        detail: "Shared lunch with claypot braised snakehead fish, hot sour soup, braised pork ribs, and crispy rice before afternoon science activities."
+        title: "16:30 - 18:00 Day 3: Swimming & Beach Fun at Tien Sa Beach",
+        detail: "Enjoy free time swimming in the clear bay, beach games, and panoramic views of the curved Quy Nhon coastline from Tien Sa Beach (self-funded)."
       }
     ],
     highlights: [
-      "Scheduled visit: 11:45 – 13:15 on Day 3",
-      "Unique vintage interior recreating Vietnam's 1980s subsidized era",
-      "Comforting home-style dishes served in traditional enamel bowls",
-      "Fun photo backdrops with old bicycles, cassette players, and retro signs"
+      "Official visit: 15:00 – 18:00 afternoon of Day 3",
+      "Visit poet Han Mac Tu's memorial and explore Dzu Kha's fire-calligraphy studio",
+      "Unique Queen's Beach with thousands of smooth, giant egg-shaped pebbles",
+      "Pristine turquoise water and yellow sand at Tien Sa Beach",
+      "Atmospheric moss-covered stone church on the hillside"
     ],
     tips: [
-      "Try the crispy rice crust dipped in braised fish gravy — a restaurant favorite",
-      "Great photo opportunities with retro costumes and period backdrops",
-      "Ideal balanced meal giving everyone energy for the afternoon science center"
+      "Queen's Beach pebbles can be slippery; step carefully when taking photos",
+      "Bring swimwear and a towel if you wish to swim at Tien Sa Beach",
+      "Browse pine-wood calligraphy souvenirs engraved with Han Mac Tu's poetry"
     ]
   },
+
+  // === 8: Binh Dinh General Museum ===
   {
     id: 8,
-    name: "ExploraScience Quy Nhon (Science Discovery Center)",
-    category: "thien-nhien",
-    location: "Science Valley, Ghenh Rang, Quy Nhon",
-    visitTime: "14:45 – 17:15 • Day 3",
-    duration: "2.5 hours (Afternoon of Day 3)",
-    tags: ["Planetarium", "STEM Center", "Interactive Exhibits", "Astronomy"],
-    description: "Vietnam's first public science discovery center spans a futuristic campus in Science Valley. Highlights include a full-dome 80-seat planetarium projecting cosmic films, interactive hands-on physics and space galleries, a Tesla coil lightning show, and an astronomical observatory.",
+    name: "Binh Dinh General Museum (Tay Son History & Cham Heritage)",
+    category: "van-hoa",
+    location: "26 Nguyen Hue St, Quy Nhon City",
+    visitTime: "13:30 – 14:30 • Afternoon of Day 3",
+    duration: "1 hour (Afternoon of Day 3)",
+    image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
+    tags: ["13:30 Day 3", "Tay Son Rebellion", "Champa Art", "Sa Huynh Culture", "National Treasures"],
+    description: "Binh Dinh General Museum houses over 10,000 precious historical and cultural artifacts. Visiting at 13:30 on Day 3, our class explores ancient 11th-15th century Cham sandstone sculptures, prehistoric Sa Huỳnh burial jars, and inspiring exhibits recounting the historic Tay Son peasant uprising under Emperor Quang Trung.",
     itinerary: [
       {
         day: 3,
-        title: "14:45 - 15:45: Interactive Physics & Space Galleries",
-        detail: "Hands-on exploration through interactive galleries on planetary motion, electromagnetism, and renewable energy."
-      },
-      {
-        day: 3,
-        title: "16:00 - 17:15: Full-Dome Planetarium & Tesla Coil Demo",
-        detail: "Watch 3D cosmic films on the giant dome screen and observe high-voltage electrical spark demonstrations before heading back."
+        title: "13:30 - 14:30 Day 3: Discovering Binh Dinh's Heritage",
+        detail: "Explore galleries of ancient Cham sandstone carvings, pottery, and historic weapons and uniforms from the legendary Tay Son era."
       }
     ],
     highlights: [
-      "Scheduled visit: 14:45 – 17:15 on Day 3",
-      "Vietnam's premier interactive science center with world-class facilities",
-      "Impressive full-dome planetarium projecting 360-degree universe simulations",
-      "Hands-on experiments designed for student engagement and curiosity"
+      "Official visit: 13:30 – 14:30 on Day 3",
+      "Unmatched collection of ancient Champa sandstone sculptures",
+      "Exhibits highlighting the triumphs of Emperor Quang Trung and the Tay Son uprising",
+      "Sa Huynh archaeological burial jars and prehistoric ceramics",
+      "Cool, tranquil indoor environment rich in educational and cultural value"
     ],
     tips: [
-      "Arrive at the planetarium 10 minutes early; doors close promptly when screenings start",
-      "Follow instructor safety guidelines closely around electrical and laser exhibits",
-      "Bring light jackets as the indoor planetarium theater is air-conditioned and cool"
+      "Keep voices down and refrain from touching ancient sandstone artifacts",
+      "Photography is permitted (please disable camera flash inside galleries)",
+      "Located very close to Odin Hotel on Nguyen Hue street for quick transit"
     ]
   }
 ];
@@ -524,14 +554,22 @@ const TOURS_EN = [
 const TIMELINE_DATA_EN = [
   {
     day: 1,
-    title: "Departure from HCMC, Coastal Sunset & Night Market",
-    dateSummary: "Travel by sleeper coach from HCMC to Quy Nhon • Check-in Odin Hotel • Beach stroll • Seafood at Loc Bien • Night Market",
+    title: "Day 1: Departure, Arrival, Beach Walk & Seafood Dinner",
+    dateSummary: "Travel by sleeper coach • Check-in Odin Hotel • Quy Nhon beach walk • Loc Bien seafood • Night Market",
     events: [
       {
-        time: "05:00 – 06:30",
-        icon: "🥪",
+        time: "02:00",
+        icon: "🚌",
+        title: "Board Sleeper Coach to Quy Nhon",
+        desc: "Assemble at the meeting point, settle into sleeper coach berths, and begin the overnight highway trip to coastal Quy Nhon.",
+        highlightPlaceId: null,
+        placeName: null
+      },
+      {
+        time: "07:00",
+        icon: "🥣",
         title: "Breakfast & Rest Stop",
-        desc: "Coach stopover for light breakfast, freshening up, and stretching before continuing the journey.",
+        desc: "Rest stop for morning breakfast (approx. 50,000 VND / person: pho, noodle soup, or broken rice), freshening up, and stretching after the night drive.",
         highlightPlaceId: null,
         placeName: null
       },
@@ -539,39 +577,39 @@ const TIMELINE_DATA_EN = [
         time: "07:00 – 12:00",
         icon: "🛣️",
         title: "Scenic Coastal Drive to Quy Nhon",
-        desc: "Final leg of the drive into Quy Nhon, watching changing rural and ocean landscapes through the coach windows.",
+        desc: "Final leg of the coach journey into Quy Nhon, watching shifting coastal and countryside scenery through the windows.",
         highlightPlaceId: null,
         placeName: null
       },
       {
-        time: "11:30 – 12:30",
+        time: "11:50 – 12:30",
         icon: "🏨",
         title: "Arrival at Odin Hotel Quy Nhon",
-        desc: "Arrive at Odin Hotel, store luggage with reception, and relax in the lobby after the long road trip.",
+        desc: "Arrive at Odin Hotel, drop off luggage at reception, and take a light rest in the lobby after the road trip.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "12:30 – 14:00",
+        time: "12:35 – 14:00",
         icon: "🍜",
-        title: "Local Fish Cake Noodles for Lunch",
-        desc: "Taste Quy Nhon's famous Ngoc Lien fish cake noodle soup with clear savory broth and fresh grilled nem skewers.",
+        title: "Lunch with Local Specialties (Ngoc Lien / Nem Cha Loi)",
+        desc: "Enjoy authentic local food: famous Ngoc Lien fish cake noodle soup (65,000 VND / person) with clear broth or grilled pork rolls at Nem Cha Loi.",
         highlightPlaceId: 6,
-        placeName: "Ngoc Lien Fish Cake Noodles & Nem Loi"
+        placeName: "Ngoc Lien Fish Cake Noodles / Nem Cha Loi"
       },
       {
-        time: "14:00 – 15:30",
+        time: "14:05 – 15:30",
         icon: "🛏️",
-        title: "Check-in & Afternoon Rest",
-        desc: "Check into rooms at Odin Hotel, unpack, take a refreshing shower, and rest up for evening activities.",
+        title: "Check-in Rooms, Shower & Afternoon Nap",
+        desc: "Check into rooms at Odin Hotel, unpack, take a refreshing shower, and sleep to recharge for afternoon activities.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "15:30 – 17:30",
+        time: "16:00 – 17:50",
         icon: "🌊",
-        title: "Afternoon Walk on Quy Nhon Beach & Central Square",
-        desc: "Stroll along the curved downtown beach, catch the sea breeze, and take photos at Nguyen Tat Thanh Square.",
+        title: "Afternoon Check-in: Quy Nhon Beach Walk & Central Square",
+        desc: "Class walk along the curved crescent beach, taking in the refreshing sea breeze and group photos at Nguyen Tat Thanh Square near the hotel.",
         highlightPlaceId: 2,
         placeName: "Quy Nhon Beach & Nguyen Tat Thanh Square"
       },
@@ -579,15 +617,15 @@ const TIMELINE_DATA_EN = [
         time: "18:00 – 20:00",
         icon: "🦀",
         title: "Fresh Seafood Dinner at Loc Bien",
-        desc: "Enjoy an oceanfront seafood dinner at Loc Bien (48 Xuan Dieu) with grilled scallops, fresh prawns, and fish hotpot.",
+        desc: "Seafood dinner at Loc Bien (48 Xuan Dieu, approx. 150,000 – 500,000 VND / person depending on menu) with fresh catches right by the sea.",
         highlightPlaceId: 3,
         placeName: "Loc Bien Seafood (48 Xuan Dieu)"
       },
       {
-        time: "20:00 – 21:59",
+        time: "20:00 – 21:50",
         icon: "🏮",
-        title: "Quy Nhon Night Market & Street Snacks",
-        desc: "Browse colorful stalls at the Night Market for snacks, souvenirs, and local sweet soup.",
+        title: "Evening Walk at Quy Nhon Night Market (Free time)",
+        desc: "Stroll through the bustling Night Market to browse souvenirs, handicrafts, and sample popular local street snacks.",
         highlightPlaceId: 3,
         placeName: "Quy Nhon Night Market"
       },
@@ -595,313 +633,309 @@ const TIMELINE_DATA_EN = [
         time: "22:00",
         icon: "🌙",
         title: "Return to Hotel to Rest",
-        desc: "Regroup at Odin Hotel to rest and prepare outfits for tomorrow's Eo Gio & Ky Co island excursion.",
+        desc: "Regroup at Odin Hotel to rest and prepare outfits and swimwear for tomorrow's Ky Co – Eo Gio excursion.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       }
     ],
     weatherPlan: {
-      condition: "In case of afternoon rain:",
+      condition: "In case of evening rain on Day 1:",
       solutions: [
         {
           title: "Plan A",
-          detail: "Move indoors to oceanview cafes along Xuan Dieu to relax and enjoy the sea view safely."
+          detail: "Relax comfortably in your hotel rooms at Odin or enjoy dinner right at the hotel's warm restaurant."
         },
         {
           title: "Plan B",
-          detail: "Explore Binh Dinh General Museum or indoor shopping complexes nearby."
+          detail: "Take short taxi rides with umbrellas to nearby restaurants: Gia Vy 2 (~1km), 4Q Restaurant (~1.1km), Pho Danh, or Com Thi."
         }
       ]
     }
   },
   {
     day: 2,
-    title: "Eo Gio Cliffwalk, Ky Co Turquoise Beach & Nhon Ly Seafood",
-    dateSummary: "Buffet breakfast • Eo Gio coastal walkway • Ky Co beach • Seafood lunch in Nhon Ly • Sunset beach walk • Duy Map dinner",
+    title: "Day 2: Ky Co Speedboat, Eo Gio, Ngoc Hoa Pagoda & Dien Hong Pancakes",
+    dateSummary: "Speedboat to Ky Co, coral snorkeling, seafood lunch, Ngoc Hoa Pagoda, Eo Gio cliffs, night squid fishing & crispy shrimp pancakes",
     events: [
       {
         time: "06:30 – 07:30",
         icon: "🍳",
-        title: "Buffet Breakfast at Odin Hotel",
-        desc: "Energizing breakfast at the hotel restaurant to prepare for an active day under the coastal sun.",
+        title: "Breakfast at Odin Hotel or Local Specialties",
+        desc: "Enjoy breakfast at Odin Hotel (recommended as complimentary for guests) or try hot fish noodles / banh hoi. Prepare hats, sunscreen, swimwear, and power banks.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "07:30 – 08:15",
-        icon: "🚌",
-        title: "Depart for Nhon Ly Peninsula",
-        desc: "Scenic drive across Thi Nai Sea Bridge, the longest maritime bridge in Binh Dinh province.",
+        time: "07:40 – 08:15",
+        icon: "🚗",
+        title: "Drive to Nhon Ly Peninsula via Thi Nai Sea Bridge",
+        desc: "Drive from Odin Hotel across Thi Nai maritime bridge to Nhon Ly, taking in scenic coastal views along the way.",
         highlightPlaceId: 1,
-        placeName: "Ky Co - Eo Gio (Nhon Ly)"
+        placeName: "Nhon Ly Coastal Scenic Route"
       },
       {
-        time: "08:15 – 09:45",
-        icon: "🚶",
-        title: "Walking along Eo Gio Cliffside Trail",
-        desc: "Walk along the cliffside path, take group photos by the ocean rocks, and admire the majestic seascape.",
+        time: "08:15 – 10:15",
+        icon: "🚤",
+        title: "Speedboat to Ky Co Island (Book Tour Package at Nhon Ly)",
+        desc: "Book Ky Co tour package at Nhon Ly (450,000 – 490,000 VND / person): includes round-trip speedboat, beach entry, coral snorkeling at Bai Dua with goggles and life vests, freshwater shower, and village seafood feast.",
+        highlightPlaceId: 1,
+        placeName: "Ky Co Speedboat & Bai Dua Snorkeling"
+      },
+      {
+        time: "10:15 – 12:20",
+        icon: "🏖️",
+        title: "Swimming & Photo Session at Ky Co Beach",
+        desc: "Swim in turquoise waters, relax on the powdery white sand, and take unforgettable photos across 'Vietnam's Maldives'.",
+        highlightPlaceId: 1,
+        placeName: "Ky Co Beach (Nhon Ly)"
+      },
+      {
+        time: "12:40 – 13:50",
+        icon: "🦞",
+        title: "Fresh Seafood Lunch in Nhon Ly Village",
+        desc: "Enjoy the tour's 7-8 dish village seafood feast: grilled/steamed prawns, squid, local fish, seafood hotpot, and clams.",
+        highlightPlaceId: 1,
+        placeName: "Nhon Ly Village Seafood Restaurant"
+      },
+      {
+        time: "14:00 – 15:00",
+        icon: "🛕",
+        title: "Visit Ngoc Hoa Pagoda",
+        desc: "Visit this tranquil pilgrimage site beside Eo Gio, celebrated for Vietnam's tallest twin Guanyin Buddha statue facing the ocean (Free admission).",
+        highlightPlaceId: 1,
+        placeName: "Ngoc Hoa Pagoda (Eo Gio)"
+      },
+      {
+        time: "15:00 – 16:00",
+        icon: "📸",
+        title: "Explore Eo Gio Cliffside Coastal Trail",
+        desc: "Walk along the breathtaking coastal trail hugging dramatic sea cliffs, take photos on the wooden bridge, and capture class group photos (Ticket: 22,000 VND / person).",
         highlightPlaceId: 1,
         placeName: "Eo Gio (Nhon Ly)"
       },
       {
-        time: "10:15 – 12:00",
-        icon: "🏖️",
-        title: "Swimming & Relaxing at Ky Co Beach",
-        desc: "Arrive at Ky Co, swim in turquoise waters, take photos along the soft white sand and mountain backdrop.",
-        highlightPlaceId: 1,
-        placeName: "Ky Co Beach"
-      },
-      {
-        time: "12:15 – 13:30",
-        icon: "🦞",
-        title: "Seafood Lunch in Nhon Ly",
-        desc: "Fresh seafood feast with steamed prawns, grilled squid, and cobia hotpot at a local seaside restaurant.",
-        highlightPlaceId: 1,
-        placeName: "Nhon Ly Seafood Restaurant"
-      },
-      {
-        time: "13:30 – 15:30",
-        icon: "🛏️",
-        title: "Return to Odin Hotel to Recharge",
-        desc: "Return to the hotel, shower, and rest during the hottest midday hours.",
+        time: "16:00 – 16:30",
+        icon: "🏨",
+        title: "Return to Odin Hotel to Shower & Relax",
+        desc: "Bus transfers group back to Odin Hotel to wash off saltwater, relax, and recharge after a day on the island.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "15:30 – 17:30",
+        time: "16:30 – 17:30",
         icon: "☕",
-        title: "Afternoon Stroll & Seaside Cafes",
-        desc: "Free time for a leisurely walk along the beach promenade, cafe visits, or exploring downtown.",
+        title: "Free Time in Downtown Quy Nhon (Optional)",
+        desc: "Free time to stroll along the beach, take photos at Nguyen Tat Thanh Square, visit seaside cafes, or buy local specialties.",
         highlightPlaceId: 2,
-        placeName: "Quy Nhon Beach"
+        placeName: "Nguyen Tat Thanh Square & Beach"
       },
       {
-        time: "18:00 – 20:00",
-        icon: "🦐",
-        title: "Dinner at Duy Map Seafood",
-        desc: "Enjoy an oceanfront dinner at Duy Map (264 Xuan Dieu) with fresh local catches.",
+        time: "18:00 – 19:00",
+        icon: "🎣",
+        title: "Night Squid Fishing in Seaside Village (Optional)",
+        desc: "Head out by boat with local fishermen to try your hand at night squid fishing with rods and bait (self-funded in small groups).",
         highlightPlaceId: 3,
-        placeName: "Duy Map Seafood (264 Xuan Dieu)"
+        placeName: "Night Squid Fishing Experience"
       },
       {
-        time: "20:00 – 22:00",
-        icon: "🍧",
-        title: "Evening City Walk & Dessert",
-        desc: "Stroll along An Duong Vuong street, enjoy dessert and chat with friends in the cool coastal breeze.",
-        highlightPlaceId: 3,
-        placeName: "Xuan Dieu - An Duong Vuong St"
+        time: "19:30 – 20:50",
+        icon: "🥞",
+        title: "Dinner at Dien Hong Crispy Jumping-Shrimp Pancakes",
+        desc: "Dinner savoring famous Quy Nhon crispy pancakes with fresh sweet shrimp and fresh herb wraps (25,000 – 35,000 VND / each, ~4 per person).",
+        highlightPlaceId: 6,
+        placeName: "Dien Hong Jumping-Shrimp Pancakes"
       },
       {
-        time: "22:00",
-        icon: "💤",
-        title: "Rest at Odin Hotel",
-        desc: "Return to rooms to sleep and recharge for Day 3.",
+        time: "21:20",
+        icon: "✨",
+        title: "Return to Odin Hotel to Rest",
+        desc: "Return to hotel rooms to sleep and recharge for Day 3's science discovery center and Ghenh Rang Tiên Sa excursion.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       }
     ],
     weatherPlan: {
-      condition: "If rain or rough sea occurs at Ky Co:",
+      condition: "If rain or rough seas prevent speedboats on Day 2:",
       solutions: [
         {
-          title: "Safety First",
-          detail: "Switch from speedboat to coastal road access, focusing on sightseeing around Eo Gio and Ngoc Hoa Pagoda."
+          title: "Road Access Plan",
+          detail: "Take the road route into Ky Co or focus on exploring Ngoc Hoa Pagoda and Eo Gio cliffside trail safely on foot."
         },
         {
-          title: "Indoor Alternative",
-          detail: "Move group lunch early to a spacious covered seafood hall in Nhon Ly."
+          title: "Covered Dining",
+          detail: "Enjoy the seafood feast inside spacious, sturdy covered dining pavilions in Nhon Ly village."
+        },
+        {
+          title: "Evening Alternative",
+          detail: "If seas are too rough for squid fishing, group has dinner early at Dien Hong pancakes and enjoys a cozy seaside cafe."
         }
       ]
     }
   },
   {
     day: 3,
-    title: "Ghenh Rang Hillside, Twin Cham Towers & Science Exploration",
-    dateSummary: "Morning swim • Ghenh Rang Tiên Sa & Han Mac Tu Hill • Twin Cham Towers • Com Mau retro lunch • ExploraScience Space Center • Nem Loi dinner • Horse carriage",
+    title: "Day 3: ExploraScience, Com Mau, Binh Dinh Museum & Ghenh Rang",
+    dateSummary: "Cosmic discovery at ExploraScience, retro lunch at Com Mau, Tay Son history museum, Ghenh Rang Tiên Sa & horse carriage",
     events: [
       {
-        time: "06:30 – 07:45",
-        icon: "🥐",
-        title: "Breakfast at Hotel",
-        desc: "Buffet breakfast at Odin Hotel to start a diverse day of culture, science, and history.",
+        time: "06:30 – 07:30",
+        icon: "🥣",
+        title: "Breakfast at Odin Hotel or Local Eateries",
+        desc: "Breakfast buffet at Odin Hotel or try local morning specialties nearby to fuel up for an exciting science and cultural day.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "07:50 – 09:45",
-        icon: "🏊",
-        title: "Morning Swim at Crescent Beach",
-        desc: "Enjoy calm morning waves and mild sunshine swimming at the central crescent beach.",
-        highlightPlaceId: 2,
-        placeName: "Crescent Beach Quy Nhon"
-      },
-      {
-        time: "08:15 – 10:15",
-        icon: "🪨",
-        title: "Ghenh Rang Tien Sa & Han Mac Tu Memorial",
-        desc: "Visit Queen's Beach covered in smooth egg stones, walk up Han Mac Tu's memorial hill, and take in bay views.",
-        highlightPlaceId: 4,
-        placeName: "Ghenh Rang Tien Sa"
-      },
-      {
-        time: "10:30 – 11:30",
-        icon: "🏛️",
-        title: "Visit Historic Twin Cham Towers (Thap Doi)",
-        desc: "Admire ancient 12th-century Champa brick architecture and intricate sandstone carvings right in the city.",
-        highlightPlaceId: null,
-        placeName: "Twin Cham Towers (Thap Doi)"
-      },
-      {
-        time: "11:45 – 13:15",
-        icon: "🍲",
-        title: "Retro Family Lunch at Com Mau",
-        desc: "Experience a nostalgic 1980s subsidy-era family meal with claypot fish, crispy rice crust, and hot soup.",
-        highlightPlaceId: 7,
-        placeName: "Com Mau Quy Nhon"
-      },
-      {
-        time: "13:30 – 14:30",
-        icon: "🏨",
-        title: "Midday Rest at Hotel",
-        desc: "Short recharge before the afternoon science discovery center tour.",
-        highlightPlaceId: 5,
-        placeName: "Odin Hotel Quy Nhon"
-      },
-      {
-        time: "14:45 – 17:15",
+        time: "08:00 – 10:45",
         icon: "🚀",
-        title: "ExploraScience Quy Nhon (Science Center)",
-        desc: "Experience the 3D full-dome planetarium, Tesla coil lightning demos, and hands-on STEM physics galleries.",
-        highlightPlaceId: 8,
+        title: "Visit ExploraScience Quy Nhon (Space & Science Center)",
+        desc: "Explore Vietnam's premier science discovery center: full-dome 360° planetarium cosmic film, high-voltage Tesla coil lightning show, and 7 interactive science galleries.",
+        highlightPlaceId: 4,
         placeName: "ExploraScience Quy Nhon"
       },
       {
-        time: "17:30 – 18:45",
-        icon: "🍢",
-        title: "Dinner at Nem Cha Loi",
-        desc: "Savor grilled pork skewers wrapped in fresh herbs and savory dipping sauce at renowned Nem Cha Loi.",
+        time: "11:00 – 12:00",
+        icon: "🍲",
+        title: "Nostalgic Lunch at Com Mau Quy Nhon",
+        desc: "Experience an authentic Vietnamese meal in a 1980s subsidy-era retro restaurant with claypot fish, hot sour soup, and crispy rice.",
         highlightPlaceId: 6,
-        placeName: "Nem Cha Loi"
+        placeName: "Com Mau Quy Nhon"
       },
       {
-        time: "19:00 – 20:15",
-        icon: "🥞",
-        title: "Crispy Banh Xeo Shrimp Pancakes at Gia Vy",
-        desc: "Taste famous crispy jumping-shrimp pancakes with bean sprouts and tart dipping sauce.",
-        highlightPlaceId: null,
-        placeName: "Banh Xeo Tom Nhay Gia Vy"
+        time: "12:15 – 13:15",
+        icon: "🛏️",
+        title: "Midday Rest at Odin Hotel",
+        desc: "Rest and recharge in your air-conditioned rooms before the afternoon museum and cultural landmarks.",
+        highlightPlaceId: 5,
+        placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "20:20 – 22:00",
-        icon: "🐎",
-        title: "Horse-Drawn Carriage Ride along Seaside",
-        desc: "Relaxing horse carriage ride along Xuan Dieu and An Duong Vuong streets, feeling the cool night breeze.",
+        time: "13:30 – 14:30",
+        icon: "🏛️",
+        title: "Visit Binh Dinh General Museum",
+        desc: "Discover Sa Huynh prehistoric pottery, 11th-15th century Cham sandstone sculptures, and the heroic Tay Son uprising under Emperor Quang Trung.",
+        highlightPlaceId: 8,
+        placeName: "Binh Dinh General Museum"
+      },
+      {
+        time: "15:00 – 18:00",
+        icon: "🌄",
+        title: "Ghenh Rang Tien Sa Exploration (Self-funded)",
+        desc: "Scenic hillside exploration: Visit poet Han Mac Tu's memorial + Poet Hill + Stone Church + swim at Tien Sa Beach, admire Queen's Beach and enjoy seaside activities.",
+        highlightPlaceId: 7,
+        placeName: "Ghenh Rang Tien Sa & Poet Hill"
+      },
+      {
+        time: "18:10 – 18:45",
+        icon: "🏨",
+        title: "Return to Hotel to Shower & Dress Up",
+        desc: "Return to Odin Hotel to shower and change into nice outfits for group dinner and evening promenade.",
+        highlightPlaceId: 5,
+        placeName: "Odin Hotel Quy Nhon"
+      },
+      {
+        time: "19:45 – 21:00",
+        icon: "🍽️",
+        title: "Dinner at HQ Restaurant",
+        desc: "Warm group dinner at HQ Restaurant with a rich variety of local and homestyle dishes in a welcoming space.",
+        highlightPlaceId: 6,
+        placeName: "HQ Restaurant Quy Nhon"
+      },
+      {
+        time: "21:30 – 22:20",
+        icon: "🎠",
+        title: "Seaside Stroll, Oceanview Cafe & Horse Carriage Ride (Optional)",
+        desc: "Enjoy the night sea breeze along Xuan Dieu – An Duong Vuong street: relax at an oceanfront cafe or take a horse carriage ride under the streetlights (self-funded).",
         highlightPlaceId: 3,
-        placeName: "Horse Carriage Promenade"
+        placeName: "Xuan Dieu – An Duong Vuong Promenade"
       },
       {
-        time: "22:00",
+        time: "22:50",
         icon: "🌙",
-        title: "Final Night Rest at Hotel",
-        desc: "Return to Odin Hotel, pack luggage, and get a good night's sleep before tomorrow's return trip.",
+        title: "Return to Hotel to Rest & Pack",
+        desc: "Return to Odin Hotel to rest and pack luggage for tomorrow's final day and return journey.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       }
     ],
     weatherPlan: {
-      condition: "If afternoon rain occurs on Day 3:",
+      condition: "If rain occurs on Day 3:",
       solutions: [
         {
-          title: "ExploraScience is 100% Indoor",
-          detail: "All planetarium shows and science galleries are fully indoors and climate-controlled, completely unaffected by rain."
+          title: "ExploraScience & Museum 100% Indoor",
+          detail: "The morning program at ExploraScience and midday visit to Binh Dinh Museum are completely indoors and climate-controlled, completely unaffected by rain."
         },
         {
-          title: "Evening Alternative",
-          detail: "If it rains at night, swap the horse carriage for an indoor cafe or cozy board game gathering at the hotel lounge."
+          title: "Afternoon Plan",
+          detail: "If it rains heavily at Ghenh Rang, swap swimming for indoor fire-calligraphy studio visits or souvenir specialty shopping at 'Qua Qui Nhon' or 'Huong Bien'."
         }
       ]
     }
   },
   {
     day: 4,
-    title: "Morning Beach Walk, Souvenir Shopping & Return to HCMC",
-    dateSummary: "Morning beach walk • Farewell class photos • Souvenir shopping • Hotel check-out • Lunch • Bus journey back to HCMC",
+    title: "Day 4: Farewell Photos, Hotel Check-out, Com Mau Lunch & Return to HCMC",
+    dateSummary: "Farewell photos at Central Square & Crescent Beach, hotel check-out before 12:00, Com Mau lunch & 13:30 departure to HCMC",
     events: [
       {
         time: "06:30 – 07:30",
         icon: "☕",
-        title: "Final Breakfast at Odin Hotel",
-        desc: "Enjoy the final breakfast buffet with classmates and teachers at Odin Hotel restaurant.",
+        title: "Final Breakfast at Odin Hotel or Nearby Eateries",
+        desc: "Enjoy our final breakfast at Odin Hotel or local breakfast spots around the neighborhood.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "07:30 – 08:30",
-        icon: "🎁",
-        title: "Shopping for Binh Dinh Specialties",
-        desc: "Visit trusted specialty shops for Bau Da liquor, Song Than noodles, coconut cakes, and dried squid.",
-        highlightPlaceId: null,
-        placeName: "Quy Nhon Specialty Shops"
-      },
-      {
-        time: "08:45 – 09:40",
+        time: "08:45 – 09:00",
         icon: "📸",
-        title: "Farewell Group Photos at Central Beach",
-        desc: "The entire class gathers by the ocean for memorable group photos under the clear morning sky.",
+        title: "Group Photos at Central Nguyen Tat Thanh Square",
+        desc: "The entire class gathers at spacious Nguyen Tat Thanh Square for memorable class keepsake photos.",
         highlightPlaceId: 2,
-        placeName: "Quy Nhon Beach & Square"
+        placeName: "Nguyen Tat Thanh Central Square"
       },
       {
-        time: "09:45 – 10:30",
+        time: "09:20 – 09:40",
+        icon: "🌊",
+        title: "Farewell Photos at Crescent Bay Beach",
+        desc: "Take final photos by the waves at Crescent Bay Beach, saying goodbye to the sunny coast.",
+        highlightPlaceId: 2,
+        placeName: "Crescent Bay Beach"
+      },
+      {
+        time: "10:00 – 11:30",
         icon: "🧳",
-        title: "Hotel Check-out & Boarding",
-        desc: "Complete check-out, load luggage onto the coach, and say goodbye to Odin Hotel staff.",
+        title: "Return to Hotel, Pack & Check-out before 12:00",
+        desc: "Return to rooms at Odin Hotel, double check personal belongings, pack suitcases, and complete check-out before 12:00.",
         highlightPlaceId: 5,
         placeName: "Odin Hotel Quy Nhon"
       },
       {
-        time: "10:30",
+        time: "12:00 – 13:00",
+        icon: "🍲",
+        title: "Farewell Lunch at Com Mau Restaurant",
+        desc: "Shared class lunch at Com Mau Restaurant, enjoying hot claypot rice and homestyle comfort dishes before departing.",
+        highlightPlaceId: 6,
+        placeName: "Com Mau Quy Nhon"
+      },
+      {
+        time: "13:30",
         icon: "🚌",
-        title: "Depart Quy Nhon for HCMC",
-        desc: "Coach departs Quy Nhon on the highway back towards Ho Chi Minh City.",
+        title: "Depart Quy Nhon for HCMC — Concluding our 4D3N Journey",
+        desc: "Board the coach and begin the return journey back to Ho Chi Minh City. Concluding an unforgettable, joyful 4D3N Quy Nhon tour with Class 10A4!",
         highlightPlaceId: null,
         placeName: null
-      },
-      {
-        time: "12:00 – 13:15",
-        icon: "🍚",
-        title: "Lunch En Route",
-        desc: "Stop for a relaxed lunch with fresh local dishes along the coastal highway.",
-        highlightPlaceId: null,
-        placeName: null
-      },
-      {
-        time: "18:00 – 19:00",
-        icon: "🍜",
-        title: "Dinner Rest Stop",
-        desc: "Evening rest stop for dinner and freshening up before the final highway stretch.",
-        highlightPlaceId: null,
-        placeName: null
-      },
-      {
-        time: "22:30 – 23:30",
-        icon: "🏫",
-        title: "Safe Arrival at Luong The Vinh High School (HCMC)",
-        desc: "Coach arrives safely back at Luong The Vinh High School in District 1. Concluding an unforgettable 4D3N class trip!",
-        highlightPlaceId: null,
-        placeName: "THPT Luong The Vinh (HCMC)"
       }
     ],
     weatherPlan: {
-      condition: "If morning rain occurs on Day 4:",
+      condition: "If rain occurs on Day 4 morning:",
       solutions: [
         {
-          title: "Indoor Photo Session",
-          detail: "Take group farewell photos in Odin Hotel's decorated modern lobby and indoor lounges."
+          title: "Indoor Group Photos",
+          detail: "Take class group photos inside the elegant grand lobby or the rooftop pool area of Odin Hotel."
         },
         {
-          title: "Convenient Shopping",
-          detail: "Shop for regional specialties directly from covered specialty centers with pre-arranged packaging."
+          title: "Cafe & On-time Lunch",
+          detail: "Enjoy coffee in the hotel lounge or nearby cafes before gathering on schedule for lunch at Com Mau and boarding the coach at 13:30."
         }
       ]
     }
