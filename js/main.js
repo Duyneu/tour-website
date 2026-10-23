@@ -199,6 +199,34 @@ function renderTourCards(tours) {
 }
 
 /**
+ * Chuyển đổi ngày trong lịch trình (đồng bộ tab và cuộn trang mượt mà)
+ */
+function switchTimelineDay(targetDay) {
+  const day = parseInt(targetDay);
+  if (isNaN(day) || day < 1 || day > 4) return;
+
+  // Cập nhật tab active ở trên
+  const timelineTabs = document.getElementById('timelineTabs');
+  if (timelineTabs) {
+    const tabBtns = timelineTabs.querySelectorAll('.timeline-tab-btn');
+    tabBtns.forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.day) === day);
+    });
+  }
+
+  // Render lại timeline cho ngày tương ứng
+  renderTimeline(day);
+
+  // Cuộn trang mượt mà lên đầu phần lịch trình
+  const timelineSection = document.getElementById('lich-trinh') || document.getElementById('timelineTabs');
+  if (timelineSection) {
+    const yOffset = -75;
+    const y = timelineSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+}
+
+/**
  * Render Lịch trình chuyến đi (Timeline 4 Ngày 3 Đêm)
  */
 function renderTimeline(dayNumber = 1) {
@@ -271,6 +299,49 @@ function renderTimeline(dayNumber = 1) {
     `;
   }
 
+  // Khối điều hướng chuyển ngày ở chân trang (Next, Prev, First, Last)
+  const currentDayNum = parseInt(dayData.day);
+  const totalDays = timelineData.length || 4;
+  const isFirst = currentDayNum <= 1;
+  const isLast = currentDayNum >= totalDays;
+
+  const isEn = (typeof getCurrentLang === 'function') && getCurrentLang() === 'en';
+  const labelFirst = (typeof t === 'function') ? t('nav_first_day') : (isEn ? 'First Day' : 'Về ngày đầu');
+  const labelPrev = (typeof t === 'function') ? t('nav_prev_day') : (isEn ? 'Previous Day' : 'Ngày trước đó');
+  const labelNext = (typeof t === 'function') ? t('nav_next_day') : (isEn ? 'Next Day' : 'Ngày tiếp theo');
+  const labelLast = (typeof t === 'function') ? t('nav_last_day') : (isEn ? 'Last Day' : 'Đến ngày cuối');
+  const indicatorPrefix = (typeof t === 'function') ? t('nav_indicator_day') : (isEn ? 'Day' : 'Ngày');
+
+  const navHtml = `
+    <div class="timeline-bottom-nav reveal-on-scroll">
+      <div class="nav-indicator-wrap">
+        <span class="indicator-badge">🗓️ ${indicatorPrefix} ${currentDayNum} / ${totalDays}</span>
+      </div>
+      <div class="nav-buttons-wrap">
+        <div class="nav-group-left">
+          <button type="button" class="timeline-nav-btn btn-first" data-target="1" ${isFirst ? 'disabled' : ''} title="${labelFirst}">
+            <span class="nav-arrow">«</span>
+            <span class="nav-text">${labelFirst}</span>
+          </button>
+          <button type="button" class="timeline-nav-btn btn-prev" data-target="${currentDayNum - 1}" ${isFirst ? 'disabled' : ''} title="${labelPrev}">
+            <span class="nav-arrow">‹</span>
+            <span class="nav-text">${labelPrev}</span>
+          </button>
+        </div>
+        <div class="nav-group-right">
+          <button type="button" class="timeline-nav-btn btn-next" data-target="${currentDayNum + 1}" ${isLast ? 'disabled' : ''} title="${labelNext}">
+            <span class="nav-text">${labelNext}</span>
+            <span class="nav-arrow">›</span>
+          </button>
+          <button type="button" class="timeline-nav-btn btn-last" data-target="${totalDays}" ${isLast ? 'disabled' : ''} title="${labelLast}">
+            <span class="nav-text">${labelLast}</span>
+            <span class="nav-arrow">»</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
   container.innerHTML = `
     <div class="timeline-day-header reveal-on-scroll">
       <div class="timeline-day-badge">${dayBadgePrefix} ${dayData.day}</div>
@@ -281,7 +352,19 @@ function renderTimeline(dayNumber = 1) {
       ${eventsHtml}
     </div>
     ${weatherHtml}
+    ${navHtml}
   `;
+
+  // Gắn sự kiện click cho các nút điều hướng chuyển ngày
+  const navBtns = container.querySelectorAll('.timeline-nav-btn');
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+      if (target && !btn.disabled) {
+        switchTimelineDay(target);
+      }
+    });
+  });
 
   if (typeof triggerScrollReveal === 'function') {
     setTimeout(triggerScrollReveal, 30);

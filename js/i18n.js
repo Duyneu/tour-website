@@ -59,6 +59,11 @@ const I18N = {
     timeline_place_link: "📍 <strong>Địa điểm trong chuyến đi:</strong>",
     places_section_badge: "📍 Điểm dừng chân",
     weather_plan_title: "Phương Án Dự Phòng Khi Thời Tiết Xấu / Trời Mưa",
+    nav_first_day: "Về ngày đầu",
+    nav_prev_day: "Ngày trước đó",
+    nav_next_day: "Ngày tiếp theo",
+    nav_last_day: "Đến ngày cuối",
+    nav_indicator_day: "Ngày",
 
     // Categories
     cat_section_title: "Danh Mục Địa Danh",
@@ -166,6 +171,11 @@ const I18N = {
     timeline_place_link: "📍 <strong>Stop on the itinerary:</strong>",
     places_section_badge: "📍 Featured Destinations",
     weather_plan_title: "Backup Plan for Rainy / Bad Weather",
+    nav_first_day: "First Day",
+    nav_prev_day: "Previous Day",
+    nav_next_day: "Next Day",
+    nav_last_day: "Last Day",
+    nav_indicator_day: "Day",
 
     // Categories
     cat_section_title: "Explore by Category",
