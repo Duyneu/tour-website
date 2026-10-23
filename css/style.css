@@ -3280,7 +3280,7 @@ img {
 
 /* Khối phương án dự phòng thời tiết xấu / trời mưa */
 .weather-plan-box {
-  margin-top: 40px;
+  margin-top: 25px;
   background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
   border: 2px dashed #38bdf8;
   border-radius: var(--radius);
@@ -3824,6 +3824,7 @@ body.gyro-active .tilt-card,
 /* ===== THANH ĐIỀU HƯỚNG CHUYỂN NGÀY CHÂN LỊCH TRÌNH ===== */
 .timeline-bottom-nav {
   margin-top: 35px;
+  margin-bottom: 25px;
   padding: 18px 24px;
   background: var(--white);
   border: 1.5px solid rgba(14, 165, 233, 0.22);
@@ -3980,6 +3981,7 @@ body.gyro-active .tilt-card,
   .timeline-bottom-nav {
     padding: 14px 10px;
     margin-top: 25px;
+    margin-bottom: 20px;
   }
 
   .timeline-nav-btn {

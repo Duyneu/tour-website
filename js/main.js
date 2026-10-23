@@ -217,11 +217,11 @@ function switchTimelineDay(targetDay) {
   // Render lại timeline cho ngày tương ứng
   renderTimeline(day);
 
-  // Cuộn trang mượt mà lên đầu phần lịch trình
-  const timelineSection = document.getElementById('lich-trinh') || document.getElementById('timelineTabs');
-  if (timelineSection) {
-    const yOffset = -75;
-    const y = timelineSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  // Cuộn trang mượt mà lên phần tab ngày 1, ngày 2, ngày 3, ngày 4
+  const targetTabs = document.getElementById('timelineTabs');
+  if (targetTabs) {
+    const yOffset = -80; // Trừ độ cao navbar cố định (70px) + khoảng đệm thẩm mỹ 10px
+    const y = targetTabs.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   }
 }
@@ -351,8 +351,8 @@ function renderTimeline(dayNumber = 1) {
     <div class="timeline-list">
       ${eventsHtml}
     </div>
-    ${weatherHtml}
     ${navHtml}
+    ${weatherHtml}
   `;
 
   // Gắn sự kiện click cho các nút điều hướng chuyển ngày
