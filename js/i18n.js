@@ -13,6 +13,8 @@ const I18N = {
     nav_itinerary: "Lịch trình chuyến đi",
     nav_categories: "Danh mục",
     nav_places: "Địa điểm nổi bật",
+    theme_toggle_light: "Chuyển sang chế độ sáng",
+    theme_toggle_dark: "Chuyển sang chế độ tối",
 
     // Hero section
     hero_badge: "🎓 Dự án học sinh Lớp 10A4 • THPT Lương Thế Vinh",
@@ -125,6 +127,8 @@ const I18N = {
     nav_itinerary: "Itinerary",
     nav_categories: "Categories",
     nav_places: "Highlights",
+    theme_toggle_light: "Switch to light mode",
+    theme_toggle_dark: "Switch to dark mode",
 
     // Hero section
     hero_badge: "🎓 Class 10A4 Project • Luong The Vinh High School",
@@ -1047,9 +1051,13 @@ function switchLanguage(targetLang) {
     }
   });
 
-  // Cập nhật tab lịch trình và marquee ticker
+  // Cập nhật tab lịch trình, marquee ticker và theme toggle UI
   if (typeof updateTimelineTabs === 'function') {
     updateTimelineTabs(targetLang);
+  }
+  if (typeof updateThemeToggleUI === 'function') {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeToggleUI(currentTheme, targetLang);
   }
   if (typeof updateMarqueeTicker === 'function') {
     updateMarqueeTicker(targetLang);

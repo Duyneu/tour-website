@@ -849,6 +849,67 @@ function updateMarqueeTicker(lang) {
 }
 
 /**
+ * Cập nhật tooltip & trạng thái cho nút chuyển đổi giao diện Sáng / Tối
+ */
+function updateThemeToggleUI(theme, lang) {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  const currentLang = lang || ((typeof getCurrentLang === 'function') ? getCurrentLang() : 'vi');
+  const isDark = theme === 'dark';
+  let label = '';
+  if (typeof t === 'function') {
+    label = isDark ? t('theme_toggle_light') : t('theme_toggle_dark');
+  }
+  if (!label) {
+    label = isDark
+      ? (currentLang === 'en' ? 'Switch to light mode' : 'Chuyển sang chế độ sáng')
+      : (currentLang === 'en' ? 'Switch to dark mode' : 'Chuyển sang chế độ tối');
+  }
+  btn.setAttribute('title', label);
+  btn.setAttribute('aria-label', label);
+}
+
+/**
+ * Khởi tạo bộ chuyển đổi giao diện Sáng / Tối (Light / Dark Theme)
+ */
+function initThemeToggle() {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+
+  const getCurrentTheme = () => document.documentElement.getAttribute('data-theme') || 'light';
+  updateThemeToggleUI(getCurrentTheme());
+
+  btn.addEventListener('click', () => {
+    const currentTheme = getCurrentTheme();
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    try {
+      localStorage.setItem('thap_tu_theme', newTheme);
+    } catch (e) {}
+    updateThemeToggleUI(newTheme);
+
+    // Hiệu ứng tương tác nảy nhẹ
+    btn.style.transform = 'scale(0.85) rotate(15deg)';
+    setTimeout(() => {
+      btn.style.transform = '';
+    }, 180);
+  });
+
+  // Tự động đồng bộ theo hệ thống nếu người dùng chưa tự bấm chọn theme
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        if (!localStorage.getItem('thap_tu_theme')) {
+          const autoTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', autoTheme);
+          updateThemeToggleUI(autoTheme);
+        }
+      } catch (err) {}
+    });
+  }
+}
+
+/**
  * Khởi tạo bộ chuyển đổi ngôn ngữ (Language Switcher)
  */
 function initLanguageSwitcher() {
@@ -1371,6 +1432,7 @@ function initHeroParallax() {
 
 /* ===== KHỞI TẠO KHI TẢI TRANG ===== */
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initHomePage();
   initTourDetailPage();
   initLanguageSwitcher();

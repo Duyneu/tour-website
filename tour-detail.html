@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Thập Tứ Tour - Giới Thiệu Địa Danh Quy Nhơn</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('thap_tu_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -36,6 +47,12 @@
       </nav>
 
       <div class="header-right">
+        <!-- Nút chuyển đổi giao diện Sáng / Tối (Theme Switcher) -->
+        <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Chuyển chế độ sáng/tối" title="Chuyển sang chế độ tối">
+          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+        </button>
+
         <!-- Nút chuyển đổi ngôn ngữ -->
         <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language selection">
           <button type="button" class="lang-btn active" data-lang="vi" title="Tiếng Việt">

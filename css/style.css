@@ -3996,3 +3996,924 @@ body.gyro-active .tilt-card,
     white-space: nowrap;
   }
 }
+
+
+/* ===================================================
+   DARK THEME SYSTEM (Hệ thống chế độ tối cao cấp & đồng nhất)
+   - Đồng bộ hóa toàn bộ bảng màu cho mọi trình duyệt
+   - Loại bỏ hiện tượng đảo màu tự động bị loang lổ / lệch màu
+   - Nút chuyển đổi giao diện mượt mà, lưu cài đặt tự động
+   =================================================== */
+
+/* Nút chuyển đổi giao diện Sáng / Tối trong Header */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transform: scale(1.08);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.9);
+}
+
+.theme-toggle-btn .theme-icon {
+  position: absolute;
+  font-size: 1.12rem;
+  line-height: 1;
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* Light mode mặc định: hiện 🌙 để chuyển sang Dark */
+.theme-toggle-btn .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+.theme-toggle-btn .moon-icon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Dark mode: hiện ☀️ để chuyển sang Light */
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.25);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(24, 38, 66, 0.88);
+  border-color: #fbbf24;
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.45);
+}
+
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.65));
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.4);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .theme-toggle-btn .theme-icon {
+    font-size: 0.98rem;
+  }
+}
+
+/* === DARK THEME TOÀN BỘ WEBSITE === */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --primary-light: #7dd3fc;
+  --primary-bg: #0f2744;
+  --accent: #fbbf24;
+  --accent-hover: #f59e0b;
+  --text: #f1f5f9;
+  --text-light: #94a3b8;
+  --white: #151f32;
+  --gray-50: #0b1320;
+  --gray-100: #162032;
+  --gray-200: #26354d;
+  --gray-300: #3b4d6b;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 18px -3px rgba(0, 0, 0, 0.55), 0 4px 8px -4px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.65), 0 8px 12px -6px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] body {
+  background-color: #0b1320;
+  color: #f1f5f9;
+}
+
+/* Thanh cuộn theo theme tối */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 10px;
+  background-color: #0b1320;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: #1e293b;
+  border-radius: 6px;
+  border: 2px solid #0b1320;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: #334155;
+}
+
+/* Header & Navbar */
+[data-theme="dark"] .header {
+  background: linear-gradient(135deg, #07111e, #0e1e34);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .header .logo,
+[data-theme="dark"] .header .logo span {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .nav-list a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .nav-list a:hover,
+[data-theme="dark"] .nav-list a.active {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .nav-list a.active::after {
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+[data-theme="dark"] .lang-switcher {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="dark"] .lang-btn {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .lang-btn:hover:not(.active) {
+  background: rgba(56, 189, 248, 0.2);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .lang-btn.active {
+  background: #38bdf8;
+  color: #0b1320;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+}
+
+@media (max-width: 768px) {
+  [data-theme="dark"] .nav {
+    background: #0d1a2d;
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Marquee Ticker */
+[data-theme="dark"] .marquee-ticker-wrap {
+  background: linear-gradient(135deg, #071322, #0d2238);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* Hero Section */
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, rgba(8, 17, 30, 0.94), rgba(14, 30, 52, 0.9)), url('../about-quynhon.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+[data-theme="dark"] .hero-price-badge {
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #fde68a;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .project-badge-pill {
+  background: rgba(14, 39, 68, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #bae6fd;
+}
+
+/* About Us Section */
+[data-theme="dark"] .about-us-section {
+  background: linear-gradient(180deg, #0b1320 0%, #0d1e33 100%);
+}
+
+[data-theme="dark"] .section-divider-curve {
+  background: #0d1e33;
+}
+
+[data-theme="dark"] .section-divider-curve svg path {
+  fill: #0b1320;
+}
+
+[data-theme="dark"] .about-us-card {
+  background: #151f32;
+  border: 1px solid #26354d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .about-us-content .school-tag {
+  background: #0f2d4e;
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .about-us-content h3 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .about-us-content p {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .stat-box {
+  background: #111a28;
+  border: 1px solid #26354d;
+}
+
+[data-theme="dark"] .stat-box .stat-label {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .stat-box .stat-number {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .stat-box.stat-highlight-price {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.24));
+  border: 1.5px solid #f59e0b;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="dark"] .stat-box.stat-highlight-price .stat-number {
+  color: #fde68a;
+}
+
+[data-theme="dark"] .stat-box.stat-highlight-price .stat-label {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .about-image-caption {
+  background: rgba(15, 23, 42, 0.88);
+  border-top-color: #26354d;
+}
+
+[data-theme="dark"] .about-image-caption span {
+  color: #cbd5e1;
+}
+
+/* Timeline Section */
+[data-theme="dark"] .timeline-section {
+  background: #0b1320;
+}
+
+[data-theme="dark"] .section-badge {
+  background: #0f2744;
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="dark"] .section-title h2 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .section-title p {
+  color: #94a3b8;
+}
+
+/* Umbrella Alert Banner */
+[data-theme="dark"] .umbrella-alert-banner {
+  background: linear-gradient(135deg, #07251a, #0b3726);
+  border-color: #10b981;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .umbrella-text {
+  color: #a7f3d0;
+}
+
+[data-theme="dark"] .umbrella-text strong {
+  color: #6ee7b7;
+}
+
+/* Tour Cost Card */
+[data-theme="dark"] .tour-cost-card {
+  background: linear-gradient(135deg, #132238 0%, #0d1a2d 100%);
+  border: 2px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .tour-cost-left h3 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .tour-cost-left h3 strong {
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .tour-cost-left h3 small {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .tour-cost-left p {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .cost-tag {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.28));
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+[data-theme="dark"] .cost-price-badge {
+  background: linear-gradient(135deg, #0284c7, #075985);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .cost-amount {
+  color: #fef08a;
+}
+
+[data-theme="dark"] .cost-feat-item {
+  background: #17263c;
+  border-color: #273b57;
+}
+
+[data-theme="dark"] .cost-feat-item:hover {
+  background: #1d304c;
+  border-color: #38bdf8;
+}
+
+[data-theme="dark"] .cost-feat-item .feat-text {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .cost-feat-item .feat-text strong {
+  color: #f1f5f9;
+}
+
+/* Timeline Tabs */
+[data-theme="dark"] .timeline-tab-btn {
+  background: #151f32;
+  border-color: #26354d;
+  color: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .timeline-tab-btn:hover {
+  border-color: #38bdf8;
+  background: #1a2840;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .timeline-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+}
+
+[data-theme="dark"] .timeline-tab-btn .tab-day-badge {
+  background: rgba(56, 189, 248, 0.18);
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .timeline-tab-btn.active .tab-day-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-day-header h3 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .timeline-day-summary {
+  color: #94a3b8;
+}
+
+/* Timeline Events */
+[data-theme="dark"] .timeline-line {
+  background: linear-gradient(to bottom, #0284c7, #26354d);
+}
+
+[data-theme="dark"] .timeline-icon-box {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .timeline-content {
+  background: #151f32;
+  border-color: #26354d;
+}
+
+[data-theme="dark"] .timeline-content:hover {
+  background: #19273f;
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .timeline-event-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .timeline-event-desc {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .timeline-event-desc strong {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-place-tag a {
+  background: #0f2744;
+  border-color: #0284c7;
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .timeline-place-tag a:hover {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+}
+
+/* Timeline Bottom Navigation */
+[data-theme="dark"] .timeline-bottom-nav {
+  background: #151f32;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .timeline-bottom-nav .indicator-badge {
+  background: linear-gradient(135deg, #0f2744, #163254);
+  border-color: #0284c7;
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .timeline-nav-btn {
+  background: #1a273e;
+  border-color: #2e4466;
+  color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .timeline-nav-btn:hover:not(:disabled) {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}
+
+[data-theme="dark"] .timeline-nav-btn.btn-prev {
+  background: #0f2d4e;
+  border-color: #0284c7;
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .timeline-nav-btn.btn-prev:hover:not(:disabled) {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-nav-btn.btn-next {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-nav-btn.btn-next:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0369a1, #075985);
+}
+
+[data-theme="dark"] .timeline-nav-btn:disabled {
+  background: #111a28 !important;
+  border-color: #1e2c40 !important;
+  color: #475569 !important;
+}
+
+/* Weather Plan Box */
+[data-theme="dark"] .weather-plan-box {
+  background: linear-gradient(135deg, #0d2035, #112944);
+  border-color: #0284c7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .weather-header {
+  border-bottom-color: rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .weather-header h4 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .weather-condition {
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .weather-sol-item {
+  background: #151f32;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .weather-sol-item p {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .sol-badge {
+  color: #fbbf24;
+}
+
+/* Categories Section */
+[data-theme="dark"] .categories {
+  background: #0b1320;
+}
+
+[data-theme="dark"] .category-card {
+  background: #151f32;
+  border-color: #26354d;
+}
+
+[data-theme="dark"] .category-card:hover {
+  background: #1a2840;
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .category-card.active {
+  background: linear-gradient(145deg, #0f2744, #13335a);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
+}
+
+[data-theme="dark"] .category-card h3 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .category-card p {
+  color: #94a3b8;
+}
+
+/* Search & Filter Bar */
+[data-theme="dark"] .search-filter-bar {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .search-input-wrap input {
+  background: #0b1320;
+  border-color: #26354d;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .search-input-wrap input:focus {
+  background: #111c2e;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18);
+}
+
+[data-theme="dark"] .price-filter select {
+  background: #0b1320;
+  border-color: #26354d;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .price-filter select option {
+  background: #151f32;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .filter-pill {
+  background: #0f2744;
+  border-color: #0284c7;
+  color: #7dd3fc;
+}
+
+/* Tour Cards Section */
+[data-theme="dark"] .tours-section {
+  background: #0b1320;
+}
+
+[data-theme="dark"] .tour-card {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .tour-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="dark"] .tour-card-body h3 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .tour-card:hover .tour-card-body h3 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .tour-card-info {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .tour-tag-pill {
+  background: #0f2744;
+  color: #7dd3fc;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .tour-card:hover .tour-tag-pill {
+  background: #16365c;
+  border-color: #38bdf8;
+}
+
+[data-theme="dark"] .tour-card-footer {
+  border-top-color: #26354d;
+}
+
+[data-theme="dark"] .tour-visittime-tag {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(251, 191, 36, 0.35);
+  color: #fde68a;
+}
+
+[data-theme="dark"] .tour-visittime-tag strong {
+  color: #fef08a;
+}
+
+[data-theme="dark"] .btn-detail {
+  background: linear-gradient(135deg, #0284c7, #075985);
+  color: #ffffff;
+}
+
+/* Modal Popup */
+[data-theme="dark"] .modal {
+  background: #151f32;
+  border: 1px solid #26354d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .modal-header {
+  border-bottom-color: #26354d;
+}
+
+[data-theme="dark"] .modal-header h2 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .modal-close {
+  background: #1a2639;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .modal-close:hover {
+  background: #26354d;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .form-group label {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+  background: #0b1320;
+  border-color: #26354d;
+  color: #f1f5f9;
+}
+
+/* Tour Detail Page */
+[data-theme="dark"] .breadcrumb {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .breadcrumb a {
+  color: #7dd3fc;
+}
+
+[data-theme="dark"] .place-header {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .place-header:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .place-title-box h1 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .place-meta {
+  border-top-color: #26354d;
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .place-meta strong {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .fact-item {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .fact-item:hover {
+  border-color: #38bdf8;
+}
+
+[data-theme="dark"] .fact-icon {
+  background: #0f2744;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .fact-item:hover .fact-icon {
+  background: #16365c;
+}
+
+[data-theme="dark"] .fact-item h4 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .fact-item p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .visit-schedule-banner {
+  background: #1c261e;
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fde68a;
+}
+
+[data-theme="dark"] .visit-schedule-banner strong {
+  color: #fef08a;
+}
+
+[data-theme="dark"] .place-section {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .place-section:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .place-section h2 {
+  color: #38bdf8;
+  border-bottom-color: #26354d;
+}
+
+[data-theme="dark"] .place-description {
+  background: #0f2744;
+  border-color: rgba(56, 189, 248, 0.25);
+  border-left: 4px solid #38bdf8;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .itinerary-card {
+  background: #151f32;
+  border-color: #26354d;
+}
+
+[data-theme="dark"] .itinerary-card:hover {
+  background: #192840;
+  border-color: #38bdf8;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .itinerary-body h3 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .itinerary-body p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .info-includes {
+  background: #062b1e;
+  border-color: #10b981;
+}
+
+[data-theme="dark"] .info-includes h3 {
+  color: #6ee7b7;
+}
+
+[data-theme="dark"] .info-includes li {
+  color: #d1fae5;
+}
+
+[data-theme="dark"] .info-excludes {
+  background: #2b0b0b;
+  border-color: #ef4444;
+}
+
+[data-theme="dark"] .info-excludes h3 {
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .info-excludes li {
+  color: #fee2e2;
+}
+
+[data-theme="dark"] .btn-back-home {
+  background: #151f32;
+  color: #7dd3fc;
+  border-color: #0284c7;
+}
+
+[data-theme="dark"] .btn-back-home:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+}
+
+[data-theme="dark"] .related-places h2 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .related-card {
+  background: #151f32;
+  border-color: #26354d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .related-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .related-body h4 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .related-card:hover .related-body h4 {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .related-body p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .related-link {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .related-card:hover .related-link {
+  color: #7dd3fc;
+}
+
+/* Footer trong Dark Mode */
+[data-theme="dark"] .footer {
+  background: linear-gradient(135deg, #060b14, #0b172a);
+  border-top: 1px solid #1e293b;
+}
+
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Floating Elements */
+[data-theme="dark"] .back-to-top {
+  background: rgba(2, 132, 199, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: #0284c7;
+}
+
+[data-theme="dark"] .tilt-glare {
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.16) 0%, rgba(56, 189, 248, 0.12) 32%, transparent 68%);
+}
