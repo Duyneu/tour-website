@@ -5023,7 +5023,29 @@ body.gyro-active .tilt-card,
   text-align: center;
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Vệt sáng phản quang cao cấp theo con trỏ chuột cho thẻ Video */
+.video-showcase-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle 650px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22) 0%, rgba(56, 189, 248, 0.12) 35%, transparent 70%);
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  will-change: opacity;
+}
+
+.video-showcase-card:hover::before {
+  opacity: 1;
 }
 
 .video-showcase-card:hover {
@@ -5074,6 +5096,16 @@ body.gyro-active .tilt-card,
   background: #000000;
   border: 2px solid rgba(56, 189, 248, 0.25);
   aspect-ratio: 16 / 9;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-player-wrap:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 18px 45px rgba(14, 165, 233, 0.22);
 }
 
 .quynhon-video {
@@ -5083,6 +5115,9 @@ body.gyro-active .tilt-card,
   object-fit: cover;
   border-radius: var(--radius);
   outline: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .video-play-overlay {
@@ -5117,7 +5152,10 @@ body.gyro-active .tilt-card,
   justify-content: center;
   box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.65), 0 8px 24px rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
   animation: playPulse 2.2s infinite;
   margin-bottom: 12px;
 }
@@ -5192,6 +5230,10 @@ body.gyro-active .tilt-card,
   background: #151f32;
   border-color: #26354d;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .video-showcase-card::before {
+  background: radial-gradient(circle 650px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.22) 0%, rgba(14, 165, 233, 0.08) 35%, transparent 70%);
 }
 
 [data-theme="dark"] .video-badge-pill {

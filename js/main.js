@@ -876,6 +876,227 @@ function initQuyNhonVideo() {
 }
 
 /**
+ * Trải nghiệm di chuột siêu mượt mà cho Khu vực Video Quy Nhơn (Smooth Interactive Physics)
+ * - LERP 60/120fps qua requestAnimationFrame loại bỏ hoàn toàn giật lag / rung tay
+ * - Góc nghiêng 3D tinh tế (1.2° max), không làm méo lệch video
+ * - Tự động ổn định phẳng 100% khi chuột rê vào khung player hoặc khi video đang phát
+ * - Nút Play Pulse nam châm hút theo chuột (Magnetic attraction) siêu mượt
+ * - Không gây giật reflow (cache bounding rect)
+ */
+function initVideoShowcaseMotion() {
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
+  const card = document.querySelector('.video-showcase-card');
+  const playerWrap = document.querySelector('.video-player-wrap');
+  const video = document.getElementById('quynhonVideo');
+  const overlay = document.getElementById('videoPlayOverlay');
+  const playBtn = document.getElementById('videoPlayBtn');
+
+  if (!card) return;
+
+  let isHoverCard = false;
+  let isHoverPlayer = false;
+  let isHoverBtn = false;
+  let animId = null;
+
+  // Rect cached để triệt tiêu layout thrashing
+  let cardRect = null;
+  let btnRect = null;
+
+  const updateCardRect = () => {
+    if (card) cardRect = card.getBoundingClientRect();
+  };
+  const updateBtnRect = () => {
+    if (playBtn) btnRect = playBtn.getBoundingClientRect();
+  };
+
+  window.addEventListener('resize', () => {
+    updateCardRect();
+    updateBtnRect();
+  }, { passive: true });
+  window.addEventListener('scroll', () => {
+    updateCardRect();
+    updateBtnRect();
+  }, { passive: true });
+
+  // Tọa độ mục tiêu và hiện tại cho Card Tilt
+  let targetRotX = 0;
+  let targetRotY = 0;
+  let currentRotX = 0;
+  let currentRotY = 0;
+
+  // Tọa độ mục tiêu và hiện tại cho Glare Sheen
+  let targetGlareX = 50;
+  let targetGlareY = 50;
+  let currentGlareX = 50;
+  let currentGlareY = 50;
+
+  // Tọa độ mục tiêu và hiện tại cho Magnetic Play Button
+  let targetBtnX = 0;
+  let targetBtnY = 0;
+  let currentBtnX = 0;
+  let currentBtnY = 0;
+
+  const renderLoop = () => {
+    // Easing factor cho từng thành phần
+    const tiltLerp = 0.08;
+    const glareLerp = 0.1;
+    const btnLerp = 0.14;
+
+    const diffRotX = targetRotX - currentRotX;
+    const diffRotY = targetRotY - currentRotY;
+    const diffGlareX = targetGlareX - currentGlareX;
+    const diffGlareY = targetGlareY - currentGlareY;
+    const diffBtnX = targetBtnX - currentBtnX;
+    const diffBtnY = targetBtnY - currentBtnY;
+
+    let hasChange = false;
+
+    // 1. Cập nhật góc nghiêng Card 3D
+    if (Math.abs(diffRotX) > 0.005 || Math.abs(diffRotY) > 0.005) {
+      currentRotX += diffRotX * tiltLerp;
+      currentRotY += diffRotY * tiltLerp;
+      card.style.transform = `perspective(1400px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) translateZ(0)`;
+      hasChange = true;
+    } else if (!isHoverCard && (currentRotX !== 0 || currentRotY !== 0)) {
+      currentRotX = 0;
+      currentRotY = 0;
+      card.style.transform = 'perspective(1400px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+      hasChange = true;
+    }
+
+    // 2. Cập nhật vệt sáng phản quang Glare Sheen
+    if (Math.abs(diffGlareX) > 0.05 || Math.abs(diffGlareY) > 0.05) {
+      currentGlareX += diffGlareX * glareLerp;
+      currentGlareY += diffGlareY * glareLerp;
+      card.style.setProperty('--mouse-x', `${currentGlareX.toFixed(1)}%`);
+      card.style.setProperty('--mouse-y', `${currentGlareY.toFixed(1)}%`);
+      hasChange = true;
+    }
+
+    // 3. Cập nhật hiệu ứng nam châm hút nút Play Pulse
+    if (playBtn) {
+      if (Math.abs(diffBtnX) > 0.05 || Math.abs(diffBtnY) > 0.05) {
+        currentBtnX += diffBtnX * btnLerp;
+        currentBtnY += diffBtnY * btnLerp;
+        playBtn.style.transform = `translate3d(${currentBtnX.toFixed(1)}px, ${currentBtnY.toFixed(1)}px, 0) scale(${isHoverBtn ? 1.12 : 1})`;
+        hasChange = true;
+      } else if (!isHoverCard && (currentBtnX !== 0 || currentBtnY !== 0)) {
+        currentBtnX = 0;
+        currentBtnY = 0;
+        playBtn.style.transform = '';
+        hasChange = true;
+      }
+    }
+
+    if (isHoverCard || hasChange) {
+      animId = requestAnimationFrame(renderLoop);
+    } else {
+      animId = null;
+    }
+  };
+
+  const startLoop = () => {
+    if (!animId) {
+      animId = requestAnimationFrame(renderLoop);
+    }
+  };
+
+  card.addEventListener('mouseenter', () => {
+    isHoverCard = true;
+    updateCardRect();
+    updateBtnRect();
+    card.style.transition = 'border-color 0.3s ease, box-shadow 0.3s ease';
+    startLoop();
+  });
+
+  card.addEventListener('mousemove', (e) => {
+    if (!cardRect) updateCardRect();
+    const x = e.clientX - cardRect.left;
+    const y = e.clientY - cardRect.top;
+    const centerX = cardRect.width / 2;
+    const centerY = cardRect.height / 2;
+
+    targetGlareX = (x / cardRect.width) * 100;
+    targetGlareY = (y / cardRect.height) * 100;
+
+    // Nếu đang rê chuột vào khung player hoặc video đang phát: giữ thẻ nằm phẳng ổn định 100%
+    const isPlaying = video && !video.paused && !video.ended;
+    if (isHoverPlayer || isPlaying) {
+      targetRotX = 0;
+      targetRotY = 0;
+    } else {
+      // Góc nghiêng tối đa chỉ 1.2 độ, cực kỳ sang trọng và êm dịu
+      targetRotX = -((y - centerY) / centerY) * 1.25;
+      targetRotY = ((x - centerX) / centerX) * 1.25;
+    }
+
+    startLoop();
+  }, { passive: true });
+
+  card.addEventListener('mouseleave', () => {
+    isHoverCard = false;
+    isHoverPlayer = false;
+    isHoverBtn = false;
+    targetRotX = 0;
+    targetRotY = 0;
+    targetGlareX = 50;
+    targetGlareY = 50;
+    targetBtnX = 0;
+    targetBtnY = 0;
+    startLoop();
+  });
+
+  // Tương tác riêng cho khung video
+  if (playerWrap) {
+    playerWrap.addEventListener('mouseenter', () => {
+      isHoverPlayer = true;
+      targetRotX = 0;
+      targetRotY = 0;
+      startLoop();
+    });
+    playerWrap.addEventListener('mouseleave', () => {
+      isHoverPlayer = false;
+    });
+  }
+
+  // Tương tác nam châm cho nút Play
+  if (overlay && playBtn) {
+    overlay.addEventListener('mousemove', (e) => {
+      if (!btnRect) updateBtnRect();
+      const btnCenterX = btnRect.left + btnRect.width / 2;
+      const btnCenterY = btnRect.top + btnRect.height / 2;
+      const deltaX = e.clientX - btnCenterX;
+      const deltaY = e.clientY - btnCenterY;
+      const dist = Math.hypot(deltaX, deltaY);
+
+      if (dist < 180) {
+        // Hút theo chuột tối đa 14px ngang, 10px dọc
+        const strength = Math.max(0, 1 - dist / 180);
+        targetBtnX = (deltaX / (btnRect.width / 2)) * 14 * strength;
+        targetBtnY = (deltaY / (btnRect.height / 2)) * 10 * strength;
+      } else {
+        targetBtnX = 0;
+        targetBtnY = 0;
+      }
+      startLoop();
+    }, { passive: true });
+
+    playBtn.addEventListener('mouseenter', () => {
+      isHoverBtn = true;
+      startLoop();
+    });
+
+    playBtn.addEventListener('mouseleave', () => {
+      isHoverBtn = false;
+      targetBtnX = 0;
+      targetBtnY = 0;
+      startLoop();
+    });
+  }
+}
+
+/**
  * Cập nhật tooltip & trạng thái cho nút chuyển đổi giao diện Sáng / Tối
  */
 function updateThemeToggleUI(theme, lang) {
@@ -1029,7 +1250,7 @@ function initMagicCursor() {
     dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 
     // Xử lý hover toàn cục bằng closest() - HOÀN TOÀN KHÔNG BAO GIỜ BỊ NHẤP NHÁY
-    const interactiveEl = e.target && e.target.closest('a, button, .tour-card, .category-card, .timeline-tab-btn, input, select');
+    const interactiveEl = e.target && e.target.closest('a, button, .tour-card, .category-card, .timeline-tab-btn, .video-play-overlay, .video-play-pulse-btn, .video-player-wrap, input, select');
     const shouldHover = !!interactiveEl;
     if (shouldHover !== isHovering) {
       isHovering = shouldHover;
@@ -1082,22 +1303,26 @@ function initTiltEffect() {
     const cards = document.querySelectorAll('.tilt-card, .tour-card, .category-card, .weather-plan-box, .timeline-content');
     cards.forEach(card => {
       if (card.dataset.tiltBound) return;
+      if (card.classList.contains('video-showcase-card')) return; // Video showcase đã có controller chuyên biệt siêu mượt
       card.dataset.tiltBound = 'true';
 
+      let rect = null;
+      const updateCardRect = () => { rect = card.getBoundingClientRect(); };
+
       card.addEventListener('mouseenter', () => {
-        // Tắt CSS transition khi đang rê chuột để tilt bám mượt tức thì không bị giật lag
-        card.style.transition = 'none';
+        updateCardRect();
+        card.style.transition = 'transform 0.1s ease-out';
       });
 
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
+        if (!rect) updateCardRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = -((y - centerY) / centerY) * 4.5;
-        const rotateY = ((x - centerX) / centerX) * 4.5;
+        const rotateX = -((y - centerY) / centerY) * 4;
+        const rotateY = ((x - centerX) / centerX) * 4;
 
         card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(5px)`;
         card.style.setProperty('--mouse-x', `${((x / rect.width) * 100).toFixed(1)}%`);
@@ -1461,6 +1686,7 @@ function initHeroParallax() {
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initQuyNhonVideo();
+  initVideoShowcaseMotion();
   initHomePage();
   initTourDetailPage();
   initLanguageSwitcher();
