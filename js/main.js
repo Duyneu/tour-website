@@ -875,6 +875,114 @@ function initQuyNhonVideo() {
   });
 }
 
+/**
+ * Khởi tạo hiệu ứng động cho Vỏ hộp bao quanh Video (Dynamic Shell)
+ * - Vỏ hộp bao ngoài (Shell) nghiêng 3D mượt mà theo chuột qua LERP 60-120fps
+ * - Video bên trong TUYỆT ĐỐI CỐ ĐỊNH PHẲNG 100%, không bị xoay hay giật lag
+ */
+function initVideoDynamicShell() {
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
+  const wrapper = document.getElementById('videoShowcaseWrapper');
+  const shell = document.getElementById('videoDynamicShell');
+  if (!wrapper || !shell) return;
+
+  let isHover = false;
+  let animId = null;
+  let wrapRect = null;
+
+  const updateRect = () => {
+    wrapRect = wrapper.getBoundingClientRect();
+  };
+
+  window.addEventListener('resize', updateRect, { passive: true });
+  window.addEventListener('scroll', updateRect, { passive: true });
+
+  let targetRotX = 0;
+  let targetRotY = 0;
+  let currentRotX = 0;
+  let currentRotY = 0;
+
+  let targetGlareX = 50;
+  let targetGlareY = 50;
+  let currentGlareX = 50;
+  let currentGlareY = 50;
+
+  const renderLoop = () => {
+    const lerp = 0.085;
+    const diffX = targetRotX - currentRotX;
+    const diffY = targetRotY - currentRotY;
+    const diffGX = targetGlareX - currentGlareX;
+    const diffGY = targetGlareY - currentGlareY;
+
+    let hasChange = false;
+
+    if (Math.abs(diffX) > 0.005 || Math.abs(diffY) > 0.005) {
+      currentRotX += diffX * lerp;
+      currentRotY += diffY * lerp;
+      shell.style.transform = `perspective(1200px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) scale(1.008)`;
+      hasChange = true;
+    } else if (!isHover && (currentRotX !== 0 || currentRotY !== 0)) {
+      currentRotX = 0;
+      currentRotY = 0;
+      shell.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)';
+      hasChange = true;
+    }
+
+    if (Math.abs(diffGX) > 0.05 || Math.abs(diffGY) > 0.05) {
+      currentGlareX += diffGX * 0.1;
+      currentGlareY += diffGY * 0.1;
+      shell.style.setProperty('--mouse-x', `${currentGlareX.toFixed(1)}%`);
+      shell.style.setProperty('--mouse-y', `${currentGlareY.toFixed(1)}%`);
+      hasChange = true;
+    }
+
+    if (isHover || hasChange) {
+      animId = requestAnimationFrame(renderLoop);
+    } else {
+      animId = null;
+    }
+  };
+
+  const startLoop = () => {
+    if (!animId) {
+      animId = requestAnimationFrame(renderLoop);
+    }
+  };
+
+  wrapper.addEventListener('mouseenter', () => {
+    isHover = true;
+    updateRect();
+    startLoop();
+  });
+
+  wrapper.addEventListener('mousemove', (e) => {
+    if (!wrapRect) updateRect();
+    const x = e.clientX - wrapRect.left;
+    const y = e.clientY - wrapRect.top;
+    const centerX = wrapRect.width / 2;
+    const centerY = wrapRect.height / 2;
+
+    targetGlareX = (x / wrapRect.width) * 100;
+    targetGlareY = (y / wrapRect.height) * 100;
+
+    // Góc nghiêng vỏ hộp vừa vặn, mềm mại (2.2 độ)
+    targetRotX = -((y - centerY) / centerY) * 2.2;
+    targetRotY = ((x - centerX) / centerX) * 2.2;
+
+    startLoop();
+  }, { passive: true });
+
+  wrapper.addEventListener('mouseleave', () => {
+    isHover = false;
+    targetRotX = 0;
+    targetRotY = 0;
+    targetGlareX = 50;
+    targetGlareY = 50;
+    startLoop();
+  });
+}
+
 function updateThemeToggleUI(theme, lang) {
   const btn = document.getElementById('themeToggle');
   if (!btn) return;
@@ -1476,6 +1584,7 @@ function initHeroParallax() {
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initQuyNhonVideo();
+  initVideoDynamicShell();
   initHomePage();
   initTourDetailPage();
   initLanguageSwitcher();

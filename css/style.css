@@ -5015,21 +5015,76 @@ body.gyro-active .tilt-card,
 }
 
 .video-showcase-card {
+  position: relative;
+  perspective: 1200px;
+  padding: 40px;
+  text-align: center;
+  border-radius: var(--radius);
+}
+
+/* Vỏ hộp bao ngoài (Shell) có thể xoay nghiêng 3D mượt mà và có viền sáng chuyển động */
+.video-dynamic-shell {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
   background: var(--white);
   border: 2px solid var(--gray-200);
-  border-radius: var(--radius);
-  padding: 40px;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  position: relative;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
   overflow: hidden;
-  transform: none !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.video-showcase-card:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 16px 36px -6px rgba(14, 165, 233, 0.18);
+.video-showcase-card:hover .video-dynamic-shell {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 18px 45px -5px rgba(14, 165, 233, 0.22);
+}
+
+/* Dải sáng viền chuyển động vô tận chạy quanh vỏ hộp */
+.video-shell-border-beam {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(56, 189, 248, 0.2), rgba(245, 158, 11, 0.75), rgba(14, 165, 233, 0.85));
+  background-size: 300% 300%;
+  animation: borderBeamFlow 8s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+@keyframes borderBeamFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Vệt sáng phản quang lướt theo chuột trên bề mặt hộp */
+.video-shell-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.28) 0%, rgba(56, 189, 248, 0.12) 35%, transparent 70%);
+  transition: opacity 0.4s ease;
+  will-change: opacity;
+}
+
+.video-showcase-card:hover .video-shell-glare {
+  opacity: 1;
+}
+
+.video-card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 .video-header {
@@ -5192,10 +5247,14 @@ body.gyro-active .tilt-card,
   background: #0b1320;
 }
 
-[data-theme="dark"] .video-showcase-card {
+[data-theme="dark"] .video-dynamic-shell {
   background: #151f32;
   border-color: #26354d;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .video-shell-glare {
+  background: radial-gradient(circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.25) 0%, rgba(14, 165, 233, 0.08) 35%, transparent 70%);
 }
 
 
