@@ -23,6 +23,11 @@ const I18N = {
     hero_desc: "Cẩm nang du lịch Quy Nhơn cùng tập thể 10A4: dạo biển vầng trăng khuyết, đón gió Eo Gió - Kỳ Co, khám phá vũ trụ ExploraScience và thưởng thức hải sản tươi ngon.",
     hero_btn_itinerary: "Xem lịch trình chuyến đi",
     hero_btn_places: "Địa điểm nổi bật →",
+    hero_btn_video: "🎬 Xem Video Quy Nhơn",
+    video_badge: "🎬 Thước Phim Hành Trình • Lớp 10A4 THPT Lương Thế Vinh",
+    video_title: "Khám Phá Vẻ Đẹp Biển Trời Quy Nhơn",
+    video_subtitle: "Thước phim sống động ghi lại vẻ đẹp biển đảo xứ Nẫu mộng mơ, từ Kỳ Co - Eo Gió trong xanh đến những trải nghiệm đáng nhớ của tập thể 10A4.",
+    video_play_label: "Nhấn để phát video (22MB • Full HD)",
 
     // About Us
     about_title: "Về Chúng Tôi",
@@ -137,6 +142,11 @@ const I18N = {
     hero_desc: "A handcrafted travel guide by Class 10A4: scenic beaches at Ky Co & Eo Gio, stargazing at ExploraScience, and authentic local coastal delicacies.",
     hero_btn_itinerary: "Explore 4-Day Itinerary",
     hero_btn_places: "Featured Places →",
+    hero_btn_video: "🎬 Watch Quy Nhon Video",
+    video_badge: "🎬 Travel Film • Class 10A4 Luong The Vinh High School",
+    video_title: "Explore the Scenic Beauty of Quy Nhon",
+    video_subtitle: "A captivating travel video capturing the breathtaking coastline, emerald waters of Ky Co & Eo Gio, and memorable moments of Class 10A4.",
+    video_play_label: "Click to play video (22MB • Full HD)",
 
     // About Us
     about_title: "About Us",

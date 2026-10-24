@@ -86,6 +86,7 @@
       <p data-i18n="hero_desc">Cùng tụi mình dạo quanh xứ Nẫu mộng mơ: từ làn nước trong xanh ngọc bích Kỳ Co, Eo Gió lộng gió, ẩm thực hải sản phố biển đến trải nghiệm vũ trụ kỳ thú tại ExploraScience.</p>
       <div class="hero-buttons">
         <a href="#lich-trinh" class="hero-btn pulse-glow" data-i18n="hero_btn_itinerary">Xem lịch trình chuyến đi</a>
+        <a href="#video-quy-nhon" class="hero-btn-video" data-i18n="hero_btn_video">🎬 Xem Video Quy Nhơn</a>
         <a href="#dia-diem" class="hero-btn-outline" data-i18n="hero_btn_places">Địa điểm nổi bật →</a>
       </div>
     </div>
@@ -148,6 +149,33 @@
       </div>
     </div>
   </div>
+
+  <!-- ===== VIDEO GIỚI THIỆU QUY NHƠN (THƯỚC PHIM HÀNH TRÌNH) ===== -->
+  <section class="video-showcase-section" id="video-quy-nhon">
+    <div class="container">
+      <div class="video-showcase-card tilt-card reveal-on-scroll">
+        <div class="video-header">
+          <span class="video-badge-pill" data-i18n="video_badge">🎬 Thước Phim Hành Trình • Lớp 10A4 THPT Lương Thế Vinh</span>
+          <h2 class="video-title" data-i18n="video_title">Khám Phá Vẻ Đẹp Biển Trời Quy Nhơn</h2>
+          <p class="video-subtitle" data-i18n="video_subtitle">Thước phim sống động ghi lại vẻ đẹp biển đảo xứ Nẫu mộng mơ, từ Kỳ Co - Eo Gió trong xanh đến những trải nghiệm đáng nhớ của tập thể 10A4.</p>
+        </div>
+
+        <div class="video-player-wrap">
+          <video id="quynhonVideo" class="quynhon-video" controls playsinline preload="metadata" poster="about-quynhon.jpg">
+            <source src="Quy%20Nh%C6%A1n.mp4" type="video/mp4">
+            <source src="Quy Nhơn.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ phát video MP4.
+          </video>
+          <div class="video-play-overlay" id="videoPlayOverlay">
+            <button type="button" class="video-play-pulse-btn" id="videoPlayBtn" aria-label="Phát video">
+              <span class="play-triangle">▶</span>
+            </button>
+            <span class="video-play-label" data-i18n="video_play_label">Nhấn để phát video (22MB • Full HD)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== VỀ TỤI TÔI ===== -->
   <section class="about-us-section" id="ve-chung-toi">
