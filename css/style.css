@@ -5023,29 +5023,8 @@ body.gyro-active .tilt-card,
   text-align: center;
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  transform: none !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Vệt sáng phản quang cao cấp theo con trỏ chuột cho thẻ Video */
-.video-showcase-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(circle 650px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22) 0%, rgba(56, 189, 248, 0.12) 35%, transparent 70%);
-  transition: opacity 0.4s ease;
-  z-index: 2;
-  will-change: opacity;
-}
-
-.video-showcase-card:hover::before {
-  opacity: 1;
 }
 
 .video-showcase-card:hover {
@@ -5096,10 +5075,6 @@ body.gyro-active .tilt-card,
   background: #000000;
   border: 2px solid rgba(56, 189, 248, 0.25);
   aspect-ratio: 16 / 9;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -5115,9 +5090,6 @@ body.gyro-active .tilt-card,
   object-fit: cover;
   border-radius: var(--radius);
   outline: none;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .video-play-overlay {
@@ -5127,10 +5099,9 @@ body.gyro-active .tilt-card,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(11, 19, 32, 0.45);
-  backdrop-filter: blur(2px);
+  background: rgba(11, 19, 32, 0.5);
   cursor: pointer;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 5;
 }
 
@@ -5150,13 +5121,9 @@ body.gyro-active .tilt-card,
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.65), 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
-  animation: playPulse 2.2s infinite;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
   margin-bottom: 12px;
 }
 
@@ -5169,18 +5136,17 @@ body.gyro-active .tilt-card,
 .video-play-pulse-btn:hover {
   transform: scale(1.12);
   background: linear-gradient(135deg, var(--primary-light), var(--primary));
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.85);
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.85);
 }
 
 .video-play-label {
   color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.85);
   padding: 6px 18px;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
 }
 
 @keyframes playPulse {
@@ -5232,9 +5198,7 @@ body.gyro-active .tilt-card,
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-[data-theme="dark"] .video-showcase-card::before {
-  background: radial-gradient(circle 650px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.22) 0%, rgba(14, 165, 233, 0.08) 35%, transparent 70%);
-}
+
 
 [data-theme="dark"] .video-badge-pill {
   background: #0f2744;
