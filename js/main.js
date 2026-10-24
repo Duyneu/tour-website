@@ -1016,16 +1016,22 @@ function initMagicCursor() {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Khi di chuột vào khung Video: ẩn con trỏ tùy biến để con trỏ phần cứng (Native Cursor) của máy tính thao tác tức thì 144Hz-240Hz, không lag, không giật
-    const isOverVideo = e.target && e.target.closest('.video-player-wrap');
+    // Khi di chuột vào khung Video: ẩn con trỏ ảo để con trỏ phần cứng (Native Cursor) thao tác tức thì 144Hz-240Hz, không độ trễ
+    const isOverVideo = !!(e.target && e.target.closest('.video-player-wrap'));
     if (isOverVideo) {
-      dot.style.opacity = '0';
-      ring.style.opacity = '0';
+      if (isVisible) {
+        isVisible = false;
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+      }
       return;
     }
 
+    // Khi di chuột ra ngoài khu vực video (hoặc quay lại trang): hiện lại con trỏ ảo tức thì
     if (!isVisible) {
       isVisible = true;
+      ringX = mouseX;
+      ringY = mouseY;
       dot.style.opacity = '1';
       ring.style.opacity = '1';
     }
@@ -1034,7 +1040,7 @@ function initMagicCursor() {
     dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 
     // Xử lý hover toàn cục bằng closest() - HOÀN TOÀN KHÔNG BAO GIỜ BỊ NHẤP NHÁY
-    const interactiveEl = e.target && e.target.closest('a, button, .tour-card, .category-card, .timeline-tab-btn, .video-play-overlay, .video-play-pulse-btn, .video-player-wrap, input, select');
+    const interactiveEl = e.target && e.target.closest('a, button, .tour-card, .category-card, .timeline-tab-btn, input, select');
     const shouldHover = !!interactiveEl;
     if (shouldHover !== isHovering) {
       isHovering = shouldHover;
