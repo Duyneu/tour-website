@@ -3038,28 +3038,30 @@ img {
   color: var(--primary-dark);
 }
 
-/* Tabs chuyển Ngày 1 / Ngày 2 */
+/* Tabs chuyển Ngày 1 / Ngày 2 (Dạng Grid 4 cột đều nhau, không bị rớt dòng lẻ 1 nút) */
 .timeline-tabs {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   margin-bottom: 35px;
-  flex-wrap: wrap;
 }
 
 .timeline-tab-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 28px;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 12px;
   background: var(--white);
   border: 2px solid var(--gray-200);
   border-radius: 50px;
   cursor: pointer;
   transition: var(--transition);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.95rem;
   box-shadow: var(--shadow);
+  width: 100%;
+  text-align: center;
 }
 
 .timeline-tab-btn:hover {
@@ -3434,10 +3436,16 @@ img {
     padding: 16px;
   }
 
+  .timeline-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
   .timeline-tab-btn {
     width: 100%;
     justify-content: center;
-    padding: 12px 18px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
   }
 
   .umbrella-alert-banner {
@@ -3980,6 +3988,18 @@ body.gyro-active .tilt-card,
   }
 }
 
+@media (max-width: 576px) {
+  .timeline-tabs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .timeline-tab-btn {
+    justify-content: flex-start;
+    padding: 11px 14px;
+    font-size: 0.88rem;
+  }
+}
+
 @media (max-width: 480px) {
   .timeline-bottom-nav {
     padding: 14px 10px;
@@ -4429,6 +4449,16 @@ body.gyro-active .tilt-card,
 [data-theme="dark"] .timeline-tab-btn.active .tab-day-badge {
   background: rgba(255, 255, 255, 0.25);
   color: #ffffff;
+}
+
+[data-theme="dark"] .timeline-container {
+  background: #111c2e;
+  border: 1px solid #26354d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .timeline-day-header {
+  border-bottom: 2px dashed rgba(56, 189, 248, 0.25);
 }
 
 [data-theme="dark"] .timeline-day-header h3 {
