@@ -246,8 +246,9 @@ img {
 
 /* === BANNER / HERO === */
 .hero {
+  background-color: #0369a1;
   background: linear-gradient(135deg, rgba(3,105,161,0.85), rgba(14,165,233,0.75)),
-              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover no-repeat;
+              url('../hero-bg.jpg') center/cover no-repeat;
   color: #ffffff;
   text-align: center;
   padding: 100px 20px;
