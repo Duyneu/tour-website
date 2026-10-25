@@ -54,7 +54,7 @@ tour-website/
 │   ├── tours.js               <-- "Kho dữ liệu": chứa danh sách điểm đến, ảnh, lịch trình 4 ngày
 │   ├── i18n.js                <-- "Từ điển": chứa bản dịch Tiếng Việt & Tiếng Anh
 │   └── main.js                <-- "Bộ não điều khiển": xử lý toàn bộ tương tác bấm nút, cuộn trang
-├── 🎬 Quy Nhơn.mp4            <-- File video hành trình Quy Nhơn thực tế của lớp 10A4
+├── 🎬 quy-nhon.mp4            <-- File video hành trình Quy Nhơn thực tế của lớp 10A4
 ├── 🖼️ about-quynhon.jpg        <-- Ảnh bìa toàn cảnh biển Quy Nhơn làm poster video
 ├── 🖼️ logo.png                <-- Logo biểu tượng thuyền buồm của Thập Tứ Tour
 ├── 🌐 favicon.svg             <-- Icon nhỏ hiển thị trên tab của trình duyệt
@@ -102,7 +102,7 @@ tour-website/
 ---
 
 ### 4. Trình phát Video Quy Nhơn tích hợp
-- File video `Quy Nhơn.mp4` dung lượng khoảng 22MB được đặt ngay giữa dải chữ chạy Marquee và phần "Về Chúng Tôi".
+- File video `quy-nhon.mp4` dung lượng khoảng 22MB được đặt ngay giữa dải chữ chạy Marquee và phần "Về Chúng Tôi".
 - **Tối ưu tốc độ tải:**
   Nếu để video tự tải ngay khi vừa mở web thì người dùng điện thoại sẽ bị tốn dữ liệu và đơ máy. Vì vậy, video được gán thuộc tính `preload="metadata"` (chỉ tải thông số cơ bản) và `poster="about-quynhon.jpg"` (hiển thị ảnh bìa sắc nét).
 - Ở giữa video có một nút tròn Play phát sáng nhấp nháy (`animation: playPulse`). Khi bạn chạm vào nút Play, lớp ảnh bìa sẽ biến mất và video bắt đầu phát mượt mà với âm thanh và thanh điều khiển đầy đủ.
