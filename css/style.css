@@ -11,6 +11,14 @@
   box-sizing: border-box;
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
 :root {
   --primary: #0369a1;
   --primary-dark: #075985;
@@ -3060,6 +3068,7 @@ img {
   transition: var(--transition);
   font-family: inherit;
   font-size: 0.95rem;
+  color: var(--text);
   box-shadow: var(--shadow);
   width: 100%;
   text-align: center;
@@ -3067,6 +3076,7 @@ img {
 
 .timeline-tab-btn:hover {
   border-color: var(--primary-light);
+  color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -3095,6 +3105,7 @@ img {
 
 .tab-day-title {
   font-weight: 600;
+  color: inherit;
 }
 
 /* Khung hiển thị Timeline */
