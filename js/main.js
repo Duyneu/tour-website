@@ -312,6 +312,11 @@ function renderTimeline(dayNumber = 1) {
   const labelLast = (typeof t === 'function') ? t('nav_last_day') : (isEn ? 'Last Day' : 'Đến ngày cuối');
   const indicatorPrefix = (typeof t === 'function') ? t('nav_indicator_day') : (isEn ? 'Day' : 'Ngày');
 
+  const svgFirst = `<svg class="nav-arrow-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>`;
+  const svgPrev = `<svg class="nav-arrow-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+  const svgNext = `<svg class="nav-arrow-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+  const svgLast = `<svg class="nav-arrow-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>`;
+
   const navHtml = `
     <div class="timeline-bottom-nav reveal-on-scroll">
       <div class="nav-indicator-wrap">
@@ -320,22 +325,22 @@ function renderTimeline(dayNumber = 1) {
       <div class="nav-buttons-wrap">
         <div class="nav-group-left">
           <button type="button" class="timeline-nav-btn btn-first" data-target="1" ${isFirst ? 'disabled' : ''} title="${labelFirst}">
-            <span class="nav-arrow">«</span>
+            ${svgFirst}
             <span class="nav-text">${labelFirst}</span>
           </button>
           <button type="button" class="timeline-nav-btn btn-prev" data-target="${currentDayNum - 1}" ${isFirst ? 'disabled' : ''} title="${labelPrev}">
-            <span class="nav-arrow">‹</span>
+            ${svgPrev}
             <span class="nav-text">${labelPrev}</span>
           </button>
         </div>
         <div class="nav-group-right">
           <button type="button" class="timeline-nav-btn btn-next" data-target="${currentDayNum + 1}" ${isLast ? 'disabled' : ''} title="${labelNext}">
             <span class="nav-text">${labelNext}</span>
-            <span class="nav-arrow">›</span>
+            ${svgNext}
           </button>
           <button type="button" class="timeline-nav-btn btn-last" data-target="${totalDays}" ${isLast ? 'disabled' : ''} title="${labelLast}">
             <span class="nav-text">${labelLast}</span>
-            <span class="nav-arrow">»</span>
+            ${svgLast}
           </button>
         </div>
       </div>

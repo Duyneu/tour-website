@@ -3902,10 +3902,27 @@ body.gyro-active .tilt-card,
   white-space: nowrap;
 }
 
-.timeline-nav-btn .nav-arrow {
-  font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1;
+.timeline-nav-btn .nav-text {
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.timeline-nav-btn .nav-arrow-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-nav-btn.btn-next:hover:not(:disabled) .nav-arrow-svg,
+.timeline-nav-btn.btn-last:hover:not(:disabled) .nav-arrow-svg {
+  transform: translateX(3px);
+}
+
+.timeline-nav-btn.btn-prev:hover:not(:disabled) .nav-arrow-svg,
+.timeline-nav-btn.btn-first:hover:not(:disabled) .nav-arrow-svg {
+  transform: translateX(-3px);
 }
 
 .timeline-nav-btn:hover:not(:disabled) {
